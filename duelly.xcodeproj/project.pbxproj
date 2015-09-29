@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8B7A20B1BBA5D6500543E48 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20A1BBA5D6500543E48 /* MainContainerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B8B7A20E1BBA5F3D00543E48 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20D1BBA5F3D00543E48 /* CounterViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B8B7A2101BBA5F5300543E48 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20F1BBA5F5300543E48 /* MatchesViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B8B7A2121BBA5F6600543E48 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2111BBA5F6600543E48 /* ProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B8B7A2141BBA5F7000543E48 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2131BBA5F7000543E48 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B8B7A2171BBA606100543E48 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2151BBA606100543E48 /* BaseTransition.swift */; settings = {ASSET_TAGS = (); }; };
+		B8B7A2181BBA606100543E48 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2161BBA606100543E48 /* FadeTransition.swift */; settings = {ASSET_TAGS = (); }; };
 		B8EEC81A1BB8589900FAB7E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */; };
 		B8EEC81C1BB8589900FAB7E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC81B1BB8589900FAB7E6 /* ViewController.swift */; };
 		B8EEC81F1BB8589900FAB7E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EEC81D1BB8589900FAB7E6 /* Main.storyboard */; };
@@ -34,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8B7A20A1BBA5D6500543E48 /* MainContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainContainerViewController.swift; sourceTree = "<group>"; };
+		B8B7A20D1BBA5F3D00543E48 /* CounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
+		B8B7A20F1BBA5F5300543E48 /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
+		B8B7A2111BBA5F6600543E48 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B8B7A2131BBA5F7000543E48 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B8B7A2151BBA606100543E48 /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
+		B8B7A2161BBA606100543E48 /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		B8EEC8161BB8589900FAB7E6 /* duelly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duelly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8EEC81B1BB8589900FAB7E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +88,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8B7A20C1BBA5D6E00543E48 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B8B7A20A1BBA5D6500543E48 /* MainContainerViewController.swift */,
+				B8B7A20D1BBA5F3D00543E48 /* CounterViewController.swift */,
+				B8B7A20F1BBA5F5300543E48 /* MatchesViewController.swift */,
+				B8B7A2111BBA5F6600543E48 /* ProfileViewController.swift */,
+				B8B7A2131BBA5F7000543E48 /* SettingsViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B8B7A2191BBA606900543E48 /* Custom Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				B8B7A2151BBA606100543E48 /* BaseTransition.swift */,
+				B8B7A2161BBA606100543E48 /* FadeTransition.swift */,
+			);
+			name = "Custom Transitions";
+			sourceTree = "<group>";
+		};
 		B8EEC80D1BB8589900FAB7E6 = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +134,9 @@
 			children = (
 				B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */,
 				B8EEC81B1BB8589900FAB7E6 /* ViewController.swift */,
+				B8B7A2191BBA606900543E48 /* Custom Transitions */,
 				B8EEC81D1BB8589900FAB7E6 /* Main.storyboard */,
+				B8B7A20C1BBA5D6E00543E48 /* View Controllers */,
 				B8EEC8201BB8589900FAB7E6 /* Assets.xcassets */,
 				B8EEC8221BB8589900FAB7E6 /* LaunchScreen.storyboard */,
 				B8EEC8251BB8589900FAB7E6 /* Info.plist */,
@@ -255,7 +292,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B7A2121BBA5F6600543E48 /* ProfileViewController.swift in Sources */,
+				B8B7A2181BBA606100543E48 /* FadeTransition.swift in Sources */,
 				B8EEC81C1BB8589900FAB7E6 /* ViewController.swift in Sources */,
+				B8B7A2141BBA5F7000543E48 /* SettingsViewController.swift in Sources */,
+				B8B7A20E1BBA5F3D00543E48 /* CounterViewController.swift in Sources */,
+				B8B7A2101BBA5F5300543E48 /* MatchesViewController.swift in Sources */,
+				B8B7A2171BBA606100543E48 /* BaseTransition.swift in Sources */,
+				B8B7A20B1BBA5D6500543E48 /* MainContainerViewController.swift in Sources */,
 				B8EEC81A1BB8589900FAB7E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +525,7 @@
 				B8EEC8401BB8589900FAB7E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8EEC8411BB8589900FAB7E6 /* Build configuration list for PBXNativeTarget "duellyTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +534,7 @@
 				B8EEC8431BB8589900FAB7E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8EEC8441BB8589900FAB7E6 /* Build configuration list for PBXNativeTarget "duellyUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +543,7 @@
 				B8EEC8461BB8589900FAB7E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
