@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--MainViewController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="MainViewController" customClass="ViewController" customModule="duelly" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5HA-kU-3tH" userLabel="MainContainerViewController">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <color key="backgroundColor" red="1" green="0.92574598129999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxF-60-Oop" userLabel="TabViewController">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4fi-pd-Vit">
+                                        <rect key="frame" x="8" y="8" width="359" height="34"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1L6-BQ-ZGP">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="34"/>
+                                                <color key="backgroundColor" red="0.0" green="0.85647892951965332" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="0Gg-7c-bZW"/>
+                                                    <constraint firstAttribute="height" constant="34" id="Fhe-wq-Tt0"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="ryr-K6-QWU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="Counter">
+                                                    <color key="titleColor" red="0.026746697104639394" green="0.081398833303175211" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kps-1W-QPh">
+                                                <rect key="frame" x="97" y="0.0" width="70" height="34"/>
+                                                <color key="backgroundColor" red="0.0" green="0.85647892951965332" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="MCf-i1-dIf"/>
+                                                    <constraint firstAttribute="height" constant="34" id="oYz-PG-1kR"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="u3H-2u-U41"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="Matches">
+                                                    <color key="titleColor" red="0.026746697104639394" green="0.081398833303175211" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5B1-lb-P07">
+                                                <rect key="frame" x="193" y="0.0" width="70" height="34"/>
+                                                <color key="backgroundColor" red="0.0" green="0.85647892951965332" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="Ppl-Yr-RhL"/>
+                                                    <constraint firstAttribute="height" constant="34" id="pZG-Oq-orR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="Profile">
+                                                    <color key="titleColor" red="0.026746697104639394" green="0.081398833303175211" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GU-vp-Fy9">
+                                                <rect key="frame" x="289" y="0.0" width="70" height="34"/>
+                                                <color key="backgroundColor" red="0.0" green="0.85647892951965332" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="7aK-K7-f7x"/>
+                                                    <constraint firstAttribute="width" constant="70" id="Zh7-mO-FBd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="Settings">
+                                                    <color key="titleColor" red="0.026746697104639394" green="0.081398833303175211" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.43589547276496887" green="0.57579183578491211" blue="0.58776044845581055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4fi-pd-Vit" secondAttribute="trailing" constant="8" id="1aO-IV-ZvS"/>
+                                    <constraint firstItem="4fi-pd-Vit" firstAttribute="leading" secondItem="jxF-60-Oop" secondAttribute="leading" constant="8" id="2h5-cn-Rhe"/>
+                                    <constraint firstAttribute="height" constant="50" id="HEe-lm-VgB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jxF-60-Oop" secondAttribute="trailing" id="cGU-ec-Xuv"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jxF-60-Oop" secondAttribute="bottom" id="evW-KX-Uks"/>
+                            <constraint firstItem="jxF-60-Oop" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="m7y-7x-Igd"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="T7v-bl-yGN"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="416.5" y="1070.5"/>
+        </scene>
+        <!--CounterViewController-->
+        <scene sceneID="YYJ-Pw-qq7">
+            <objects>
+                <viewController id="sQ8-YH-Des" userLabel="CounterViewController" customClass="ViewController" customModule="duelly" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jQg-Qz-Op9"/>
+                        <viewControllerLayoutGuide type="bottom" id="aAh-kj-3AZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Amt-6x-w7S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="db5-uX-cZ0" userLabel="TabViewController">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.43589547276496887" green="0.57579183578491211" blue="0.58776044845581055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="K8e-2z-fOF"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Counter" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xuW-KO-Hhw">
+                                <rect key="frame" x="112" y="272" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="db5-uX-cZ0" secondAttribute="trailing" id="TIw-TX-4JU"/>
+                            <constraint firstItem="db5-uX-cZ0" firstAttribute="centerY" secondItem="Amt-6x-w7S" secondAttribute="centerY" id="Zws-qd-dnz"/>
+                            <constraint firstItem="db5-uX-cZ0" firstAttribute="leading" secondItem="Amt-6x-w7S" secondAttribute="leading" id="d6I-Mq-htV"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Zws-qd-dnz"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="e0C-xi-oIx"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ujA-D1-xRi" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="416.5" y="1828.5"/>
+        </scene>
+        <!--MatchesViewController-->
+        <scene sceneID="03n-ld-ul9">
+            <objects>
+                <viewController id="8oN-4R-6po" userLabel="MatchesViewController" customClass="ViewController" customModule="duelly" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NQ4-f5-aIQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dtt-3K-R3y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sXQ-OE-m0s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17T-W3-ZKg" userLabel="TabViewController">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.43589547276496887" green="0.57579183578491211" blue="0.58776044845581055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4dV-cm-Hf1"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Matches" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzI-xI-7Ia">
+                                <rect key="frame" x="96" y="214" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="17T-W3-ZKg" firstAttribute="leading" secondItem="sXQ-OE-m0s" secondAttribute="leading" id="1BC-MK-i0h"/>
+                            <constraint firstItem="17T-W3-ZKg" firstAttribute="centerY" secondItem="sXQ-OE-m0s" secondAttribute="centerY" id="HoM-kz-xKX"/>
+                            <constraint firstAttribute="trailing" secondItem="17T-W3-ZKg" secondAttribute="trailing" id="osf-9w-obm"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HoM-kz-xKX"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="vj7-MW-KG1"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nfp-SS-WIl" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="954.5" y="1828.5"/>
+        </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="QCV-nG-vVi">
+            <objects>
+                <viewController id="Cxj-ia-nJO" userLabel="ProfileViewController" customClass="ViewController" customModule="duelly" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f95-Pv-1Qs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tbs-Je-NyK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ux6-S4-qj1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EcM-tP-2hq" userLabel="TabViewController">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.43589547276496887" green="0.57579183578491211" blue="0.58776044845581055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4Df-Go-CeU"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Profile" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LNF-yW-gil">
+                                <rect key="frame" x="126" y="293" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EcM-tP-2hq" firstAttribute="leading" secondItem="Ux6-S4-qj1" secondAttribute="leading" id="95J-5s-qrR"/>
+                            <constraint firstAttribute="trailing" secondItem="EcM-tP-2hq" secondAttribute="trailing" id="G0m-Kb-Lqg"/>
+                            <constraint firstItem="EcM-tP-2hq" firstAttribute="centerY" secondItem="Ux6-S4-qj1" secondAttribute="centerY" id="nl5-QK-bgz"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="nl5-QK-bgz"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="tma-e7-cka"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ULZ-RD-72E" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1498.5" y="1828.5"/>
+        </scene>
+        <!--SettingsViewController-->
+        <scene sceneID="u6H-tw-Xif">
+            <objects>
+                <viewController id="Xi9-kv-Qkg" userLabel="SettingsViewController" customClass="ViewController" customModule="duelly" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TCW-X8-5i0"/>
+                        <viewControllerLayoutGuide type="bottom" id="wti-YG-WTa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Cm-W2-lky">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gO6-8V-aFx" userLabel="TabViewController">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.43589547276496887" green="0.57579183578491211" blue="0.58776044845581055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cvy-B5-Ge5"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Settings" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jtg-B7-OgS">
+                                <rect key="frame" x="132" y="177" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gO6-8V-aFx" firstAttribute="centerY" secondItem="3Cm-W2-lky" secondAttribute="centerY" id="7yT-ST-Yo1"/>
+                            <constraint firstAttribute="trailing" secondItem="gO6-8V-aFx" secondAttribute="trailing" id="Uu5-kx-6aa"/>
+                            <constraint firstItem="gO6-8V-aFx" firstAttribute="leading" secondItem="3Cm-W2-lky" secondAttribute="leading" id="uAg-6z-wAg"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7yT-ST-Yo1"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="eCm-fW-Xl3"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XhN-kT-k8R" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2064.5" y="1828.5"/>
+        </scene>
+    </scenes>
+</document>

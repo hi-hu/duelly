@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B8EEC81A1BB8589900FAB7E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */; };
+		B8EEC81C1BB8589900FAB7E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC81B1BB8589900FAB7E6 /* ViewController.swift */; };
+		B8EEC81F1BB8589900FAB7E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EEC81D1BB8589900FAB7E6 /* Main.storyboard */; };
+		B8EEC8211BB8589900FAB7E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8EEC8201BB8589900FAB7E6 /* Assets.xcassets */; };
+		B8EEC8241BB8589900FAB7E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EEC8221BB8589900FAB7E6 /* LaunchScreen.storyboard */; };
+		B8EEC82F1BB8589900FAB7E6 /* duellyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC82E1BB8589900FAB7E6 /* duellyTests.swift */; };
+		B8EEC83A1BB8589900FAB7E6 /* duellyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC8391BB8589900FAB7E6 /* duellyUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B8EEC82B1BB8589900FAB7E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8EEC80E1BB8589900FAB7E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8EEC8151BB8589900FAB7E6;
+			remoteInfo = duelly;
+		};
+		B8EEC8361BB8589900FAB7E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8EEC80E1BB8589900FAB7E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8EEC8151BB8589900FAB7E6;
+			remoteInfo = duelly;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B8EEC8161BB8589900FAB7E6 /* duelly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duelly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B8EEC81B1BB8589900FAB7E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B8EEC81E1BB8589900FAB7E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B8EEC8201BB8589900FAB7E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8EEC8231BB8589900FAB7E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8EEC8251BB8589900FAB7E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8EEC82A1BB8589900FAB7E6 /* duellyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = duellyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EEC82E1BB8589900FAB7E6 /* duellyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duellyTests.swift; sourceTree = "<group>"; };
+		B8EEC8301BB8589900FAB7E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8EEC8351BB8589900FAB7E6 /* duellyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = duellyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EEC8391BB8589900FAB7E6 /* duellyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duellyUITests.swift; sourceTree = "<group>"; };
+		B8EEC83B1BB8589900FAB7E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B8EEC8131BB8589900FAB7E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8EEC8271BB8589900FAB7E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8EEC8321BB8589900FAB7E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B8EEC80D1BB8589900FAB7E6 = {
+			isa = PBXGroup;
+			children = (
+				B8EEC8181BB8589900FAB7E6 /* duelly */,
+				B8EEC82D1BB8589900FAB7E6 /* duellyTests */,
+				B8EEC8381BB8589900FAB7E6 /* duellyUITests */,
+				B8EEC8171BB8589900FAB7E6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B8EEC8171BB8589900FAB7E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B8EEC8161BB8589900FAB7E6 /* duelly.app */,
+				B8EEC82A1BB8589900FAB7E6 /* duellyTests.xctest */,
+				B8EEC8351BB8589900FAB7E6 /* duellyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8EEC8181BB8589900FAB7E6 /* duelly */ = {
+			isa = PBXGroup;
+			children = (
+				B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */,
+				B8EEC81B1BB8589900FAB7E6 /* ViewController.swift */,
+				B8EEC81D1BB8589900FAB7E6 /* Main.storyboard */,
+				B8EEC8201BB8589900FAB7E6 /* Assets.xcassets */,
+				B8EEC8221BB8589900FAB7E6 /* LaunchScreen.storyboard */,
+				B8EEC8251BB8589900FAB7E6 /* Info.plist */,
+			);
+			path = duelly;
+			sourceTree = "<group>";
+		};
+		B8EEC82D1BB8589900FAB7E6 /* duellyTests */ = {
+			isa = PBXGroup;
+			children = (
+				B8EEC82E1BB8589900FAB7E6 /* duellyTests.swift */,
+				B8EEC8301BB8589900FAB7E6 /* Info.plist */,
+			);
+			path = duellyTests;
+			sourceTree = "<group>";
+		};
+		B8EEC8381BB8589900FAB7E6 /* duellyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B8EEC8391BB8589900FAB7E6 /* duellyUITests.swift */,
+				B8EEC83B1BB8589900FAB7E6 /* Info.plist */,
+			);
+			path = duellyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B8EEC8151BB8589900FAB7E6 /* duelly */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8EEC83E1BB8589900FAB7E6 /* Build configuration list for PBXNativeTarget "duelly" */;
+			buildPhases = (
+				B8EEC8121BB8589900FAB7E6 /* Sources */,
+				B8EEC8131BB8589900FAB7E6 /* Frameworks */,
+				B8EEC8141BB8589900FAB7E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = duelly;
+			productName = duelly;
+			productReference = B8EEC8161BB8589900FAB7E6 /* duelly.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B8EEC8291BB8589900FAB7E6 /* duellyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8EEC8411BB8589900FAB7E6 /* Build configuration list for PBXNativeTarget "duellyTests" */;
+			buildPhases = (
+				B8EEC8261BB8589900FAB7E6 /* Sources */,
+				B8EEC8271BB8589900FAB7E6 /* Frameworks */,
+				B8EEC8281BB8589900FAB7E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8EEC82C1BB8589900FAB7E6 /* PBXTargetDependency */,
+			);
+			name = duellyTests;
+			productName = duellyTests;
+			productReference = B8EEC82A1BB8589900FAB7E6 /* duellyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B8EEC8341BB8589900FAB7E6 /* duellyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8EEC8441BB8589900FAB7E6 /* Build configuration list for PBXNativeTarget "duellyUITests" */;
+			buildPhases = (
+				B8EEC8311BB8589900FAB7E6 /* Sources */,
+				B8EEC8321BB8589900FAB7E6 /* Frameworks */,
+				B8EEC8331BB8589900FAB7E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8EEC8371BB8589900FAB7E6 /* PBXTargetDependency */,
+			);
+			name = duellyUITests;
+			productName = duellyUITests;
+			productReference = B8EEC8351BB8589900FAB7E6 /* duellyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8EEC80E1BB8589900FAB7E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = hi_hu;
+				TargetAttributes = {
+					B8EEC8151BB8589900FAB7E6 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					B8EEC8291BB8589900FAB7E6 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = B8EEC8151BB8589900FAB7E6;
+					};
+					B8EEC8341BB8589900FAB7E6 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = B8EEC8151BB8589900FAB7E6;
+					};
+				};
+			};
+			buildConfigurationList = B8EEC8111BB8589900FAB7E6 /* Build configuration list for PBXProject "duelly" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B8EEC80D1BB8589900FAB7E6;
+			productRefGroup = B8EEC8171BB8589900FAB7E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B8EEC8151BB8589900FAB7E6 /* duelly */,
+				B8EEC8291BB8589900FAB7E6 /* duellyTests */,
+				B8EEC8341BB8589900FAB7E6 /* duellyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B8EEC8141BB8589900FAB7E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8EEC8241BB8589900FAB7E6 /* LaunchScreen.storyboard in Resources */,
+				B8EEC8211BB8589900FAB7E6 /* Assets.xcassets in Resources */,
+				B8EEC81F1BB8589900FAB7E6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8EEC8281BB8589900FAB7E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8EEC8331BB8589900FAB7E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B8EEC8121BB8589900FAB7E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8EEC81C1BB8589900FAB7E6 /* ViewController.swift in Sources */,
+				B8EEC81A1BB8589900FAB7E6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8EEC8261BB8589900FAB7E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8EEC82F1BB8589900FAB7E6 /* duellyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8EEC8311BB8589900FAB7E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8EEC83A1BB8589900FAB7E6 /* duellyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B8EEC82C1BB8589900FAB7E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8EEC8151BB8589900FAB7E6 /* duelly */;
+			targetProxy = B8EEC82B1BB8589900FAB7E6 /* PBXContainerItemProxy */;
+		};
+		B8EEC8371BB8589900FAB7E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8EEC8151BB8589900FAB7E6 /* duelly */;
+			targetProxy = B8EEC8361BB8589900FAB7E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B8EEC81D1BB8589900FAB7E6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8EEC81E1BB8589900FAB7E6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B8EEC8221BB8589900FAB7E6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8EEC8231BB8589900FAB7E6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B8EEC83C1BB8589900FAB7E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B8EEC83D1BB8589900FAB7E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B8EEC83F1BB8589900FAB7E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = duelly/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeyhu.duelly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B8EEC8401BB8589900FAB7E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = duelly/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeyhu.duelly;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B8EEC8421BB8589900FAB7E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = duellyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeyhu.duellyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/duelly.app/duelly";
+			};
+			name = Debug;
+		};
+		B8EEC8431BB8589900FAB7E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = duellyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeyhu.duellyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/duelly.app/duelly";
+			};
+			name = Release;
+		};
+		B8EEC8451BB8589900FAB7E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = duellyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeyhu.duellyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = duelly;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		B8EEC8461BB8589900FAB7E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = duellyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikeyhu.duellyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = duelly;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B8EEC8111BB8589900FAB7E6 /* Build configuration list for PBXProject "duelly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8EEC83C1BB8589900FAB7E6 /* Debug */,
+				B8EEC83D1BB8589900FAB7E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8EEC83E1BB8589900FAB7E6 /* Build configuration list for PBXNativeTarget "duelly" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8EEC83F1BB8589900FAB7E6 /* Debug */,
+				B8EEC8401BB8589900FAB7E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B8EEC8411BB8589900FAB7E6 /* Build configuration list for PBXNativeTarget "duellyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8EEC8421BB8589900FAB7E6 /* Debug */,
+				B8EEC8431BB8589900FAB7E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B8EEC8441BB8589900FAB7E6 /* Build configuration list for PBXNativeTarget "duellyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8EEC8451BB8589900FAB7E6 /* Debug */,
+				B8EEC8461BB8589900FAB7E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B8EEC80E1BB8589900FAB7E6 /* Project object */;
+}
