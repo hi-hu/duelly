@@ -28,6 +28,7 @@ class MainContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("frame 123456789234567 \(mainContainerVC.frame)")
         // view controller instantiation
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         counterVC = storyboard.instantiateViewControllerWithIdentifier("counterSBID") as! CounterViewController
@@ -37,21 +38,18 @@ class MainContainerViewController: UIViewController {
         
         // add the instantiated views into the array
         viewControllerArray = [counterVC, matchesVC, profileVC, settingsVC]
-
+        
         // default to homepage
         displayContentViewController(mainContainerVC, content: counterVC)
         tabControllerButtonCollection[0].selected = true
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func tabButtonDidPress(sender: AnyObject) {
-        print(sender.tag)
-        
         let currentIndex = selectedIndex
         selectedIndex = sender.tag
 
@@ -66,6 +64,7 @@ class MainContainerViewController: UIViewController {
     
     // add a subbview to the specified container
     func displayContentViewController(container: UIView, content: UIViewController) {
+        content.view.frame = container.frame
         addChildViewController(content)
         container.addSubview(content.view)
         content.didMoveToParentViewController(self)
