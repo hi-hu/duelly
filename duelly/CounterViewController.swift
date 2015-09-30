@@ -10,6 +10,8 @@ import UIKit
 
 class CounterViewController: UIViewController {
 
+    @IBOutlet weak var bottomCounterTF: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

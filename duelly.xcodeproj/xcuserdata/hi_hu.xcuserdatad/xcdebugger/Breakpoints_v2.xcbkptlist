@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "duelly/CounterViewController.swift"
-            timestampString = "465285178.370055"
+            timestampString = "465289897.263992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "CounterViewController"
             landmarkType = "3">
          </BreakpointContent>

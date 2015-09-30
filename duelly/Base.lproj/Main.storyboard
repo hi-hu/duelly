@@ -159,9 +159,32 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4l-mf-zXj" userLabel="BottomViewController">
                                         <rect key="frame" x="0.0" y="308" width="375" height="309"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="20" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xuW-KO-Hhw">
+                                                <rect key="frame" x="88" y="78" width="200" height="154"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                </accessibility>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="97" id="P6w-MR-2EI"/>
+                                                    <constraint firstAttribute="height" constant="30" id="hVW-rz-rXC"/>
+                                                </constraints>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="160"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="P6w-MR-2EI"/>
+                                                        <exclude reference="hVW-rz-rXC"/>
+                                                    </mask>
+                                                </variation>
+                                            </textField>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.394801589039113" green="0.2853577744457404" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="xuW-KO-Hhw" firstAttribute="centerX" secondItem="P4l-mf-zXj" secondAttribute="centerX" id="VpM-xy-888"/>
                                             <constraint firstAttribute="width" secondItem="P4l-mf-zXj" secondAttribute="height" multiplier="2:1" id="d2H-re-IJ3"/>
+                                            <constraint firstItem="xuW-KO-Hhw" firstAttribute="centerY" secondItem="P4l-mf-zXj" secondAttribute="centerY" id="tIZ-jM-1oC"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -169,15 +192,6 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Counter" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xuW-KO-Hhw">
-                                        <rect key="frame" x="108" y="291" width="97" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="97" id="P6w-MR-2EI"/>
-                                            <constraint firstAttribute="height" constant="30" id="hVW-rz-rXC"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.45852513096668901" green="1" blue="0.35783242393219783" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -225,6 +239,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="e0C-xi-oIx"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="bottomCounterTF" destination="xuW-KO-Hhw" id="glf-Cp-LoZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujA-D1-xRi" sceneMemberID="firstResponder"/>
             </objects>

@@ -28,7 +28,6 @@ class MainContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("frame 123456789234567 \(mainContainerVC.frame)")
         // view controller instantiation
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         counterVC = storyboard.instantiateViewControllerWithIdentifier("counterSBID") as! CounterViewController
