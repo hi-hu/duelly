@@ -9,13 +9,18 @@
 import UIKit
 
 class CounterViewController: UIViewController {
+    
 
-    @IBOutlet weak var bottomCounterTF: UITextField!
+    @IBOutlet weak var topViewController: UIView!
+    @IBOutlet weak var topCounterLabel: UILabel!
+    @IBOutlet weak var bottomViewController: UIView!
+    @IBOutlet weak var bottomCounterLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        topViewController.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +28,25 @@ class CounterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func counterIncrement(sender: AnyObject) {
+        if( sender.superview == bottomViewController ) {
+            let numberFromString:Int! = Int(bottomCounterLabel.text!)
+            bottomCounterLabel.text = String((numberFromString + 1))
+        } else {
+            let numberFromString:Int! = Int(topCounterLabel.text!)
+            topCounterLabel.text = String((numberFromString + 1))
+        }
+    }
+    
+    @IBAction func counterDecrement(sender: AnyObject) {
+        if( sender.superview == bottomViewController ) {
+            let numberFromString:Int! = Int(bottomCounterLabel.text!)
+            bottomCounterLabel.text = String((numberFromString - 1))
+        } else {
+            let numberFromString:Int! = Int(topCounterLabel.text!)
+            topCounterLabel.text = String((numberFromString - 1))
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -22,17 +22,126 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "duelly/CounterViewController.swift"
-            timestampString = "465289897.263992"
+            timestampString = "465375620.458536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "CounterViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "duelly/CounterViewController.swift"
+            timestampString = "465356411.869093"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "CounterViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duelly.CounterViewController.__deallocating_deinit"
+                  moduleName = "duelly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hi_hu/Documents/Projects/duelly/duelly/duelly/CounterViewController.swift"
+                  timestampString = "465356411.874829"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duelly.CounterViewController.init (duelly.CounterViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; duelly.CounterViewController"
+                  moduleName = "duelly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hi_hu/Documents/Projects/duelly/duelly/duelly/CounterViewController.swift"
+                  timestampString = "465356411.879554"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duelly.CounterViewController.init (duelly.CounterViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; Swift.Optional&lt;duelly.CounterViewController&gt;"
+                  moduleName = "duelly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hi_hu/Documents/Projects/duelly/duelly/duelly/CounterViewController.swift"
+                  timestampString = "465356411.879822"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "duelly/CounterViewController.swift"
+            timestampString = "465366118.386144"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2"
+            endingLineNumber = "2">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duelly.CounterViewController.__deallocating_deinit"
+                  moduleName = "duelly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hi_hu/Documents/Projects/duelly/duelly/duelly/CounterViewController.swift"
+                  timestampString = "465366521.682266"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "19">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "duelly.CounterViewController.init (duelly.CounterViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; Swift.Optional&lt;duelly.CounterViewController&gt;"
+                  moduleName = "duelly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hi_hu/Documents/Projects/duelly/duelly/duelly/CounterViewController.swift"
+                  timestampString = "465366521.682541"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
