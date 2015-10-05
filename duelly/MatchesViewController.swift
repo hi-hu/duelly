@@ -9,10 +9,24 @@
 import UIKit
 
 class MatchesViewController: UIViewController {
+    
+    @IBOutlet weak var thisView: UIView!
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let rectShape = CAShapeLayer()
+        rectShape.bounds = self.thisView.frame
+        rectShape.position = self.thisView.center
+        rectShape.path = UIBezierPath(roundedRect: self.thisView.bounds, byRoundingCorners: [UIRectCorner.BottomLeft, UIRectCorner.BottomRight, UIRectCorner.TopLeft], cornerRadii: CGSize(width: 20, height: 20)).CGPath
+        
+        self.thisView.layer.backgroundColor = UIColor.greenColor().CGColor
+        //Here I'm masking the textView's layer with rectShape layer
+        self.thisView.layer.mask = rectShape
+        
+        
         // Do any additional setup after loading the view.
     }
 
