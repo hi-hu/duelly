@@ -28,7 +28,8 @@ class CounterViewController: UIViewController {
         topViewController.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
 
         // adding gradient
-        gradientView(topViewController)
+        createGradient(topViewController, color1: gradientColors["asphalt-500"]!, color2: gradientColors["green-500"]!)
+        createGradient(bottomViewController, color1: gradientColors["asphalt-500"]!, color2: gradientColors["asphalt-700"]!)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -69,16 +70,12 @@ class CounterViewController: UIViewController {
         bottomCounterLabel.text = "20"
     }
     
-    func gradientView(viewToRound: UIView) {
+    func createGradient(viewToRound: UIView, color1: UIColor, color2: UIColor) {
         let gradient: CAGradientLayer = CAGradientLayer()
 
         // creating the gradient color
         gradient.frame = viewToRound.bounds
-        gradient.position.x = viewToRound.center.x
-        gradient.position.y = viewToRound.center.y
-        gradient.colors = [
-            UIColor(red:0.258, green:0.533, blue:0.631, alpha:1),
-            UIColor(red:0.352, green:0.807, blue:0.701, alpha:1).CGColor]
+        gradient.colors = [color1.CGColor, color2.CGColor]
 
         // setting the gradient color and mask shape
         viewToRound.layer.insertSublayer(gradient, atIndex: 0)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B81D79281BC332AB00B4CBF6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D79271BC332AB00B4CBF6 /* Colors.swift */; settings = {ASSET_TAGS = (); }; };
 		B8B7A20B1BBA5D6500543E48 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20A1BBA5D6500543E48 /* MainContainerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B8B7A20E1BBA5F3D00543E48 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20D1BBA5F3D00543E48 /* CounterViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B8B7A2101BBA5F5300543E48 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20F1BBA5F5300543E48 /* MatchesViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B81D79271BC332AB00B4CBF6 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../Colors.swift; sourceTree = "<group>"; };
 		B8B7A20A1BBA5D6500543E48 /* MainContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainContainerViewController.swift; sourceTree = "<group>"; };
 		B8B7A20D1BBA5F3D00543E48 /* CounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		B8B7A20F1BBA5F5300543E48 /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */,
 				B8EEC81B1BB8589900FAB7E6 /* ViewController.swift */,
+				B81D79271BC332AB00B4CBF6 /* Colors.swift */,
 				B8B7A2191BBA606900543E48 /* Custom Transitions */,
 				B8EEC81D1BB8589900FAB7E6 /* Main.storyboard */,
 				B8B7A20C1BBA5D6E00543E48 /* View Controllers */,
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8B7A2121BBA5F6600543E48 /* ProfileViewController.swift in Sources */,
+				B81D79281BC332AB00B4CBF6 /* Colors.swift in Sources */,
 				B8B7A2181BBA606100543E48 /* FadeTransition.swift in Sources */,
 				B8EEC81C1BB8589900FAB7E6 /* ViewController.swift in Sources */,
 				B8B7A2141BBA5F7000543E48 /* SettingsViewController.swift in Sources */,
