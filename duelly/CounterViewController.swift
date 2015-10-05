@@ -20,10 +20,15 @@ class CounterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topViewController.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-        
+        // rounding corners
         counterViewController.layer.cornerRadius = 4.0
         counterViewController.clipsToBounds = true
+        
+        // rotating topViewController
+        topViewController.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+
+        // adding gradient
+        gradientView(topViewController)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -32,9 +37,7 @@ class CounterViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         print("did layout subviews")
-        print(topViewController.frame)
     }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,25 +69,19 @@ class CounterViewController: UIViewController {
         bottomCounterLabel.text = "20"
     }
     
-    func roundView(viewToRound: UIView, radiusSize: CGSize) {
-        let rectShape = CAShapeLayer()
+    func gradientView(viewToRound: UIView) {
         let gradient: CAGradientLayer = CAGradientLayer()
 
-        // creating the masking shape
-        rectShape.bounds = viewToRound.frame
-        rectShape.position = viewToRound.center
-        rectShape.path = UIBezierPath(roundedRect: viewToRound.bounds, byRoundingCorners: [UIRectCorner.BottomLeft, UIRectCorner.BottomRight], cornerRadii: radiusSize).CGPath
-
         // creating the gradient color
-//        gradient.frame = viewToRound.bounds
-//        gradient.position.x = viewToRound.center.x
-//        gradient.position.y = viewToRound.center.y
-//        gradient.colors = [UIColor.whiteColor().CGColor, UIColor.blackColor().CGColor]
+        gradient.frame = viewToRound.bounds
+        gradient.position.x = viewToRound.center.x
+        gradient.position.y = viewToRound.center.y
+        gradient.colors = [
+            UIColor(red:0.258, green:0.533, blue:0.631, alpha:1),
+            UIColor(red:0.352, green:0.807, blue:0.701, alpha:1).CGColor]
 
         // setting the gradient color and mask shape
-//        viewToRound.layer.backgroundColor = UIColor.greenColor().CGColor
-//        viewToRound.layer.insertSublayer(gradient, atIndex: 0)
-        viewToRound.layer.mask = rectShape
+        viewToRound.layer.insertSublayer(gradient, atIndex: 0)
     }
 
     /*
