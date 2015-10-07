@@ -28,6 +28,8 @@ class MainContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        mainContainerVC.backgroundColor = gradientColors["asphalt-700"]
+        
         // view controller instantiation
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         counterVC = storyboard.instantiateViewControllerWithIdentifier("counterSBID") as! CounterViewController

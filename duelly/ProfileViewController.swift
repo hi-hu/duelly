@@ -21,6 +21,24 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        
+        // Create CAShapeLayer
+        let rectShape = CAShapeLayer()
+        rectShape.bounds = bounds
+        rectShape.position = view.center
+        view.layer.addSublayer(rectShape)
+        
+        rectShape.fillColor = UIColor.yellowColor().CGColor
+        
+        let startShape = UIBezierPath(roundedRect: bounds, cornerRadius: 50).CGPath
+        
+        rectShape.path = startShape
+        
+    }
 
     /*
     // MARK: - Navigation
