@@ -23,6 +23,11 @@ class CounterViewController: UIViewController {
     @IBOutlet weak var dView: UIView!
     @IBOutlet var donutViewCollection: [UIView]!
 
+    
+    var count = 0
+    
+    var timer = NSTimer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +42,7 @@ class CounterViewController: UIViewController {
         createGradient(topViewController, color1: gradientColors["asphalt-500"]!, color2: gradientColors["green-500"]!)
         createGradient(bottomViewController, color1: gradientColors["asphalt-500"]!, color2: gradientColors["purple-700"]!)
         
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -53,7 +59,6 @@ class CounterViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     @IBAction func counterIncrement(sender: AnyObject) {
         if(sender.superview == bottomViewController) {
@@ -99,24 +104,40 @@ class CounterViewController: UIViewController {
             let rectShape = CAShapeLayer()
             let circleShape = UIBezierPath(roundedRect: bounds, cornerRadius: circleRadius).CGPath
 
+            // draw stroke within bounds
             rectShape.bounds = bounds
             rectShape.position = CGPoint(x: donutView.frame.width / 2, y: donutView.frame.height / 2)
             rectShape.strokeColor = UIColor.whiteColor().CGColor
             rectShape.lineWidth = 2
             rectShape.fillColor = UIColor.clearColor().CGColor
-
+            
+            // rasterize to avoid pixelation
+            donutView.layer.rasterizationScale = 4
+            donutView.layer.shouldRasterize = true
+            
+            // add to view and set path
             donutView.layer.addSublayer(rectShape)
             rectShape.path = circleShape
             
             // animation properties
-            let animate = CABasicAnimation(keyPath: "strokeStart")
+            let animateStroke = CABasicAnimation(keyPath: "strokeStart")
             rectShape.strokeStart = 1
-            animate.toValue = 0
-            animate.duration = 2.0
-            animate.fillMode = kCAFillModeForwards
-            animate.removedOnCompletion = false
-            animate.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            rectShape.addAnimation(animate, forKey: nil)
+            animateStroke.toValue = 0
+            animateStroke.duration = 2.0
+            animateStroke.fillMode = kCAFillModeForwards
+            animateStroke.removedOnCompletion = false
+            animateStroke.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            rectShape.addAnimation(animateStroke, forKey: nil)
+        }
+    }
+    
+    func update() {
+        if(count < 21) {
+            topCounterLabel.text = String(count)
+            bottomCounterLabel.text = String(count++)
+        } else {
+            timer.invalidate()
+            count = 0
         }
     }
     
