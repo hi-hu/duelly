@@ -14,10 +14,14 @@ class CounterViewController: UIViewController {
     @IBOutlet weak var counterViewController: UIView!
     @IBOutlet weak var counterMenuStackController: UIStackView!
     @IBOutlet weak var topViewController: UIView!
+    @IBOutlet weak var topCounterView: UIView!
     @IBOutlet weak var topCounterLabel: UILabel!
     @IBOutlet weak var bottomViewController: UIView!
+    @IBOutlet weak var bottomCounterView: UIView!
     @IBOutlet weak var bottomCounterLabel: UILabel!
     @IBOutlet var counterMenuButtonCollection: [UIButton]!
+    @IBOutlet weak var dView: UIView!
+    @IBOutlet var donutViewCollection: [UIView]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +37,6 @@ class CounterViewController: UIViewController {
         createGradient(topViewController, color1: gradientColors["asphalt-500"]!, color2: gradientColors["green-500"]!)
         createGradient(bottomViewController, color1: gradientColors["asphalt-500"]!, color2: gradientColors["purple-700"]!)
         
-        createCircleButtons()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -42,12 +45,15 @@ class CounterViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         print("didLayoutSubviews")
+        initLifeCounter()
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     @IBAction func counterIncrement(sender: AnyObject) {
         if(sender.superview == bottomViewController) {
@@ -85,22 +91,32 @@ class CounterViewController: UIViewController {
         viewToRound.layer.insertSublayer(gradient, atIndex: 0)
     }
 
-    func createCircleButtons() {
-        
-        let bounds = CGRect(x: 0, y: 0, width: 52, height: 52)
-        
-        for btn in counterMenuButtonCollection {
+    func initLifeCounter() {
+        for donutView in donutViewCollection {
+            // setup the CAShapes
+            let circleRadius = donutView.frame.width / 2
+            let bounds = CGRect(x: 0, y: 0, width: circleRadius * 2, height: circleRadius * 2)
             let rectShape = CAShapeLayer()
-            let circleShape = UIBezierPath(roundedRect: bounds, cornerRadius: 26).CGPath
+            let circleShape = UIBezierPath(roundedRect: bounds, cornerRadius: circleRadius).CGPath
 
             rectShape.bounds = bounds
-            rectShape.position = CGPoint(x: (btn.center.x / 2) + 4, y: btn.center.y)
+            rectShape.position = CGPoint(x: donutView.frame.width / 2, y: donutView.frame.height / 2)
             rectShape.strokeColor = UIColor.whiteColor().CGColor
             rectShape.lineWidth = 2
-            rectShape.fillColor = UIColor.whiteColor().colorWithAlphaComponent(0).CGColor
-        
-            btn.layer.addSublayer(rectShape)
+            rectShape.fillColor = UIColor.clearColor().CGColor
+
+            donutView.layer.addSublayer(rectShape)
             rectShape.path = circleShape
+            
+            // animation properties
+            let animate = CABasicAnimation(keyPath: "strokeStart")
+            rectShape.strokeStart = 1
+            animate.toValue = 0
+            animate.duration = 2.0
+            animate.fillMode = kCAFillModeForwards
+            animate.removedOnCompletion = false
+            animate.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            rectShape.addAnimation(animate, forKey: nil)
         }
     }
     
