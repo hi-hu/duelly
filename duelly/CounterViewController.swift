@@ -23,10 +23,15 @@ class CounterViewController: UIViewController {
     @IBOutlet weak var dView: UIView!
     @IBOutlet var donutViewCollection: [UIView]!
 
-    
+    // references to circle CAShapes to redraw purposes
+    let topShapeLayer = CAShapeLayer()
+    let bottomShapeLayer = CAShapeLayer()
+
+    // NSTimer for incrementing counter
     var count = 0
-    
     var timer = NSTimer()
+    
+    var stkColor: UIColor = duellyColors["green-200"]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,20 +44,21 @@ class CounterViewController: UIViewController {
         topViewController.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
 
         // adding gradient
-        createGradient(topViewController, color1: gradientColors["asphalt-500"]!, color2: gradientColors["green-500"]!)
-        createGradient(bottomViewController, color1: gradientColors["asphalt-500"]!, color2: gradientColors["purple-700"]!)
+        createGradient(topViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["green-500"]!)
+        createGradient(bottomViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["purple-700"]!)
         
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+
+        initLifeCounter()
     }
 
     override func viewWillAppear(animated: Bool) {
-        print("willAppear")
+//        print("willAppear")
     }
     
     override func viewDidLayoutSubviews() {
-        print("didLayoutSubviews")
-        initLifeCounter()
-
+        // seemingly gets called any time there's a draw event
+        //        print("didLayoutSubviews")
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,12 +83,38 @@ class CounterViewController: UIViewController {
         } else {
             let numberFromString:Int! = Int(topCounterLabel.text!)
             topCounterLabel.text = String((numberFromString - 1))
+
+            if(numberFromString < 7) {
+                UIView.animateWithDuration(5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                        self.bottomShapeLayer.strokeColor
+                    }, completion: { (Bool) -> Void in
+                        // code
+                })
+            }
         }
     }
 
     @IBAction func resetDidPress(sender: AnyObject) {
-        topCounterLabel.text = "20"
-        bottomCounterLabel.text = "20"
+        // reset life counter with NSTimer
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+
+        // first quickly undraw the stroke then draw it back it
+        drawStroke(topShapeLayer, startValue: 1, duration: 0.6)
+        drawStroke(bottomShapeLayer, startValue: 1, duration: 0.6)
+        delay(0.7) { () -> () in
+            self.drawStroke(self.topShapeLayer, startValue: 0, duration: 1)
+            self.drawStroke(self.bottomShapeLayer, startValue: 0, duration: 1)
+        }
+    }
+    
+    func drawStroke(layer: CAShapeLayer, startValue: CGFloat, duration: Double) {
+        let animateStroke = CABasicAnimation(keyPath: "strokeStart")
+        layer.strokeStart = startValue
+        animateStroke.duration = duration
+        animateStroke.fillMode = kCAFillModeForwards
+        animateStroke.removedOnCompletion = false
+        animateStroke.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        layer.addAnimation(animateStroke, forKey: nil)
     }
     
     func createGradient(viewToRound: UIView, color1: UIColor, color2: UIColor) {
@@ -97,19 +129,27 @@ class CounterViewController: UIViewController {
     }
 
     func initLifeCounter() {
+        var counter = 0
+        var rectShape = CAShapeLayer()
+
         for donutView in donutViewCollection {
+            if(counter == 0) {
+                rectShape = topShapeLayer
+            } else {
+                rectShape = bottomShapeLayer
+            }
+
             // setup the CAShapes
             let circleRadius = donutView.frame.width / 2
             let bounds = CGRect(x: 0, y: 0, width: circleRadius * 2, height: circleRadius * 2)
-            let rectShape = CAShapeLayer()
             let circleShape = UIBezierPath(roundedRect: bounds, cornerRadius: circleRadius).CGPath
 
             // draw stroke within bounds
             rectShape.bounds = bounds
             rectShape.position = CGPoint(x: donutView.frame.width / 2, y: donutView.frame.height / 2)
-            rectShape.strokeColor = UIColor.whiteColor().CGColor
+            rectShape.strokeColor = duellyColors["green-200"]!.CGColor
             rectShape.lineWidth = 2
-            rectShape.fillColor = UIColor.clearColor().CGColor
+            rectShape.fillColor = nil
             
             // rasterize to avoid pixelation
             donutView.layer.rasterizationScale = 4
@@ -128,6 +168,8 @@ class CounterViewController: UIViewController {
             animateStroke.removedOnCompletion = false
             animateStroke.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
             rectShape.addAnimation(animateStroke, forKey: nil)
+            
+            counter++
         }
     }
     

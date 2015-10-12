@@ -28,7 +28,7 @@ class MainContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mainContainerVC.backgroundColor = gradientColors["asphalt-700"]
+        mainContainerVC.backgroundColor = duellyColors["asphalt-700"]
         
         // view controller instantiation
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

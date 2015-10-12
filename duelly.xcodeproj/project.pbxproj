@@ -10,6 +10,7 @@
 		9D001B587E9B2EB473C760EC /* Pods_duelly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4603A97C55021B44792D2E0 /* Pods_duelly.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B81D79281BC332AB00B4CBF6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D79271BC332AB00B4CBF6 /* Colors.swift */; settings = {ASSET_TAGS = (); }; };
 		B81D792C1BC640D100B4CBF6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B81D792B1BC640D100B4CBF6 /* Podfile */; settings = {ASSET_TAGS = (); }; };
+		B81D792E1BC8583100B4CBF6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D792D1BC8583100B4CBF6 /* Common.swift */; settings = {ASSET_TAGS = (); }; };
 		B8B7A20B1BBA5D6500543E48 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20A1BBA5D6500543E48 /* MainContainerViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B8B7A20E1BBA5F3D00543E48 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20D1BBA5F3D00543E48 /* CounterViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		B8B7A2101BBA5F5300543E48 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20F1BBA5F5300543E48 /* MatchesViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -47,6 +48,7 @@
 		A4603A97C55021B44792D2E0 /* Pods_duelly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_duelly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B81D79271BC332AB00B4CBF6 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../Colors.swift; sourceTree = "<group>"; };
 		B81D792B1BC640D100B4CBF6 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		B81D792D1BC8583100B4CBF6 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		B8B7A20A1BBA5D6500543E48 /* MainContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainContainerViewController.swift; sourceTree = "<group>"; };
 		B8B7A20D1BBA5F3D00543E48 /* CounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		B8B7A20F1BBA5F5300543E48 /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		B8EEC8181BB8589900FAB7E6 /* duelly */ = {
 			isa = PBXGroup;
 			children = (
+				B81D792D1BC8583100B4CBF6 /* Common.swift */,
 				B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */,
 				B8EEC81B1BB8589900FAB7E6 /* ViewController.swift */,
 				B81D79271BC332AB00B4CBF6 /* Colors.swift */,
@@ -378,6 +381,7 @@
 				B81D79281BC332AB00B4CBF6 /* Colors.swift in Sources */,
 				B8B7A2181BBA606100543E48 /* FadeTransition.swift in Sources */,
 				B8EEC81C1BB8589900FAB7E6 /* ViewController.swift in Sources */,
+				B81D792E1BC8583100B4CBF6 /* Common.swift in Sources */,
 				B8B7A2141BBA5F7000543E48 /* SettingsViewController.swift in Sources */,
 				B8B7A20E1BBA5F3D00543E48 /* CounterViewController.swift in Sources */,
 				B8B7A2101BBA5F5300543E48 /* MatchesViewController.swift in Sources */,
