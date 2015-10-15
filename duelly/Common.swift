@@ -23,7 +23,7 @@ func delay(delay:Double, closure:()->()) {
 }
 
 func convertValue(value: Float, r1Min: Float, r1Max: Float, r2Min: Float, r2Max: Float) -> Float {
-    var ratio = (r2Max - r2Min) / (r1Max - r1Min)
+    let ratio = (r2Max - r2Min) / (r1Max - r1Min)
     return value * ratio + r2Min - r1Min * ratio
 }
 

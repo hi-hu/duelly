@@ -67,30 +67,56 @@ class CounterViewController: UIViewController {
     }
     
     @IBAction func counterIncrement(sender: AnyObject) {
+        var label = UILabel()
+        var shape = CAShapeLayer()
+        
         if(sender.superview == bottomViewController) {
-            let numberFromString:Int! = Int(bottomCounterLabel.text!)
-            bottomCounterLabel.text = String((numberFromString + 1))
+            label = bottomCounterLabel
+            shape = bottomShapeLayer
         } else {
-            let numberFromString:Int! = Int(topCounterLabel.text!)
-            topCounterLabel.text = String((numberFromString + 1))
+            label = topCounterLabel
+            shape = topShapeLayer
         }
+        
+        let numberFromString:Int! = Int(label.text!)
+        label.text = String((numberFromString + 1))
     }
     
     @IBAction func counterDecrement(sender: AnyObject) {
-        if(sender.superview == bottomViewController) {
-            let numberFromString:Int! = Int(bottomCounterLabel.text!)
-            bottomCounterLabel.text = String((numberFromString - 1))
-        } else {
-            let numberFromString:Int! = Int(topCounterLabel.text!)
-            topCounterLabel.text = String((numberFromString - 1))
+        var label = UILabel()
+        var shape = CAShapeLayer()
 
-            if(numberFromString < 7) {
-                UIView.animateWithDuration(5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-                        self.bottomShapeLayer.strokeColor
-                    }, completion: { (Bool) -> Void in
-                        // code
-                })
-            }
+        if(sender.superview == bottomViewController) {
+            label = bottomCounterLabel
+            shape = bottomShapeLayer
+        } else {
+            label = topCounterLabel
+            shape = topShapeLayer
+        }
+        
+        let numberFromString:Int! = Int(label.text!)
+        label.text = String((numberFromString - 1))
+
+        if(numberFromString < 19) {
+            
+            let animateColorStart = CABasicAnimation(keyPath: "strokeColor")
+            animateColorStart.fromValue = duellyColors["green-200"]!.CGColor
+            animateColorStart.toValue = duellyColors["pink-500"]!.CGColor
+            animateColorStart.duration = 1.5
+            animateColorStart.beginTime = 0
+            
+            let animateColorEnd = CABasicAnimation(keyPath: "strokeColor")
+            animateColorEnd.fromValue = duellyColors["pink-500"]!.CGColor
+            animateColorEnd.toValue = duellyColors["green-200"]!.CGColor
+            animateColorEnd.duration = 1.5
+            animateColorEnd.beginTime = 1.5
+            
+            let animateGroup = CAAnimationGroup()
+            animateGroup.duration = 3.0
+            animateGroup.repeatCount = Float.infinity
+            animateGroup.animations = [animateColorStart, animateColorEnd]
+            
+            shape.addAnimation(animateGroup, forKey: "allAnimations")
         }
     }
 
@@ -99,17 +125,18 @@ class CounterViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
 
         // first quickly undraw the stroke then draw it back it
-        drawStroke(topShapeLayer, startValue: 1, duration: 0.6)
-        drawStroke(bottomShapeLayer, startValue: 1, duration: 0.6)
+        drawStroke(topShapeLayer, startValue: 1, toValue: 1, duration: 0.6)
+        drawStroke(bottomShapeLayer, startValue: 1, toValue: 1, duration: 0.6)
         delay(0.7) { () -> () in
-            self.drawStroke(self.topShapeLayer, startValue: 0, duration: 1)
-            self.drawStroke(self.bottomShapeLayer, startValue: 0, duration: 1)
+            self.drawStroke(self.topShapeLayer, startValue: 1, toValue: 0, duration: 1)
+            self.drawStroke(self.bottomShapeLayer, startValue: 1, toValue: 0, duration: 1)
         }
     }
     
-    func drawStroke(layer: CAShapeLayer, startValue: CGFloat, duration: Double) {
+    func drawStroke(layer: CAShapeLayer, startValue: CGFloat, toValue: CGFloat, duration: Double) {
         let animateStroke = CABasicAnimation(keyPath: "strokeStart")
         layer.strokeStart = startValue
+        animateStroke.toValue = toValue
         animateStroke.duration = duration
         animateStroke.fillMode = kCAFillModeForwards
         animateStroke.removedOnCompletion = false
@@ -134,9 +161,9 @@ class CounterViewController: UIViewController {
 
         for donutView in donutViewCollection {
             if(counter == 0) {
-                rectShape = topShapeLayer
-            } else {
                 rectShape = bottomShapeLayer
+            } else {
+                rectShape = topShapeLayer
             }
 
             // setup the CAShapes
@@ -160,15 +187,8 @@ class CounterViewController: UIViewController {
             rectShape.path = circleShape
             
             // animation properties
-            let animateStroke = CABasicAnimation(keyPath: "strokeStart")
-            rectShape.strokeStart = 1
-            animateStroke.toValue = 0
-            animateStroke.duration = 2.0
-            animateStroke.fillMode = kCAFillModeForwards
-            animateStroke.removedOnCompletion = false
-            animateStroke.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            rectShape.addAnimation(animateStroke, forKey: nil)
-            
+            drawStroke(rectShape, startValue: 1, toValue: 0, duration: 2)
+
             counter++
         }
     }
