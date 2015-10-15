@@ -9,8 +9,6 @@
 import UIKit
 
 class CounterViewController: UIViewController {
-    
-
     @IBOutlet weak var counterViewController: UIView!
     @IBOutlet weak var counterMenuStackController: UIStackView!
     @IBOutlet weak var topViewController: UIView!
@@ -30,8 +28,10 @@ class CounterViewController: UIViewController {
     // NSTimer for incrementing counter
     var count = 0
     var timer = NSTimer()
-    
-    var stkColor: UIColor = duellyColors["green-200"]!
+
+    // animation switch
+    var topStrokeAnimationIsOff = true
+    var bottomStrokeAnimationIsOff = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class CounterViewController: UIViewController {
         createGradient(topViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["green-500"]!)
         createGradient(bottomViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["purple-700"]!)
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
 
         initLifeCounter()
     }
@@ -58,7 +58,7 @@ class CounterViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         // seemingly gets called any time there's a draw event
-        //        print("didLayoutSubviews")
+//                print("didLayoutSubviews")
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,6 +80,10 @@ class CounterViewController: UIViewController {
         
         let numberFromString:Int! = Int(label.text!)
         label.text = String((numberFromString + 1))
+        
+        if(numberFromString >= 5) {
+            shape.removeAnimationForKey("allAnimations")
+        }
     }
     
     @IBAction func counterDecrement(sender: AnyObject) {
@@ -97,8 +101,7 @@ class CounterViewController: UIViewController {
         let numberFromString:Int! = Int(label.text!)
         label.text = String((numberFromString - 1))
 
-        if(numberFromString < 19) {
-            
+        if(numberFromString < 7) {
             let animateColorStart = CABasicAnimation(keyPath: "strokeColor")
             animateColorStart.fromValue = duellyColors["green-200"]!.CGColor
             animateColorStart.toValue = duellyColors["pink-500"]!.CGColor
@@ -110,11 +113,24 @@ class CounterViewController: UIViewController {
             animateColorEnd.toValue = duellyColors["green-200"]!.CGColor
             animateColorEnd.duration = 1.5
             animateColorEnd.beginTime = 1.5
+ 
+
+            let animateLineWidthStart = CABasicAnimation(keyPath: "lineWidth")
+            animateLineWidthStart.fromValue = 2
+            animateLineWidthStart.toValue = 4
+            animateLineWidthStart.duration = 1.5
+            animateLineWidthStart.beginTime = 0
+            
+            let animateLineWidthEnd = CABasicAnimation(keyPath: "lineWidth")
+            animateLineWidthEnd.fromValue = 4
+            animateLineWidthEnd.toValue = 2
+            animateLineWidthEnd.duration = 1.5
+            animateLineWidthEnd.beginTime = 1.5
             
             let animateGroup = CAAnimationGroup()
             animateGroup.duration = 3.0
             animateGroup.repeatCount = Float.infinity
-            animateGroup.animations = [animateColorStart, animateColorEnd]
+            animateGroup.animations = [animateColorStart, animateColorEnd, animateLineWidthStart, animateLineWidthEnd]
             
             shape.addAnimation(animateGroup, forKey: "allAnimations")
         }
@@ -122,7 +138,7 @@ class CounterViewController: UIViewController {
 
     @IBAction func resetDidPress(sender: AnyObject) {
         // reset life counter with NSTimer
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
 
         // first quickly undraw the stroke then draw it back it
         drawStroke(topShapeLayer, startValue: 1, toValue: 1, duration: 0.6)
@@ -193,7 +209,7 @@ class CounterViewController: UIViewController {
         }
     }
     
-    func update() {
+    func resetLabel() {
         if(count < 21) {
             topCounterLabel.text = String(count)
             bottomCounterLabel.text = String(count++)
