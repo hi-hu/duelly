@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <animations/>
                             </view>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxF-60-Oop" userLabel="TabViewController">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxF-60-Oop" userLabel="TabViewController">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4fi-pd-Vit">
@@ -439,14 +439,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYz-qo-v1f">
-                                <rect key="frame" x="20" y="270" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYz-qo-v1f">
+                                <rect key="frame" x="97" y="244" width="180" height="180"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.43589550256729126" green="0.57579183578491211" blue="0.58776044845581055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="TRe-mc-IGI"/>
+                                    <constraint firstAttribute="width" constant="180" id="o3P-lw-qHz"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HYz-qo-v1f" firstAttribute="centerX" secondItem="sXQ-OE-m0s" secondAttribute="centerX" id="rbj-YC-7gH"/>
+                            <constraint firstItem="HYz-qo-v1f" firstAttribute="centerY" secondItem="sXQ-OE-m0s" secondAttribute="centerY" id="rf9-IL-FNi"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="vj7-MW-KG1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

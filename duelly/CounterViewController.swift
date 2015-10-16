@@ -82,7 +82,7 @@ class CounterViewController: UIViewController {
         label.text = String((numberFromString + 1))
         
         if(numberFromString >= 5) {
-            shape.removeAnimationForKey("allAnimations")
+            shape.removeAnimationForKey("warningAnimations")
         }
     }
     
@@ -113,16 +113,15 @@ class CounterViewController: UIViewController {
             animateColorEnd.toValue = duellyColors["green-200"]!.CGColor
             animateColorEnd.duration = 1.5
             animateColorEnd.beginTime = 1.5
- 
 
             let animateLineWidthStart = CABasicAnimation(keyPath: "lineWidth")
             animateLineWidthStart.fromValue = 2
-            animateLineWidthStart.toValue = 4
+            animateLineWidthStart.toValue = 6
             animateLineWidthStart.duration = 1.5
             animateLineWidthStart.beginTime = 0
             
             let animateLineWidthEnd = CABasicAnimation(keyPath: "lineWidth")
-            animateLineWidthEnd.fromValue = 4
+            animateLineWidthEnd.fromValue = 6
             animateLineWidthEnd.toValue = 2
             animateLineWidthEnd.duration = 1.5
             animateLineWidthEnd.beginTime = 1.5
@@ -132,7 +131,7 @@ class CounterViewController: UIViewController {
             animateGroup.repeatCount = Float.infinity
             animateGroup.animations = [animateColorStart, animateColorEnd, animateLineWidthStart, animateLineWidthEnd]
             
-            shape.addAnimation(animateGroup, forKey: "allAnimations")
+            shape.addAnimation(animateGroup, forKey: "warningAnimations")
         }
     }
 
@@ -140,6 +139,9 @@ class CounterViewController: UIViewController {
         // reset life counter with NSTimer
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
 
+        topShapeLayer.removeAnimationForKey("warningAnimations")
+        bottomShapeLayer.removeAnimationForKey("warningAnimations")
+        
         // first quickly undraw the stroke then draw it back it
         drawStroke(topShapeLayer, startValue: 1, toValue: 1, duration: 0.6)
         drawStroke(bottomShapeLayer, startValue: 1, toValue: 1, duration: 0.6)
