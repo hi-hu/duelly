@@ -528,10 +528,12 @@
 			baseConfigurationReference = DBC9089895F72C01233368AC /* Pods-duelly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = duelly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mikeyhu.duelly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3791a426-d8a1-423e-8e7c-8a1a44d445a5";
 			};
 			name = Debug;
 		};
@@ -540,10 +542,13 @@
 			baseConfigurationReference = EAA0684BDE0F976589F9CDE5 /* Pods-duelly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mike Hu (D95M3848TZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mike Hu (D95M3848TZ)";
 				INFOPLIST_FILE = duelly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mikeyhu.duelly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3791a426-d8a1-423e-8e7c-8a1a44d445a5";
 			};
 			name = Release;
 		};
