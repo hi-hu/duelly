@@ -35,14 +35,17 @@ class CounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // prevent the app from going to sleep
+        UIApplication.sharedApplication().idleTimerDisabled = true
+
         // rounding corners
         counterViewController.layer.cornerRadius = 6.0
         counterViewController.clipsToBounds = true
         
         // rotating topViewController
         topViewController.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-
+        
         // adding gradient
         createGradient(topViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["green-500"]!)
         createGradient(bottomViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["purple-700"]!)
@@ -164,7 +167,7 @@ class CounterViewController: UIViewController {
     
     func createGradient(viewToRound: UIView, color1: UIColor, color2: UIColor) {
         let gradient: CAGradientLayer = CAGradientLayer()
-
+        
         // creating the gradient color
         gradient.frame = viewToRound.bounds
         gradient.colors = [color1.CGColor, color2.CGColor]
