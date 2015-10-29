@@ -25,6 +25,7 @@
 		B8EEC8241BB8589900FAB7E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EEC8221BB8589900FAB7E6 /* LaunchScreen.storyboard */; };
 		B8EEC82F1BB8589900FAB7E6 /* duellyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC82E1BB8589900FAB7E6 /* duellyTests.swift */; };
 		B8EEC83A1BB8589900FAB7E6 /* duellyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC8391BB8589900FAB7E6 /* duellyUITests.swift */; };
+		B8FE31671BE1EE120017CA79 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE31661BE1EE120017CA79 /* Dice.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		B8EEC8351BB8589900FAB7E6 /* duellyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = duellyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EEC8391BB8589900FAB7E6 /* duellyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = duellyUITests.swift; sourceTree = "<group>"; };
 		B8EEC83B1BB8589900FAB7E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8FE31661BE1EE120017CA79 /* Dice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		DBC9089895F72C01233368AC /* Pods-duelly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duelly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-duelly/Pods-duelly.debug.xcconfig"; sourceTree = "<group>"; };
 		EAA0684BDE0F976589F9CDE5 /* Pods-duelly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duelly.release.xcconfig"; path = "Pods/Target Support Files/Pods-duelly/Pods-duelly.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +159,7 @@
 				B81D792D1BC8583100B4CBF6 /* Common.swift */,
 				B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */,
 				B8EEC81B1BB8589900FAB7E6 /* ViewController.swift */,
+				B8FE31661BE1EE120017CA79 /* Dice.swift */,
 				B81D79271BC332AB00B4CBF6 /* Colors.swift */,
 				B8B7A2191BBA606900543E48 /* Custom Transitions */,
 				B8EEC81D1BB8589900FAB7E6 /* Main.storyboard */,
@@ -387,6 +390,7 @@
 				B8B7A2101BBA5F5300543E48 /* MatchesViewController.swift in Sources */,
 				B8B7A2171BBA606100543E48 /* BaseTransition.swift in Sources */,
 				B8B7A20B1BBA5D6500543E48 /* MainContainerViewController.swift in Sources */,
+				B8FE31671BE1EE120017CA79 /* Dice.swift in Sources */,
 				B8EEC81A1BB8589900FAB7E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

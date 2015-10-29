@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameplayKit
 
 class CounterViewController: UIViewController {
     @IBOutlet weak var counterViewController: UIView!
@@ -18,7 +19,6 @@ class CounterViewController: UIViewController {
     @IBOutlet weak var bottomCounterView: UIView!
     @IBOutlet weak var bottomCounterLabel: UILabel!
     @IBOutlet var counterMenuButtonCollection: [UIButton]!
-    @IBOutlet weak var dView: UIView!
     @IBOutlet var donutViewCollection: [UIView]!
 
     // references to circle CAShapes to redraw purposes
@@ -32,7 +32,12 @@ class CounterViewController: UIViewController {
     // animation switch
     var topStrokeAnimationIsOff = true
     var bottomStrokeAnimationIsOff = true
-    
+
+    // six-sided dice
+    let dice6 = GKRandomDistribution.d6()
+    var diceTop = Dice()
+    var diceBottom = Dice()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,6 +51,18 @@ class CounterViewController: UIViewController {
         // rotating topViewController
         topViewController.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         
+        var counter = 0
+        for donutView in donutViewCollection {
+            if(counter == 0) {
+                diceBottom.addToView(donutView)
+                diceBottom.hidden(true)
+            } else {
+                diceTop.addToView(donutView)
+                diceTop.hidden(true)
+            }
+            counter++
+        }
+        
         // adding gradient
         createGradient(topViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["green-500"]!)
         createGradient(bottomViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["purple-700"]!)
@@ -56,12 +73,12 @@ class CounterViewController: UIViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-//        print("willAppear")
+        // print("willAppear")
     }
     
     override func viewDidLayoutSubviews() {
         // seemingly gets called any time there's a draw event
-//                print("didLayoutSubviews")
+        // print("didLayoutSubviews")
     }
     
     override func didReceiveMemoryWarning() {
@@ -138,21 +155,7 @@ class CounterViewController: UIViewController {
         }
     }
 
-    @IBAction func resetDidPress(sender: AnyObject) {
-        // reset life counter with NSTimer
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
 
-        topShapeLayer.removeAnimationForKey("warningAnimations")
-        bottomShapeLayer.removeAnimationForKey("warningAnimations")
-        
-        // first quickly undraw the stroke then draw it back it
-        drawStroke(topShapeLayer, startValue: 1, toValue: 1, duration: 0.6)
-        drawStroke(bottomShapeLayer, startValue: 1, toValue: 1, duration: 0.6)
-        delay(0.7) { () -> () in
-            self.drawStroke(self.topShapeLayer, startValue: 1, toValue: 0, duration: 1)
-            self.drawStroke(self.bottomShapeLayer, startValue: 1, toValue: 0, duration: 1)
-        }
-    }
     
     func drawStroke(layer: CAShapeLayer, startValue: CGFloat, toValue: CGFloat, duration: Double) {
         let animateStroke = CABasicAnimation(keyPath: "strokeStart")
@@ -213,7 +216,7 @@ class CounterViewController: UIViewController {
             counter++
         }
     }
-    
+
     func resetLabel() {
         if(count < 21) {
             topCounterLabel.text = String(count)
@@ -223,6 +226,37 @@ class CounterViewController: UIViewController {
             count = 0
         }
     }
+    
+    @IBAction func rollDidPress(sender: AnyObject) {
+        topCounterLabel.hidden = true
+        bottomCounterLabel.hidden = true
+        diceBottom.hidden(false)
+        diceTop.hidden(false)
+        diceBottom.rollDie(dice6.nextInt())
+        diceTop.rollDie(dice6.nextInt())
+    }
+
+    @IBAction func resetDidPress(sender: AnyObject) {
+        topCounterLabel.hidden = false
+        bottomCounterLabel.hidden = false
+        diceBottom.hidden(true)
+        diceTop.hidden(true)
+
+        // reset life counter with NSTimer
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
+
+        topShapeLayer.removeAnimationForKey("warningAnimations")
+        bottomShapeLayer.removeAnimationForKey("warningAnimations")
+        
+        // first quickly undraw the stroke then draw it back it
+        drawStroke(topShapeLayer, startValue: 1, toValue: 1, duration: 0.6)
+        drawStroke(bottomShapeLayer, startValue: 1, toValue: 1, duration: 0.6)
+        delay(0.7) { () -> () in
+            self.drawStroke(self.topShapeLayer, startValue: 1, toValue: 0, duration: 1)
+            self.drawStroke(self.bottomShapeLayer, startValue: 1, toValue: 0, duration: 1)
+        }
+    }
+
     
     /*
     // MARK: - Navigation
