@@ -8,16 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		9D001B587E9B2EB473C760EC /* Pods_duelly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4603A97C55021B44792D2E0 /* Pods_duelly.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		B81D79281BC332AB00B4CBF6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D79271BC332AB00B4CBF6 /* Colors.swift */; settings = {ASSET_TAGS = (); }; };
-		B81D792C1BC640D100B4CBF6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B81D792B1BC640D100B4CBF6 /* Podfile */; settings = {ASSET_TAGS = (); }; };
-		B81D792E1BC8583100B4CBF6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D792D1BC8583100B4CBF6 /* Common.swift */; settings = {ASSET_TAGS = (); }; };
-		B8B7A20B1BBA5D6500543E48 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20A1BBA5D6500543E48 /* MainContainerViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B8B7A20E1BBA5F3D00543E48 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20D1BBA5F3D00543E48 /* CounterViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B8B7A2101BBA5F5300543E48 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20F1BBA5F5300543E48 /* MatchesViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B8B7A2121BBA5F6600543E48 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2111BBA5F6600543E48 /* ProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B8B7A2141BBA5F7000543E48 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2131BBA5F7000543E48 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		B8B7A2171BBA606100543E48 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2151BBA606100543E48 /* BaseTransition.swift */; settings = {ASSET_TAGS = (); }; };
-		B8B7A2181BBA606100543E48 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2161BBA606100543E48 /* FadeTransition.swift */; settings = {ASSET_TAGS = (); }; };
+		B81D79281BC332AB00B4CBF6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D79271BC332AB00B4CBF6 /* Colors.swift */; };
+		B81D792C1BC640D100B4CBF6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B81D792B1BC640D100B4CBF6 /* Podfile */; };
+		B81D792E1BC8583100B4CBF6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81D792D1BC8583100B4CBF6 /* Common.swift */; };
+		B8B7A20B1BBA5D6500543E48 /* MainContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20A1BBA5D6500543E48 /* MainContainerViewController.swift */; };
+		B8B7A20E1BBA5F3D00543E48 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20D1BBA5F3D00543E48 /* CounterViewController.swift */; };
+		B8B7A2101BBA5F5300543E48 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A20F1BBA5F5300543E48 /* MatchesViewController.swift */; };
+		B8B7A2121BBA5F6600543E48 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2111BBA5F6600543E48 /* ProfileViewController.swift */; };
+		B8B7A2141BBA5F7000543E48 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2131BBA5F7000543E48 /* SettingsViewController.swift */; };
+		B8B7A2171BBA606100543E48 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2151BBA606100543E48 /* BaseTransition.swift */; };
+		B8B7A2181BBA606100543E48 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B7A2161BBA606100543E48 /* FadeTransition.swift */; };
 		B8EEC81A1BB8589900FAB7E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */; };
 		B8EEC81C1BB8589900FAB7E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC81B1BB8589900FAB7E6 /* ViewController.swift */; };
 		B8EEC81F1BB8589900FAB7E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EEC81D1BB8589900FAB7E6 /* Main.storyboard */; };
@@ -25,7 +25,7 @@
 		B8EEC8241BB8589900FAB7E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EEC8221BB8589900FAB7E6 /* LaunchScreen.storyboard */; };
 		B8EEC82F1BB8589900FAB7E6 /* duellyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC82E1BB8589900FAB7E6 /* duellyTests.swift */; };
 		B8EEC83A1BB8589900FAB7E6 /* duellyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEC8391BB8589900FAB7E6 /* duellyUITests.swift */; };
-		B8FE31671BE1EE120017CA79 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE31661BE1EE120017CA79 /* Dice.swift */; settings = {ASSET_TAGS = (); }; };
+		B8FE31671BE1EE120017CA79 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FE31661BE1EE120017CA79 /* Dice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
