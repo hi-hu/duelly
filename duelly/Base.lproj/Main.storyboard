@@ -131,6 +131,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="T7v-bl-yGN"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="mainContainerVC" destination="5HA-kU-3tH" id="qMI-tT-csM"/>

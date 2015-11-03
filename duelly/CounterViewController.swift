@@ -232,8 +232,18 @@ class CounterViewController: UIViewController {
         bottomCounterLabel.hidden = true
         diceBottom.hidden(false)
         diceTop.hidden(false)
-        diceBottom.rollDie(dice6.nextInt())
-        diceTop.rollDie(dice6.nextInt())
+        
+        var topDie = 1
+        var bottomDie = 1
+        
+        // prevent ties
+        while topDie == bottomDie {
+            topDie = dice6.nextInt()
+            bottomDie = dice6.nextInt()
+        }
+        
+        diceBottom.rollDie(bottomDie)
+        diceTop.rollDie(topDie)
     }
 
     @IBAction func resetDidPress(sender: AnyObject) {
