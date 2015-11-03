@@ -267,7 +267,6 @@ class CounterViewController: UIViewController {
         }
     }
 
-    
     /*
     // MARK: - Navigation
 
