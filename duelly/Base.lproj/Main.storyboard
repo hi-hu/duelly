@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -298,7 +298,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXJ-y9-bsM">
                                                 <rect key="frame" x="0.0" y="0.0" width="133" height="52"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIP-o4-qzG">
+                                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIP-o4-qzG">
                                                         <rect key="frame" x="40" y="0.0" width="52" height="52"/>
                                                         <animations/>
                                                         <constraints>
@@ -326,7 +326,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTL-vJ-QXI">
                                                 <rect key="frame" x="133" y="0.0" width="133" height="52"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1A-97-12I">
+                                                    <button opaque="NO" alpha="0.0" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1A-97-12I">
                                                         <rect key="frame" x="40" y="0.0" width="52" height="52"/>
                                                         <animations/>
                                                         <constraints>
@@ -348,7 +348,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Zd-B3-mWF">
                                                 <rect key="frame" x="266" y="0.0" width="133" height="52"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZB-ca-s0R">
+                                                    <button opaque="NO" alpha="0.0" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZB-ca-s0R">
                                                         <rect key="frame" x="40" y="0.0" width="52" height="52"/>
                                                         <animations/>
                                                         <constraints>
@@ -388,12 +388,16 @@
                             </view>
                         </subviews>
                         <animations/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="War-et-lzP" firstAttribute="top" secondItem="Amt-6x-w7S" secondAttribute="top" constant="8" id="REs-oD-rEy"/>
                             <constraint firstItem="aAh-kj-3AZ" firstAttribute="top" secondItem="War-et-lzP" secondAttribute="bottom" constant="8" id="U8N-9o-uZb"/>
                             <constraint firstItem="War-et-lzP" firstAttribute="leading" secondItem="Amt-6x-w7S" secondAttribute="leading" constant="8" id="Zhs-mK-6gg"/>
                             <constraint firstAttribute="trailing" secondItem="War-et-lzP" secondAttribute="trailing" constant="8" id="lML-TQ-bfO"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ZGl-up-TZc" appends="YES" id="06m-B1-C1w"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="e0C-xi-oIx"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -411,9 +415,21 @@
                         <outletCollection property="counterMenuButtonCollection" destination="E1A-97-12I" collectionClass="NSMutableArray" id="aEX-vg-Gge"/>
                         <outletCollection property="donutViewCollection" destination="so6-ns-ux1" collectionClass="NSMutableArray" id="05C-r6-jxe"/>
                         <outletCollection property="donutViewCollection" destination="ejv-eu-OFL" collectionClass="NSMutableArray" id="8C8-zA-nFR"/>
+                        <outletCollection property="counterStackButtonCollection" destination="YIP-o4-qzG" collectionClass="NSMutableArray" id="MzA-2M-Egl"/>
+                        <outletCollection property="counterStackButtonCollection" destination="E1A-97-12I" collectionClass="NSMutableArray" id="ps5-Ug-gfW"/>
+                        <outletCollection property="counterStackButtonCollection" destination="uZB-ca-s0R" collectionClass="NSMutableArray" id="00r-sS-Bid"/>
+                        <outletCollection property="counterStackButtonCollection" destination="NPY-YA-S9b" collectionClass="NSMutableArray" id="0dC-qY-aHV"/>
+                        <outletCollection property="counterStackButtonCollection" destination="iMH-nj-fkE" collectionClass="NSMutableArray" id="Bfx-uU-noN"/>
+                        <outletCollection property="counterStackButtonCollection" destination="rka-tF-f7h" collectionClass="NSMutableArray" id="MaK-pb-WRu"/>
+                        <outletCollection property="counterStackButtonCollection" destination="Zc2-v6-vcG" collectionClass="NSMutableArray" id="WDW-9h-JqH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujA-D1-xRi" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZGl-up-TZc">
+                    <connections>
+                        <action selector="viewDidTap:" destination="sQ8-YH-Des" id="miS-ID-bXN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="416" y="1882"/>
         </scene>

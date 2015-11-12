@@ -18,3 +18,14 @@ let duellyColors: [String : UIColor] = [
     "pink-200"      : UIColor(red: 1, green: 0.278, blue: 0.627, alpha: 1.0),
     "pink-500"      : UIColor(red: 0.984, green: 0.0, blue: 0.47, alpha: 1.0)
 ]
+
+func createGradient(viewToRound: UIView, color1: UIColor, color2: UIColor) {
+    let gradient: CAGradientLayer = CAGradientLayer()
+    
+    // creating the gradient color
+    gradient.frame = viewToRound.bounds
+    gradient.colors = [color1.CGColor, color2.CGColor]
+    
+    // setting the gradient color
+    viewToRound.layer.insertSublayer(gradient, atIndex: 0)
+}

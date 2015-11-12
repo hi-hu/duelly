@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import UIKit.UIGestureRecognizerSubclass
 import GameplayKit
 
 class CounterViewController: UIViewController {
     @IBOutlet weak var counterViewController: UIView!
     @IBOutlet weak var counterMenuStackController: UIStackView!
+    @IBOutlet var counterStackButtonCollection: [UIButton]!
     @IBOutlet weak var topViewController: UIView!
     @IBOutlet weak var topCounterView: UIView!
     @IBOutlet weak var topCounterLabel: UILabel!
@@ -37,7 +39,8 @@ class CounterViewController: UIViewController {
     let dice6 = GKRandomDistribution.d6()
     var diceTop = Dice()
     var diceBottom = Dice()
-
+    var counterIsOn = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,10 +66,32 @@ class CounterViewController: UIViewController {
             counter++
         }
         
+        // animate counterViewController then animate the rest
+        counterViewController.alpha = 0
+
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.counterViewController.alpha = 1
+            }) { (Bool) -> Void in
+                // code
+        }
+        
+        // animate all the buttons in view
+        var count: NSTimeInterval = 0
+        for btn in counterStackButtonCollection {
+            btn.transform = CGAffineTransformMakeScale(0.3, 0.3)
+            UIView.animateWithDuration(1, delay: (count / 8), usingSpringWithDamping: 0.3, initialSpringVelocity: 0.3, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                btn.transform = CGAffineTransformMakeScale(1, 1)
+                btn.alpha = 1
+                }, completion: { (Bool) -> Void in
+            })
+            count++
+        }
+        
         // adding gradient
         createGradient(topViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["green-500"]!)
         createGradient(bottomViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["purple-700"]!)
         
+        // time event to draw the circles on load
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
 
         initLifeCounter()
@@ -87,26 +112,30 @@ class CounterViewController: UIViewController {
     }
     
     @IBAction func counterIncrement(sender: AnyObject) {
-        var label = UILabel()
-        var shape = CAShapeLayer()
+        viewToggles(false, diceView: true)
+
+            var label = UILabel()
+            var shape = CAShapeLayer()
         
-        if(sender.superview == bottomViewController) {
-            label = bottomCounterLabel
-            shape = bottomShapeLayer
-        } else {
-            label = topCounterLabel
-            shape = topShapeLayer
-        }
+            if(sender.superview == bottomViewController) {
+                label = bottomCounterLabel
+                shape = bottomShapeLayer
+            } else {
+                label = topCounterLabel
+                shape = topShapeLayer
+            }
         
-        let numberFromString:Int! = Int(label.text!)
-        label.text = String((numberFromString + 1))
+            let numberFromString:Int! = Int(label.text!)
+            label.text = String((numberFromString + 1))
         
-        if(numberFromString >= 5) {
-            shape.removeAnimationForKey("warningAnimations")
-        }
+            if(numberFromString >= 5) {
+                shape.removeAnimationForKey("warningAnimations")
+            }
     }
     
     @IBAction func counterDecrement(sender: AnyObject) {
+        viewToggles(false, diceView: true)
+
         var label = UILabel()
         var shape = CAShapeLayer()
 
@@ -167,17 +196,6 @@ class CounterViewController: UIViewController {
         animateStroke.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         layer.addAnimation(animateStroke, forKey: nil)
     }
-    
-    func createGradient(viewToRound: UIView, color1: UIColor, color2: UIColor) {
-        let gradient: CAGradientLayer = CAGradientLayer()
-        
-        // creating the gradient color
-        gradient.frame = viewToRound.bounds
-        gradient.colors = [color1.CGColor, color2.CGColor]
-
-        // setting the gradient color
-        viewToRound.layer.insertSublayer(gradient, atIndex: 0)
-    }
 
     func initLifeCounter() {
         var counter = 0
@@ -228,10 +246,8 @@ class CounterViewController: UIViewController {
     }
     
     @IBAction func rollDidPress(sender: AnyObject) {
-        topCounterLabel.hidden = true
-        bottomCounterLabel.hidden = true
-        diceBottom.hidden(false)
-        diceTop.hidden(false)
+        counterIsOn = false
+        viewToggles(true, diceView: false)
         
         var topDie = 1
         var bottomDie = 1
@@ -247,12 +263,14 @@ class CounterViewController: UIViewController {
     }
 
     @IBAction func resetDidPress(sender: AnyObject) {
-        topCounterLabel.hidden = false
-        bottomCounterLabel.hidden = false
-        diceBottom.hidden(true)
-        diceTop.hidden(true)
+        counterIsOn = true
+        viewToggles(false, diceView: true)
 
         // reset life counter with NSTimer
+        timer.invalidate()
+        topShapeLayer.removeAnimationForKey("strokeStart")
+        bottomShapeLayer.removeAnimationForKey("strokeStart")
+        
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
 
         topShapeLayer.removeAnimationForKey("warningAnimations")
@@ -267,6 +285,19 @@ class CounterViewController: UIViewController {
         }
     }
 
+    @IBAction func viewDidTap(sender: AnyObject) {
+        if counterIsOn {
+            viewToggles(false, diceView: true)
+        }
+    }
+    
+    func viewToggles(counterView: Bool, diceView: Bool) {
+        topCounterLabel.hidden = counterView
+        bottomCounterLabel.hidden = counterView
+        diceBottom.hidden(diceView)
+        diceTop.hidden(diceView)
+    }
+    
     /*
     // MARK: - Navigation
 
