@@ -183,8 +183,6 @@ class CounterViewController: UIViewController {
             shape.addAnimation(animateGroup, forKey: "warningAnimations")
         }
     }
-
-
     
     func drawStroke(layer: CAShapeLayer, startValue: CGFloat, toValue: CGFloat, duration: Double) {
         let animateStroke = CABasicAnimation(keyPath: "strokeStart")
@@ -286,6 +284,7 @@ class CounterViewController: UIViewController {
     }
 
     @IBAction func viewDidTap(sender: AnyObject) {
+        print("did tap screen")
         if counterIsOn {
             viewToggles(false, diceView: true)
         }

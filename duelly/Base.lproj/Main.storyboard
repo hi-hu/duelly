@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <animations/>
                             </view>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxF-60-Oop" userLabel="TabViewController">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxF-60-Oop" userLabel="TabViewController">
                                 <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4fi-pd-Vit">
@@ -396,7 +396,7 @@
                             <constraint firstAttribute="trailing" secondItem="War-et-lzP" secondAttribute="trailing" constant="8" id="lML-TQ-bfO"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="ZGl-up-TZc" appends="YES" id="06m-B1-C1w"/>
+                            <outletCollection property="gestureRecognizers" destination="ZGl-up-TZc" appends="YES" id="85V-5i-pDJ"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="e0C-xi-oIx"/>
@@ -427,7 +427,8 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujA-D1-xRi" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ZGl-up-TZc">
                     <connections>
-                        <action selector="viewDidTap:" destination="sQ8-YH-Des" id="miS-ID-bXN"/>
+                        <action selector="viewDidTap:" destination="sQ8-YH-Des" id="IBm-HS-sHa"/>
+                        <outlet property="delegate" destination="War-et-lzP" id="r9T-Ce-6KA"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
