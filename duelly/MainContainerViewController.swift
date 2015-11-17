@@ -17,6 +17,7 @@ class MainContainerViewController: UIViewController {
     
     // array holding the views
     var viewControllerArray = [UIViewController]()
+    var loginVC: LoginViewController!
     var counterVC: CounterViewController!
     var matchesVC: MatchesViewController!
     var profileVC: ProfileViewController!
@@ -36,13 +37,14 @@ class MainContainerViewController: UIViewController {
         matchesVC = storyboard.instantiateViewControllerWithIdentifier("matchesSBID") as! MatchesViewController
         profileVC = storyboard.instantiateViewControllerWithIdentifier("profileSBID") as! ProfileViewController
         settingsVC = storyboard.instantiateViewControllerWithIdentifier("settingsSBID") as! SettingsViewController
+        loginVC = storyboard.instantiateViewControllerWithIdentifier("loginSBID") as! LoginViewController
         
         // add the instantiated views into the array
         viewControllerArray = [counterVC, matchesVC, profileVC, settingsVC]
         
-        // default to homepage
-        displayContentViewController(mainContainerVC, content: counterVC)
-        tabControllerButtonCollection[0].selected = true
+        // default to login
+        displayContentViewController(view, content: loginVC)
+//        displayContentViewController(mainContainerVC, content: counterVC)
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +55,7 @@ class MainContainerViewController: UIViewController {
     @IBAction func tabButtonDidPress(sender: AnyObject) {
         let currentIndex = selectedIndex
         selectedIndex = sender.tag
-
+        
         // deactivate button  and remove current view
         tabControllerButtonCollection[currentIndex].selected = false
         hideContentViewController(mainContainerVC, content: viewControllerArray[currentIndex])

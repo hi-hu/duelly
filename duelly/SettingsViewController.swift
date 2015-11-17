@@ -27,7 +27,8 @@ class SettingsViewController: UIViewController {
             } else {
                 print("Uh oh. The user cancelled the Facebook login.")
             }
-        })    }
+        })
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
