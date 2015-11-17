@@ -9,12 +9,19 @@
 import UIKit
 import ParseFacebookUtilsV4
 
+var counterVC: UIViewController!
+var mainContainerVC: UIView!
+
 class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print("login page")
+        
+        var currentUser = PFUser.currentUser()!
+        
+        print(currentUser)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +37,22 @@ class LoginViewController: UIViewController {
                     print("User signed up and logged in through Facebook!")
                 } else {
                     print("User logged in through Facebook!")
+                    
+                    // if log in is success remove this view.
+                    self.view.removeFromSuperview()
+                    self.removeFromParentViewController()
+                    
+                    print("<———————————cokmplete")
+
+                    print(counterVC)
+                    print(mainContainerVC)
+                    
+                    // then trigger loading animation
+//                    self.addChildViewController(counterVC)
+                    mainContainerVC.addSubview(counterVC.view)
+                    counterVC.didMoveToParentViewController(self)
+                    
+                    print("<———————————cokmplete 12345678")
                 }
             } else {
                 print("Uh oh. The user cancelled the Facebook login.")
@@ -41,23 +64,33 @@ class LoginViewController: UIViewController {
         print("loggin out")
 //        PFFacebookUtils.unlinkUserInBackground(PFUser)
     }
-
-    func myMethod() {
-        var user = PFUser()
-        user.username = "myUsername"
-        user.password = "myPassword"
-        user.email = "email@example.com"
-        
-//        user.signUpInBackgroundWithBlock {
-//            (succeeded: Bool, error: NSError?) -> Void in
-//            if let error = error {
-//                let errorString = error.userInfo?["error"] as? NSString
-//                // Show the errorString somewhere and let the user try again.
-//            } else {
-//                // Hooray! Let them use the app now.
-//            }
-//        }
+    
+    func setViews(container: UIView, content: UIViewController) {
+        counterVC = content
+        mainContainerVC = container
     }
+    
+func getUserInfo() {
+//    if let session = PFSession() {
+//        if session.isOpen {
+//            print("session is open")
+//            FBRequestConnection.startForMeWithCompletionHandler({ (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+//                //println("done me request") 
+//                if error != nil {
+//                    println("facebook me request - error is not nil :(")
+//                } else {
+//                    println("facebook me request - error is nil :) ")
+//                    let urlUserImg = "http://graph.facebook.com/\(result.objectID)/picture?type=large"
+//                    let firstName = result.first_name
+//                    let lastName = result.last_name
+//                }
+//            })
+//        }
+//    } else {
+//        //let user:PFUser = PFUser.currentUser() 
+//        //println("ohooo \(user)")     
+//    }
+}
     
     
     /*

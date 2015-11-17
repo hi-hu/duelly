@@ -39,11 +39,14 @@ class MainContainerViewController: UIViewController {
         settingsVC = storyboard.instantiateViewControllerWithIdentifier("settingsSBID") as! SettingsViewController
         loginVC = storyboard.instantiateViewControllerWithIdentifier("loginSBID") as! LoginViewController
         
+        loginVC.setViews(mainContainerVC, content: counterVC)
+        
         // add the instantiated views into the array
         viewControllerArray = [counterVC, matchesVC, profileVC, settingsVC]
         
-        // default to login
+        // display login but probably should check to see if current session/token is valid
         displayContentViewController(view, content: loginVC)
+        // also display counter view
 //        displayContentViewController(mainContainerVC, content: counterVC)
     }
     
