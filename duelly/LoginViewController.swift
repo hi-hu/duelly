@@ -12,16 +12,17 @@ import ParseFacebookUtilsV4
 var counterVC: UIViewController!
 var mainContainerVC: UIView!
 
+var currentUser = PFUser()
+
+
 class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("login page")
-        
-        var currentUser = PFUser.currentUser()!
-        
-        print(currentUser)
+        currentUser = PFUser.currentUser()!
+//        print(currentUser)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,17 +43,12 @@ class LoginViewController: UIViewController {
                     self.view.removeFromSuperview()
                     self.removeFromParentViewController()
                     
-                    print("<———————————cokmplete")
+                    print("<———————————complete")
 
-                    print(counterVC)
-                    print(mainContainerVC)
-                    
-                    // then trigger loading animation
-//                    self.addChildViewController(counterVC)
                     mainContainerVC.addSubview(counterVC.view)
                     counterVC.didMoveToParentViewController(self)
                     
-                    print("<———————————cokmplete 12345678")
+                    print("<———————————complete 12345678")
                 }
             } else {
                 print("Uh oh. The user cancelled the Facebook login.")
@@ -61,8 +57,10 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func logoutDidPress(sender: AnyObject) {
+        PFUser.logOut()
+        PFFacebookUtils.unlinkUserInBackground(currentUser)
         print("loggin out")
-//        PFFacebookUtils.unlinkUserInBackground(PFUser)
+
     }
     
     func setViews(container: UIView, content: UIViewController) {
