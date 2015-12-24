@@ -9,25 +9,89 @@
 import UIKit
 import ParseFacebookUtilsV4
 
-var counterVC: UIViewController!
-var mainContainerVC: UIView!
-
 var currentUser = PFUser()
 
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet var loginView: UIView!
+    @IBOutlet weak var loginTitle: UILabel!
+    @IBOutlet weak var fbButton: UIButton!
+    @IBOutlet weak var loginText: UILabel!
+
+    @IBOutlet weak var loginTextCenterYConstraint: NSLayoutConstraint!
+    var loginTextCenterYConstraintConstantOrigin: CGFloat = 0
+    
+    @IBOutlet weak var loginTitleBottomConstraint: NSLayoutConstraint!
+    var loginTitleBottomConstraintConstantOrigin: CGFloat = 0
+
+    @IBOutlet weak var fbButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var fbButtonTrailingConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        currentUser = PFUser.currentUser()!
+        // this only works if the use is logged in 
+//        currentUser = PFUser.currentUser()!
 //        print(currentUser)
+        
+        createGradient(loginView, color1: asphalt500, color2: asphalt700)
+        
+        loginTitle.attributedText = NSMutableAttributedString(string: "DUELLY", attributes: [NSKernAttributeName: letterSpacing] )
+        
+        fbButton.layer.cornerRadius = cornerRadius
 
+        // set defaults for animation
+        loginTextCenterYConstraintConstantOrigin = loginTextCenterYConstraint.constant
+        loginTextCenterYConstraint.constant = 400
+        loginText.alpha = 0
+        
+        loginTitleBottomConstraintConstantOrigin = loginTitleBottomConstraint.constant
+        loginTitleBottomConstraint.constant = 200
+        loginTitle.alpha = 0
+        
+        fbButtonLeadingConstraint.constant = 200
+        fbButtonTrailingConstraint.constant = 200
+        fbButton.alpha = 0
     }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+//        loginTitle.center.y
+//        self.view.layoutIfNeeded()
+//        
+//        UIView.animateWithDuration(Double(0.5), animations: {
+//            self.centerYConstraint.constant = 0
+//            self.view.layoutIfNeeded()
+//        })
+
+        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 4, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            // code
+            self.loginTextCenterYConstraint.constant = self.loginTextCenterYConstraintConstantOrigin
+            self.loginText.alpha = 1
+            
+            self.loginTitleBottomConstraint.constant = self.loginTextCenterYConstraintConstantOrigin
+            self.loginTitle.alpha = 1
+            
+            
+            self.fbButtonLeadingConstraint.constant = 20
+            self.fbButtonTrailingConstraint.constant = 20
+            self.fbButton.alpha = 1
+            
+            self.view.layoutIfNeeded()
+            }) { (Bool) -> Void in
+                // code
+        }
+
+
+    
+    
     }
     
     @IBAction func loginDidPress(sender: AnyObject) {
@@ -38,17 +102,7 @@ class LoginViewController: UIViewController {
                     print("User signed up and logged in through Facebook!")
                 } else {
                     print("User logged in through Facebook!")
-                    
-                    // if log in is success remove this view.
-                    self.view.removeFromSuperview()
-                    self.removeFromParentViewController()
-                    
-                    print("<———————————complete")
-
-                    mainContainerVC.addSubview(counterVC.view)
-                    counterVC.didMoveToParentViewController(self)
-                    
-                    print("<———————————complete 12345678")
+                    self.performSegueWithIdentifier("loginPushSegue", sender: nil)
                 }
             } else {
                 print("Uh oh. The user cancelled the Facebook login.")
@@ -56,17 +110,18 @@ class LoginViewController: UIViewController {
         })
     }
 
-    @IBAction func logoutDidPress(sender: AnyObject) {
-        PFUser.logOut()
-        PFFacebookUtils.unlinkUserInBackground(currentUser)
-        print("loggin out")
-
-    }
     
-    func setViews(container: UIView, content: UIViewController) {
-        counterVC = content
-        mainContainerVC = container
-    }
+    
+    
+    
+    
+    
+//    @IBAction func logoutDidPress(sender: AnyObject) {
+//        PFUser.logOut()
+//        PFFacebookUtils.unlinkUserInBackground(currentUser)
+//        print("loggin out")
+//
+//    }
     
 func getUserInfo() {
 //    if let session = PFSession() {

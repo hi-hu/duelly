@@ -88,8 +88,8 @@ class CounterViewController: UIViewController {
         }
         
         // adding gradient
-        createGradient(topViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["green-500"]!)
-        createGradient(bottomViewController, color1: duellyColors["asphalt-500"]!, color2: duellyColors["purple-700"]!)
+        createGradient(topViewController, color1: asphalt500, color2: green500)
+        createGradient(bottomViewController, color1: asphalt500, color2: purple700)
         
         // time event to draw the circles on load
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
@@ -152,14 +152,14 @@ class CounterViewController: UIViewController {
 
         if(numberFromString < 7) {
             let animateColorStart = CABasicAnimation(keyPath: "strokeColor")
-            animateColorStart.fromValue = duellyColors["green-200"]!.CGColor
-            animateColorStart.toValue = duellyColors["pink-500"]!.CGColor
+            animateColorStart.fromValue = green200.CGColor
+            animateColorStart.toValue = pink500.CGColor
             animateColorStart.duration = 1.5
             animateColorStart.beginTime = 0
             
             let animateColorEnd = CABasicAnimation(keyPath: "strokeColor")
-            animateColorEnd.fromValue = duellyColors["pink-500"]!.CGColor
-            animateColorEnd.toValue = duellyColors["green-200"]!.CGColor
+            animateColorEnd.fromValue = pink500.CGColor
+            animateColorEnd.toValue = green200.CGColor
             animateColorEnd.duration = 1.5
             animateColorEnd.beginTime = 1.5
 
@@ -214,7 +214,7 @@ class CounterViewController: UIViewController {
             // draw stroke within bounds
             rectShape.bounds = bounds
             rectShape.position = CGPoint(x: donutView.frame.width / 2, y: donutView.frame.height / 2)
-            rectShape.strokeColor = duellyColors["green-200"]!.CGColor
+            rectShape.strokeColor = green200.CGColor
             rectShape.lineWidth = 2
             rectShape.fillColor = nil
             

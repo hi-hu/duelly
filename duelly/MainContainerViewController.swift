@@ -17,7 +17,7 @@ class MainContainerViewController: UIViewController {
     
     // array holding the views
     var viewControllerArray = [UIViewController]()
-    var loginVC: LoginViewController!
+//    var loginVC: LoginViewController!
     var counterVC: CounterViewController!
     var matchesVC: MatchesViewController!
     var profileVC: ProfileViewController!
@@ -29,7 +29,7 @@ class MainContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mainContainerVC.backgroundColor = duellyColors["asphalt-700"]
+        mainContainerVC.backgroundColor = asphalt700
         
         // view controller instantiation
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -37,17 +37,17 @@ class MainContainerViewController: UIViewController {
         matchesVC = storyboard.instantiateViewControllerWithIdentifier("matchesSBID") as! MatchesViewController
         profileVC = storyboard.instantiateViewControllerWithIdentifier("profileSBID") as! ProfileViewController
         settingsVC = storyboard.instantiateViewControllerWithIdentifier("settingsSBID") as! SettingsViewController
-        loginVC = storyboard.instantiateViewControllerWithIdentifier("loginSBID") as! LoginViewController
+//        loginVC = storyboard.instantiateViewControllerWithIdentifier("loginSBID") as! LoginViewController
         
-        loginVC.setViews(mainContainerVC, content: counterVC)
+//        loginVC.setViews(mainContainerVC, content: counterVC)
         
         // add the instantiated views into the array
         viewControllerArray = [counterVC, matchesVC, profileVC, settingsVC]
         
         // display login but probably should check to see if current session/token is valid
-        displayContentViewController(view, content: loginVC)
+//        displayContentViewController(view, content: loginVC)
         // also display counter view
-//        displayContentViewController(mainContainerVC, content: counterVC)
+        displayContentViewController(mainContainerVC, content: counterVC)
     }
     
     override func didReceiveMemoryWarning() {
