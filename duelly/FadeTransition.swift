@@ -12,6 +12,8 @@ class FadeTransition: BaseTransition {
     
     override func presentTransition(containerView: UIView, fromViewController: UIViewController, toViewController: UIViewController) {
         
+        print("something here")
+        
         toViewController.view.alpha = 0
         UIView.animateWithDuration(duration, animations: {
             toViewController.view.alpha = 1
