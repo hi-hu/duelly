@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HA-kU-3tH" userLabel="MainContainerViewController">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HA-kU-3tH" userLabel="MainContainerView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxF-60-Oop" userLabel="TabViewController">
@@ -39,6 +39,11 @@
                                                 <state key="normal" title="Counter">
                                                     <color key="titleColor" red="0.026746697104639394" green="0.081398833303175211" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="0Gg-7c-bZW"/>
@@ -127,7 +132,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="mainContainerVC" destination="5HA-kU-3tH" id="qMI-tT-csM"/>
+                        <outlet property="mainContainerView" destination="5HA-kU-3tH" id="x1c-ze-0vC"/>
                         <outletCollection property="tabControllerButtonCollection" destination="1L6-BQ-ZGP" collectionClass="NSMutableArray" id="hcf-qU-H5X"/>
                         <outletCollection property="tabControllerButtonCollection" destination="Kps-1W-QPh" collectionClass="NSMutableArray" id="yFt-WA-oVN"/>
                         <outletCollection property="tabControllerButtonCollection" destination="5B1-lb-P07" collectionClass="NSMutableArray" id="N7J-Rq-94x"/>
@@ -539,7 +544,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ia-oz-mdG">
-                                <rect key="frame" x="20" y="472" width="374" height="44"/>
+                                <rect key="frame" x="20" y="471" width="374" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.14000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Vir-Ys-oyV"/>
@@ -561,17 +566,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="To get started, please connect your  Facebook account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6l-2T-gET">
-                                <rect key="frame" x="63" y="310" width="276" height="41"/>
+                                <rect key="frame" x="69" y="310" width="276" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DUELLY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKs-5D-FFr">
-                                <rect key="frame" x="126" y="275" width="151" height="27"/>
+                                <rect key="frame" x="131" y="275" width="151" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
                                 <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="swords" translatesAutoresizingMaskIntoConstraints="NO" id="ywT-L1-Usk">
+                                <rect key="frame" x="166" y="187" width="80" height="80"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -595,7 +603,7 @@
                         <outlet property="loginTitle" destination="MKs-5D-FFr" id="asR-5i-qOV"/>
                         <outlet property="loginTitleBottomConstraint" destination="iAB-vq-chh" id="Mns-5s-bST"/>
                         <outlet property="loginView" destination="e4d-is-qSE" id="uz6-cS-PWt"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="loginPushSegue" id="aIH-Eg-rRL"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginSegue" id="aIH-Eg-rRL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gnr-dS-gF5" sceneMemberID="firstResponder"/>
@@ -628,5 +636,6 @@
         <image name="minus" width="14" height="14"/>
         <image name="plus" width="14" height="14"/>
         <image name="reset" width="26" height="26"/>
+        <image name="swords" width="200" height="200"/>
     </resources>
 </document>

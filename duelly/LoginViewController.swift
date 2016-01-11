@@ -28,6 +28,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var fbButtonLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var fbButtonTrailingConstraint: NSLayoutConstraint!
     
+    var fadeTransition: FadeTransition!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,14 +66,6 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-//        loginTitle.center.y
-//        self.view.layoutIfNeeded()
-//        
-//        UIView.animateWithDuration(Double(0.5), animations: {
-//            self.centerYConstraint.constant = 0
-//            self.view.layoutIfNeeded()
-//        })
-
         UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 4, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             // code
             self.loginTextCenterYConstraint.constant = self.loginTextCenterYConstraintConstantOrigin
@@ -88,10 +83,6 @@ class LoginViewController: UIViewController {
             }) { (Bool) -> Void in
                 // code
         }
-
-
-    
-    
     }
     
     @IBAction func loginDidPress(sender: AnyObject) {
@@ -102,7 +93,7 @@ class LoginViewController: UIViewController {
                     print("User signed up and logged in through Facebook!")
                 } else {
                     print("User logged in through Facebook!")
-                    self.performSegueWithIdentifier("loginPushSegue", sender: nil)
+                    self.performSegueWithIdentifier("loginSegue", sender: nil)
                 }
             } else {
                 print("Uh oh. The user cancelled the Facebook login.")
@@ -145,15 +136,17 @@ func getUserInfo() {
 //    }
 }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        print("prep for segue")
+        
+        let destinationVC = segue.destinationViewController
+        
+        fadeTransition = FadeTransition()
+        
+        destinationVC.transitioningDelegate = fadeTransition
     }
-    */
+
 
 }

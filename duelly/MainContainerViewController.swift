@@ -10,7 +10,7 @@ import UIKit
 
 class MainContainerViewController: UIViewController {
 
-    @IBOutlet weak var mainContainerVC: UIView!
+    @IBOutlet weak var mainContainerView: UIView!
     
     // array of tab controller buttons
     @IBOutlet var tabControllerButtonCollection: [UIButton]!
@@ -29,7 +29,10 @@ class MainContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mainContainerVC.backgroundColor = asphalt700
+        mainContainerView.backgroundColor = asphalt700
+        
+        createGradient(mainContainerView, color1: asphalt500, color2: asphalt700)
+
         
         // view controller instantiation
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -47,7 +50,7 @@ class MainContainerViewController: UIViewController {
         // display login but probably should check to see if current session/token is valid
 //        displayContentViewController(view, content: loginVC)
         // also display counter view
-        displayContentViewController(mainContainerVC, content: counterVC)
+        displayContentViewController(mainContainerView, content: counterVC)
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,11 +64,11 @@ class MainContainerViewController: UIViewController {
         
         // deactivate button  and remove current view
         tabControllerButtonCollection[currentIndex].selected = false
-        hideContentViewController(mainContainerVC, content: viewControllerArray[currentIndex])
+        hideContentViewController(mainContainerView, content: viewControllerArray[currentIndex])
         
         // activate button add new selected view
         tabControllerButtonCollection[selectedIndex].selected = true
-        displayContentViewController(mainContainerVC, content: viewControllerArray[selectedIndex])
+        displayContentViewController(mainContainerView, content: viewControllerArray[selectedIndex])
     }
     
     // add a subbview to the specified container
