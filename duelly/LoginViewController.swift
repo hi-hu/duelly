@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
     var loginTextCenterYConstraintConstantOrigin: CGFloat = 0
     
     @IBOutlet weak var loginTitleBottomConstraint: NSLayoutConstraint!
-    var loginTitleBottomConstraintConstantOrigin: CGFloat = 0
+    var loginTitleBottomConstraintConstantOrigin: CGFloat = 16
 
     @IBOutlet weak var fbButtonLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var fbButtonTrailingConstraint: NSLayoutConstraint!
@@ -33,10 +33,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // this only works if the use is logged in 
-//        currentUser = PFUser.currentUser()!
-//        print(currentUser)
         
         createGradient(loginView, color1: asphalt500, color2: asphalt700)
         
@@ -71,7 +67,7 @@ class LoginViewController: UIViewController {
             self.loginTextCenterYConstraint.constant = self.loginTextCenterYConstraintConstantOrigin
             self.loginText.alpha = 1
             
-            self.loginTitleBottomConstraint.constant = self.loginTextCenterYConstraintConstantOrigin
+            self.loginTitleBottomConstraint.constant = self.loginTitleBottomConstraintConstantOrigin
             self.loginTitle.alpha = 1
             
             
@@ -86,61 +82,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginDidPress(sender: AnyObject) {
-        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {
-            (user: PFUser?, error: NSError?) -> Void in
-            if let user = user {
-                if user.isNew {
-                    print("User signed up and logged in through Facebook!")
-                } else {
-                    print("User logged in through Facebook!")
-                    self.performSegueWithIdentifier("loginSegue", sender: nil)
-                }
-            } else {
-                print("Uh oh. The user cancelled the Facebook login.")
-            }
-        })
+        self.performSegueWithIdentifier("loginSegue", sender: nil)
     }
-
-    
-    
-    
-    
-    
-    
-//    @IBAction func logoutDidPress(sender: AnyObject) {
-//        PFUser.logOut()
-//        PFFacebookUtils.unlinkUserInBackground(currentUser)
-//        print("loggin out")
-//
-//    }
-    
-func getUserInfo() {
-//    if let session = PFSession() {
-//        if session.isOpen {
-//            print("session is open")
-//            FBRequestConnection.startForMeWithCompletionHandler({ (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
-//                //println("done me request") 
-//                if error != nil {
-//                    println("facebook me request - error is not nil :(")
-//                } else {
-//                    println("facebook me request - error is nil :) ")
-//                    let urlUserImg = "http://graph.facebook.com/\(result.objectID)/picture?type=large"
-//                    let firstName = result.first_name
-//                    let lastName = result.last_name
-//                }
-//            })
-//        }
-//    } else {
-//        //let user:PFUser = PFUser.currentUser() 
-//        //println("ohooo \(user)")     
-//    }
-}
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        print("prep for segue")
-        
+
         let destinationVC = segue.destinationViewController
         
         fadeTransition = FadeTransition()
