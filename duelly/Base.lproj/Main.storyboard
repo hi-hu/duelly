@@ -278,6 +278,13 @@
                                             <constraint firstAttribute="trailing" secondItem="Zc2-v6-vcG" secondAttribute="trailing" id="trE-J9-tlW"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cet-wa-ZjE">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="720"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="3Wm-QU-8Yo" appends="YES" id="3ir-kT-1Am"/>
+                                        </connections>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tBy-45-EIR">
                                         <rect key="frame" x="0.0" y="334" width="398" height="52"/>
                                         <subviews>
@@ -311,7 +318,7 @@
                                                 <rect key="frame" x="199" y="0.0" width="199" height="52"/>
                                                 <subviews>
                                                     <button opaque="NO" alpha="0.0" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1A-97-12I">
-                                                        <rect key="frame" x="73.5" y="0.0" width="52" height="52"/>
+                                                        <rect key="frame" x="74" y="0.0" width="52" height="52"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="52" id="sCW-Df-sM3"/>
                                                         </constraints>
@@ -335,16 +342,20 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="tBy-45-EIR" firstAttribute="leading" secondItem="War-et-lzP" secondAttribute="leading" id="1a0-fu-0Ad"/>
+                                    <constraint firstItem="cet-wa-ZjE" firstAttribute="leading" secondItem="War-et-lzP" secondAttribute="leading" id="38B-8w-IEG"/>
                                     <constraint firstAttribute="bottom" secondItem="P4l-mf-zXj" secondAttribute="bottom" id="5dV-s5-xwr"/>
                                     <constraint firstItem="tBy-45-EIR" firstAttribute="centerY" secondItem="War-et-lzP" secondAttribute="centerY" id="E3Q-5h-WLg"/>
                                     <constraint firstAttribute="trailing" secondItem="P4l-mf-zXj" secondAttribute="trailing" id="KBh-Dq-Bip"/>
+                                    <constraint firstItem="cet-wa-ZjE" firstAttribute="top" secondItem="War-et-lzP" secondAttribute="top" id="M5v-vo-RyO"/>
                                     <constraint firstAttribute="trailing" secondItem="4CB-1r-J5t" secondAttribute="trailing" id="Opw-e5-qK9"/>
                                     <constraint firstAttribute="trailing" secondItem="tBy-45-EIR" secondAttribute="trailing" id="Rwk-XN-8jx"/>
                                     <constraint firstItem="P4l-mf-zXj" firstAttribute="height" secondItem="War-et-lzP" secondAttribute="height" multiplier="0.5" id="VaC-WM-Mtk"/>
                                     <constraint firstItem="P4l-mf-zXj" firstAttribute="leading" secondItem="War-et-lzP" secondAttribute="leading" id="Ymj-MD-by0"/>
                                     <constraint firstItem="4CB-1r-J5t" firstAttribute="top" secondItem="War-et-lzP" secondAttribute="top" id="d9a-fv-Er4"/>
+                                    <constraint firstAttribute="trailing" secondItem="cet-wa-ZjE" secondAttribute="trailing" id="hi2-Pz-XvO"/>
                                     <constraint firstItem="4CB-1r-J5t" firstAttribute="height" secondItem="War-et-lzP" secondAttribute="height" multiplier="0.5" id="ngu-fL-uPX"/>
                                     <constraint firstItem="4CB-1r-J5t" firstAttribute="leading" secondItem="War-et-lzP" secondAttribute="leading" id="wPY-f2-Bem"/>
+                                    <constraint firstAttribute="bottom" secondItem="cet-wa-ZjE" secondAttribute="bottom" id="woe-ze-Rzc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -355,9 +366,6 @@
                             <constraint firstItem="War-et-lzP" firstAttribute="leading" secondItem="Amt-6x-w7S" secondAttribute="leading" constant="8" id="Zhs-mK-6gg"/>
                             <constraint firstAttribute="trailing" secondItem="War-et-lzP" secondAttribute="trailing" constant="8" id="lML-TQ-bfO"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="ZGl-up-TZc" appends="YES" id="85V-5i-pDJ"/>
-                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="e0C-xi-oIx"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -367,6 +375,7 @@
                         <outlet property="bottomViewController" destination="P4l-mf-zXj" id="ZhV-8K-bVW"/>
                         <outlet property="counterMenuStackController" destination="tBy-45-EIR" id="bme-wI-ttN"/>
                         <outlet property="counterViewController" destination="War-et-lzP" id="2OD-S7-HDk"/>
+                        <outlet property="tapView" destination="cet-wa-ZjE" id="laF-LY-ufo"/>
                         <outlet property="topCounterLabel" destination="OKa-MW-7nZ" id="N5h-i5-BlW"/>
                         <outlet property="topCounterView" destination="0GU-vm-mHy" id="ZsM-mn-tya"/>
                         <outlet property="topViewController" destination="4CB-1r-J5t" id="LON-CQ-eE9"/>
@@ -383,10 +392,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujA-D1-xRi" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ZGl-up-TZc">
+                <tapGestureRecognizer id="3Wm-QU-8Yo">
                     <connections>
-                        <action selector="viewDidTap:" destination="sQ8-YH-Des" id="IBm-HS-sHa"/>
-                        <outlet property="delegate" destination="War-et-lzP" id="r9T-Ce-6KA"/>
+                        <action selector="viewDidTap:" destination="sQ8-YH-Des" id="jeQ-wK-loT"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -547,7 +555,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doing the hard stuff, like counting numbers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6l-2T-gET">
-                                <rect key="frame" x="48" y="321" width="317.5" height="19.5"/>
+                                <rect key="frame" x="48" y="321" width="318" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -559,7 +567,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swords" translatesAutoresizingMaskIntoConstraints="NO" id="ywT-L1-Usk">
-                                <rect key="frame" x="167" y="176.5" width="80" height="80"/>
+                                <rect key="frame" x="167" y="177" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="M9M-lY-zJA"/>
                                     <constraint firstAttribute="width" constant="80" id="zWN-hb-568"/>

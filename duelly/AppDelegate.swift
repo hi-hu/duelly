@@ -20,10 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarHidden = true
         
         // FB and Parse
-        Parse.setApplicationId("JME7CIkuN8MvGe015BuJjcPk0EiXQnNozeQfQeTH", clientKey:"8zuGX42P47X1yx609cumTBE3dyN5DeEwdTzBZZqW")
-        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
-        
-        
+//        Parse.setApplicationId("JME7CIkuN8MvGe015BuJjcPk0EiXQnNozeQfQeTH", clientKey:"8zuGX42P47X1yx609cumTBE3dyN5DeEwdTzBZZqW")
+//        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+
         return true
     }
 

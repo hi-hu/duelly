@@ -22,6 +22,7 @@ class CounterViewController: UIViewController {
     @IBOutlet weak var bottomCounterLabel: UILabel!
     @IBOutlet var counterMenuButtonCollection: [UIButton]!
     @IBOutlet var donutViewCollection: [UIView]!
+    @IBOutlet weak var tapView: UIView!
 
     // references to circle CAShapes to redraw purposes
     let topShapeLayer = CAShapeLayer()
@@ -46,6 +47,8 @@ class CounterViewController: UIViewController {
 
         // prevent the app from going to sleep
         UIApplication.sharedApplication().idleTimerDisabled = true
+        
+        tapView.hidden = true
 
         // rounding corners
         counterViewController.layer.cornerRadius = 6.0
@@ -244,8 +247,12 @@ class CounterViewController: UIViewController {
     }
     
     @IBAction func rollDidPress(sender: AnyObject) {
-        counterIsOn = false
-        viewToggles(true, diceView: false)
+        if counterIsOn {
+            // hide counterView
+            // and set counterIsOn to false
+            counterIsOn = false
+            viewToggles(true, diceView: false)
+        } 
         
         var topDie = 1
         var bottomDie = 1
@@ -284,10 +291,8 @@ class CounterViewController: UIViewController {
     }
 
     @IBAction func viewDidTap(sender: AnyObject) {
-        print("did tap screen")
-        if counterIsOn {
-            viewToggles(false, diceView: true)
-        }
+        viewToggles(false, diceView: true)
+        counterIsOn = true
     }
     
     func viewToggles(counterView: Bool, diceView: Bool) {
@@ -295,6 +300,7 @@ class CounterViewController: UIViewController {
         bottomCounterLabel.hidden = counterView
         diceBottom.hidden(diceView)
         diceTop.hidden(diceView)
+        tapView.hidden = diceView
     }
     
     /*
