@@ -11,13 +11,13 @@ import UIKit.UIGestureRecognizerSubclass
 import GameplayKit
 
 class CounterViewController: UIViewController {
-    @IBOutlet weak var counterViewController: UIView!
+    @IBOutlet weak var counterView: UIView!
     @IBOutlet weak var counterMenuStackController: UIStackView!
     @IBOutlet var counterStackButtonCollection: [UIButton]!
-    @IBOutlet weak var topViewController: UIView!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var topCounterView: UIView!
     @IBOutlet weak var topCounterLabel: UILabel!
-    @IBOutlet weak var bottomViewController: UIView!
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var bottomCounterView: UIView!
     @IBOutlet weak var bottomCounterLabel: UILabel!
     @IBOutlet var counterMenuButtonCollection: [UIButton]!
@@ -51,11 +51,11 @@ class CounterViewController: UIViewController {
         tapView.hidden = true
 
         // rounding corners
-        counterViewController.layer.cornerRadius = 6.0
-        counterViewController.clipsToBounds = true
+        counterView.layer.cornerRadius = 6.0
+        counterView.clipsToBounds = true
         
-        // rotating topViewController
-        topViewController.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        // rotating topView
+        topView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         
         var counter = 0
         for donutView in donutViewCollection {
@@ -69,15 +69,21 @@ class CounterViewController: UIViewController {
             counter++
         }
         
-        // animate counterViewController then animate the rest
-        counterViewController.alpha = 0
+        // animate counterView then animate the rest
+        counterView.alpha = 0
 
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
-            self.counterViewController.alpha = 1
+        UIView.animateWithDuration(1.5, animations: { () -> Void in
+            self.counterView.alpha = 1
             }) { (Bool) -> Void in
                 // code
         }
-        
+
+        // adding gradient
+        let topGradientLayer = Colors.createGradientLayer(topView.bounds ,color1: Colors.asphalt500, color2: Colors.green500)
+        let bottomGradientLayer = Colors.createGradientLayer(bottomView.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
+        topView.layer.insertSublayer(topGradientLayer, atIndex: 0)
+        bottomView.layer.insertSublayer(bottomGradientLayer, atIndex: 0)
+
         // animate all the buttons in view
         var count: NSTimeInterval = 0
         for btn in counterStackButtonCollection {
@@ -89,14 +95,6 @@ class CounterViewController: UIViewController {
             })
             count++
         }
-        
-        // adding gradient
-        let topGradientLayer = Colors.createGradientLayer(topViewController.bounds ,color1: Colors.asphalt500, color2: Colors.green500)
-        topViewController.layer.insertSublayer(topGradientLayer, atIndex: 0)
-        
-        
-        let bottomGradientLayer = Colors.createGradientLayer(topViewController.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
-        bottomViewController.layer.insertSublayer(bottomGradientLayer, atIndex: 0)
         
         // time event to draw the circles on load
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
@@ -124,7 +122,7 @@ class CounterViewController: UIViewController {
             var label = UILabel()
             var shape = CAShapeLayer()
         
-            if(sender.superview == bottomViewController) {
+            if(sender.superview == bottomView) {
                 label = bottomCounterLabel
                 shape = bottomShapeLayer
             } else {
@@ -146,7 +144,7 @@ class CounterViewController: UIViewController {
         var label = UILabel()
         var shape = CAShapeLayer()
 
-        if(sender.superview == bottomViewController) {
+        if(sender.superview == bottomView) {
             label = bottomCounterLabel
             shape = bottomShapeLayer
         } else {

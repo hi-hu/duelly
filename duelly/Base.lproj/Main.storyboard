@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rME-ex-e9k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="B4K-5T-rsA">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -155,7 +155,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="War-et-lzP" userLabel="CounterViewController">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="War-et-lzP" userLabel="CounterView">
                                 <rect key="frame" x="8" y="8" width="398" height="720"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4CB-1r-J5t" userLabel="TopViewController">
@@ -372,13 +372,13 @@
                     <connections>
                         <outlet property="bottomCounterLabel" destination="huH-f1-PIk" id="taz-qn-k7m"/>
                         <outlet property="bottomCounterView" destination="Kyx-o4-NYa" id="azj-Uy-ueq"/>
-                        <outlet property="bottomViewController" destination="P4l-mf-zXj" id="ZhV-8K-bVW"/>
+                        <outlet property="bottomView" destination="P4l-mf-zXj" id="X1u-fA-ITR"/>
                         <outlet property="counterMenuStackController" destination="tBy-45-EIR" id="bme-wI-ttN"/>
-                        <outlet property="counterViewController" destination="War-et-lzP" id="2OD-S7-HDk"/>
+                        <outlet property="counterView" destination="War-et-lzP" id="NWX-dG-1jA"/>
                         <outlet property="tapView" destination="cet-wa-ZjE" id="laF-LY-ufo"/>
                         <outlet property="topCounterLabel" destination="OKa-MW-7nZ" id="N5h-i5-BlW"/>
                         <outlet property="topCounterView" destination="0GU-vm-mHy" id="ZsM-mn-tya"/>
-                        <outlet property="topViewController" destination="4CB-1r-J5t" id="LON-CQ-eE9"/>
+                        <outlet property="topView" destination="4CB-1r-J5t" id="5uF-cm-MRe"/>
                         <outletCollection property="counterMenuButtonCollection" destination="YIP-o4-qzG" collectionClass="NSMutableArray" id="XBq-YA-sYd"/>
                         <outletCollection property="counterMenuButtonCollection" destination="E1A-97-12I" collectionClass="NSMutableArray" id="aEX-vg-Gge"/>
                         <outletCollection property="donutViewCollection" destination="so6-ns-ux1" collectionClass="NSMutableArray" id="05C-r6-jxe"/>
@@ -593,6 +593,7 @@
                         <outlet property="fbButton" destination="2ia-oz-mdG" id="4xV-UU-iNA"/>
                         <outlet property="fbButtonLeadingConstraint" destination="G69-RV-YUp" id="gF6-je-Hp9"/>
                         <outlet property="fbButtonTrailingConstraint" destination="9qC-bM-mpe" id="E58-mu-g1k"/>
+                        <outlet property="loginIcon" destination="ywT-L1-Usk" id="k2x-B4-War"/>
                         <outlet property="loginText" destination="L6l-2T-gET" id="4ev-5b-8jV"/>
                         <outlet property="loginTextCenterYConstraint" destination="bAR-lV-rO5" id="CHb-Xs-lOv"/>
                         <outlet property="loginTitle" destination="MKs-5D-FFr" id="asR-5i-qOV"/>
@@ -604,25 +605,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gnr-dS-gF5" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="543" y="1022"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="AgM-Y5-YQS">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="rME-ex-e9k" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="9FM-fF-I3L"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wfe-Bc-dme">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="B4K-5T-rsA" kind="relationship" relationship="rootViewController" id="GPB-db-Hhl"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v8Y-VH-ghx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-145" y="1022"/>
         </scene>
     </scenes>
     <resources>

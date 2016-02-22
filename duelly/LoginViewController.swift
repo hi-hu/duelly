@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginTitle: UILabel!
     @IBOutlet weak var fbButton: UIButton!
     @IBOutlet weak var loginText: UILabel!
+    @IBOutlet weak var loginIcon: UIImageView!
 
     @IBOutlet weak var loginTextCenterYConstraint: NSLayoutConstraint!
     var loginTextCenterYConstraintConstantOrigin: CGFloat = 0
@@ -24,8 +25,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var fbButtonLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var fbButtonTrailingConstraint: NSLayoutConstraint!
     
-    var fadeTransition: FadeTransition!
-
+    var loginTransition: LoginTransition!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +52,6 @@ class LoginViewController: UIViewController {
         fbButtonTrailingConstraint.constant = 200
         fbButton.alpha = 0
     }
-    
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -86,12 +84,11 @@ class LoginViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
-        let destinationVC = segue.destinationViewController
         
-        fadeTransition = FadeTransition()
+        let destinationVC = segue.destinationViewController as! MainContainerViewController
         
-        destinationVC.transitioningDelegate = fadeTransition
+        loginTransition = LoginTransition()
+        
+        destinationVC.transitioningDelegate = loginTransition
     }
-
-
 }

@@ -9,10 +9,7 @@
 import Foundation
 import UIKit
 
-
-
 //// Global Constants
-
 let cornerRadius: CGFloat = 3
 let letterSpacing = 4
 
@@ -27,7 +24,7 @@ struct Colors {
     static let pink500     = UIColor(red: 0.984, green: 0.0, blue: 0.47, alpha: 1.0)
     
     static func createGradientLayer(rect: CGRect, color1: UIColor, color2: UIColor) -> CAGradientLayer {
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        let gradientLayer = CAGradientLayer()
         
         // creating the gradient color and it's layer frame
         gradientLayer.frame = rect
@@ -36,11 +33,6 @@ struct Colors {
         return gradientLayer
     }
 }
-
-
-//// Helper functions
-
-
 
 /*
 var mutableString = NSMutableAttributedString(string: event.title as String, attributes: [NSKernAttributeName: 4] )
