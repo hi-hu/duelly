@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F64CF8B1C7ACC700048CA5D /* LoginTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64CF8A1C7ACC700048CA5D /* LoginTransition.swift */; };
 		9D001B587E9B2EB473C760EC /* Pods_duelly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4603A97C55021B44792D2E0 /* Pods_duelly.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B805B39F1BFA9EFF007A2D74 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805B39C1BFA9EFF007A2D74 /* FBSDKCoreKit.framework */; };
 		B805B3A01BFA9EFF007A2D74 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805B39D1BFA9EFF007A2D74 /* FBSDKLoginKit.framework */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F64CF8A1C7ACC700048CA5D /* LoginTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTransition.swift; sourceTree = "<group>"; };
 		A4603A97C55021B44792D2E0 /* Pods_duelly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_duelly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B805B39C1BFA9EFF007A2D74 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		B805B39D1BFA9EFF007A2D74 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				B8B7A2151BBA606100543E48 /* BaseTransition.swift */,
 				B8B7A2161BBA606100543E48 /* FadeTransition.swift */,
+				7F64CF8A1C7ACC700048CA5D /* LoginTransition.swift */,
 			);
 			name = "Custom Transitions";
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F64CF8B1C7ACC700048CA5D /* LoginTransition.swift in Sources */,
 				B8B7A2121BBA5F6600543E48 /* ProfileViewController.swift in Sources */,
 				B81D79281BC332AB00B4CBF6 /* Constants.swift in Sources */,
 				B8B7A2181BBA606100543E48 /* FadeTransition.swift in Sources */,

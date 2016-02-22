@@ -17,7 +17,6 @@ class MainContainerViewController: UIViewController {
     
     // array holding the views
     var viewControllerArray = [UIViewController]()
-//    var loginVC: LoginViewController!
     var counterVC: CounterViewController!
     var matchesVC: MatchesViewController!
     var profileVC: ProfileViewController!
@@ -29,10 +28,9 @@ class MainContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mainContainerView.backgroundColor = asphalt700
-        
-        createGradient(mainContainerView, color1: asphalt500, color2: asphalt700)
-
+        // set background gradient
+        let backgroundGradientLayer = Colors.createGradientLayer(mainContainerView.bounds, color1: Colors.asphalt500, color2: Colors.asphalt700)
+        mainContainerView.layer.insertSublayer(backgroundGradientLayer, atIndex: 0)
         
         // view controller instantiation
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -40,15 +38,10 @@ class MainContainerViewController: UIViewController {
         matchesVC = storyboard.instantiateViewControllerWithIdentifier("matchesSBID") as! MatchesViewController
         profileVC = storyboard.instantiateViewControllerWithIdentifier("profileSBID") as! ProfileViewController
         settingsVC = storyboard.instantiateViewControllerWithIdentifier("settingsSBID") as! SettingsViewController
-//        loginVC = storyboard.instantiateViewControllerWithIdentifier("loginSBID") as! LoginViewController
-        
-//        loginVC.setViews(mainContainerVC, content: counterVC)
         
         // add the instantiated views into the array
         viewControllerArray = [counterVC, matchesVC, profileVC, settingsVC]
-        
-        // display login but probably should check to see if current session/token is valid
-//        displayContentViewController(view, content: loginVC)
+
         // also display counter view
         displayContentViewController(mainContainerView, content: counterVC)
     }
@@ -84,21 +77,6 @@ class MainContainerViewController: UIViewController {
         content.willMoveToParentViewController(nil)
         content.view.removeFromSuperview()
         content.removeFromParentViewController()
-    }
-
-    override func shouldAutorotate() -> Bool {
-        if (UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeLeft ||
-            UIDevice.currentDevice().orientation == UIDeviceOrientation.LandscapeRight ||
-            UIDevice.currentDevice().orientation == UIDeviceOrientation.Unknown) {
-                return false
-        }
-        else {
-            return true
-        }
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [UIInterfaceOrientationMask.Portrait]
     }
     
     /*
