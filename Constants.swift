@@ -16,28 +16,31 @@ import UIKit
 let cornerRadius: CGFloat = 3
 let letterSpacing = 4
 
-//// Colors
 
-let green200    = UIColor(red: 0.133, green: 1, blue: 0.364, alpha: 1.0)
-let green500    = UIColor(red: 0.274, green: 0.705, blue: 0.572, alpha: 1.0)
-let asphalt500  = UIColor(red: 0.157, green: 0.380, blue: 0.501, alpha: 1.0)
-let asphalt700  = UIColor(red: 0.066, green: 0.109, blue: 0.208, alpha: 1.0)
-let purple700   = UIColor(red: 0.098, green: 0.074, blue: 0.396, alpha: 1.0)
-let pink200     = UIColor(red: 1, green: 0.278, blue: 0.627, alpha: 1.0)
-let pink500     = UIColor(red: 0.984, green: 0.0, blue: 0.47, alpha: 1.0)
+struct Colors {
+    static let green200    = UIColor(red: 0.133, green: 1, blue: 0.364, alpha: 1.0)
+    static let green500    = UIColor(red: 0.274, green: 0.705, blue: 0.572, alpha: 1.0)
+    static let asphalt500  = UIColor(red: 0.157, green: 0.380, blue: 0.501, alpha: 1.0)
+    static let asphalt700  = UIColor(red: 0.066, green: 0.109, blue: 0.208, alpha: 1.0)
+    static let purple700   = UIColor(red: 0.098, green: 0.074, blue: 0.396, alpha: 1.0)
+    static let pink200     = UIColor(red: 1, green: 0.278, blue: 0.627, alpha: 1.0)
+    static let pink500     = UIColor(red: 0.984, green: 0.0, blue: 0.47, alpha: 1.0)
+    
+    static func createGradientLayer(rect: CGRect, color1: UIColor, color2: UIColor) -> CAGradientLayer {
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
+        // creating the gradient color and it's layer frame
+        gradientLayer.frame = rect
+        gradientLayer.colors = [color1.CGColor, color2.CGColor]
+
+        return gradientLayer
+    }
+}
+
 
 //// Helper functions
 
-func createGradient(viewToRound: UIView, color1: UIColor, color2: UIColor) {
-    let gradient: CAGradientLayer = CAGradientLayer()
-    
-    // creating the gradient color
-    gradient.frame = viewToRound.bounds
-    gradient.colors = [color1.CGColor, color2.CGColor]
-    
-    // setting the gradient color
-    viewToRound.layer.insertSublayer(gradient, atIndex: 0)
-}
+
 
 /*
 var mutableString = NSMutableAttributedString(string: event.title as String, attributes: [NSKernAttributeName: 4] )

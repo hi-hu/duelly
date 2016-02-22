@@ -28,9 +28,9 @@ class MainContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mainContainerView.backgroundColor = asphalt700
-        
-        createGradient(mainContainerView, color1: asphalt500, color2: asphalt700)
+        // set background gradient
+        let backgroundGradientLayer = Colors.createGradientLayer(mainContainerView.bounds, color1: Colors.asphalt500, color2: Colors.asphalt700)
+        mainContainerView.layer.insertSublayer(backgroundGradientLayer, atIndex: 0)
         
         // view controller instantiation
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

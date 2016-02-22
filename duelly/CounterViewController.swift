@@ -91,8 +91,12 @@ class CounterViewController: UIViewController {
         }
         
         // adding gradient
-        createGradient(topViewController, color1: asphalt500, color2: green500)
-        createGradient(bottomViewController, color1: asphalt500, color2: purple700)
+        let topGradientLayer = Colors.createGradientLayer(topViewController.bounds ,color1: Colors.asphalt500, color2: Colors.green500)
+        topViewController.layer.insertSublayer(topGradientLayer, atIndex: 0)
+        
+        
+        let bottomGradientLayer = Colors.createGradientLayer(topViewController.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
+        bottomViewController.layer.insertSublayer(bottomGradientLayer, atIndex: 0)
         
         // time event to draw the circles on load
         timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
@@ -155,14 +159,14 @@ class CounterViewController: UIViewController {
 
         if(numberFromString < 7) {
             let animateColorStart = CABasicAnimation(keyPath: "strokeColor")
-            animateColorStart.fromValue = green200.CGColor
-            animateColorStart.toValue = pink500.CGColor
+            animateColorStart.fromValue = Colors.green200.CGColor
+            animateColorStart.toValue = Colors.pink500.CGColor
             animateColorStart.duration = 1.5
             animateColorStart.beginTime = 0
             
             let animateColorEnd = CABasicAnimation(keyPath: "strokeColor")
-            animateColorEnd.fromValue = pink500.CGColor
-            animateColorEnd.toValue = green200.CGColor
+            animateColorEnd.fromValue = Colors.pink500.CGColor
+            animateColorEnd.toValue = Colors.green200.CGColor
             animateColorEnd.duration = 1.5
             animateColorEnd.beginTime = 1.5
 
@@ -217,7 +221,7 @@ class CounterViewController: UIViewController {
             // draw stroke within bounds
             rectShape.bounds = bounds
             rectShape.position = CGPoint(x: donutView.frame.width / 2, y: donutView.frame.height / 2)
-            rectShape.strokeColor = green200.CGColor
+            rectShape.strokeColor = Colors.green200.CGColor
             rectShape.lineWidth = 2
             rectShape.fillColor = nil
             

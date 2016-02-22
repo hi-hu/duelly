@@ -7,10 +7,6 @@
 //
 
 import UIKit
-import ParseFacebookUtilsV4
-
-var currentUser = PFUser()
-
 
 class LoginViewController: UIViewController {
 
@@ -33,8 +29,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // set background gradient
+        let backgroundGradientLayer = Colors.createGradientLayer(loginView.bounds, color1: Colors.asphalt500, color2: Colors.asphalt700)
+        loginView.layer.insertSublayer(backgroundGradientLayer, atIndex: 0)
         
-        createGradient(loginView, color1: asphalt500, color2: asphalt700)
         
         loginTitle.attributedText = NSMutableAttributedString(string: "DUELLY", attributes: [NSKernAttributeName: letterSpacing] )
         
