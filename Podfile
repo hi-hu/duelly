@@ -3,5 +3,4 @@ use_frameworks!
 
 target 'duelly' do
     pod 'AFNetworking'
-    pod 'Parse'
 end
