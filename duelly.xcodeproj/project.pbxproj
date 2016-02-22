@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F64CF8B1C7ACC700048CA5D /* LoginTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F64CF8A1C7ACC700048CA5D /* LoginTransition.swift */; };
-		9D001B587E9B2EB473C760EC /* Pods_duelly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4603A97C55021B44792D2E0 /* Pods_duelly.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9D001B587E9B2EB473C760EC /* Pods_duelly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4603A97C55021B44792D2E0 /* Pods_duelly.framework */; };
 		B805B39F1BFA9EFF007A2D74 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805B39C1BFA9EFF007A2D74 /* FBSDKCoreKit.framework */; };
 		B805B3A01BFA9EFF007A2D74 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805B39D1BFA9EFF007A2D74 /* FBSDKLoginKit.framework */; };
 		B805B3A11BFA9EFF007A2D74 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B805B39E1BFA9EFF007A2D74 /* FBSDKShareKit.framework */; };
