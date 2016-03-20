@@ -29,7 +29,7 @@ class MainContainerViewController: UIViewController {
         super.viewDidLoad()
 
         // set background gradient
-        let backgroundGradientLayer = Colors.createGradientLayer(mainContainerView.bounds, color1: Colors.asphalt500, color2: Colors.asphalt700)
+        let backgroundGradientLayer = Colors.createGradientLayer(mainContainerView.bounds, color1: Colors.yellow500, color2: Colors.yellow700)
         mainContainerView.layer.insertSublayer(backgroundGradientLayer, atIndex: 0)
         
         // view controller instantiation

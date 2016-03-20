@@ -44,7 +44,7 @@ class CounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print(counterView.frame)
         // prevent the app from going to sleep
         UIApplication.sharedApplication().idleTimerDisabled = true
         
@@ -79,8 +79,22 @@ class CounterViewController: UIViewController {
         }
 
         // adding gradient        
-        let bgGradientLayer = Colors.createGradientLayer(counterView.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
-        counterView.layer.insertSublayer(bgGradientLayer, atIndex: 0)
+//        let bgGradientLayer = Colors.createGradientLayer(counterView.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
+//        counterView.layer.insertSublayer(bgGradientLayer, atIndex: 0)
+        let shadowLayer = CAShapeLayer()
+        shadowLayer.frame = counterView.frame
+        shadowLayer.shadowPath = UIBezierPath(roundedRect: counterView.bounds, cornerRadius: cornerRadius).CGPath
+        shadowLayer.shadowColor = UIColor.blackColor().CGColor
+        shadowLayer.shadowOpacity = 0.4
+        shadowLayer.shadowOffset = CGSizeZero
+        shadowLayer.shadowRadius = 10
+        shadowLayer.shouldRasterize = true
+        view.layer.insertSublayer(shadowLayer, atIndex: 0)
+        
+        print(counterView.frame)
+        print(shadowLayer.frame)
+        print(tapView.frame)
+        print(view.frame)
 
         // animate all the buttons in view
         var count: NSTimeInterval = 0
