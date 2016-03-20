@@ -13,9 +13,7 @@ class LoginTransition: BaseTransition {
     override func presentTransition(containerView: UIView, fromViewController: UIViewController, toViewController: UIViewController) {
 
         let loginVC = fromViewController as! LoginViewController
-        //        let counterVC = toViewController as! MainContainerViewController
-        loginVC.fbButton.hidden = true
-        loginVC.loginText.hidden = true
+        loginVC.playButton.hidden = true
         loginVC.loginTitle.hidden = true
         loginVC.loginIcon.hidden = true
         
@@ -29,7 +27,7 @@ class LoginTransition: BaseTransition {
         let largeH = containerView.frame.height - 16
         let largeRect = UIBezierPath(roundedRect: CGRect(x: largeX, y: largeY, width: largeW, height: largeH), cornerRadius: cornerRadius).CGPath
         
-        shapeToAnimate.path = UIBezierPath(roundedRect: loginVC.fbButton.frame, cornerRadius: cornerRadius).CGPath
+        shapeToAnimate.path = UIBezierPath(roundedRect: loginVC.playButton.frame, cornerRadius: cornerRadius).CGPath
         shapeToAnimate.fillColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.14).CGColor
         containerView.layer.addSublayer(shapeToAnimate)
 

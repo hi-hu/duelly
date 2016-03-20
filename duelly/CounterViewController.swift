@@ -78,11 +78,9 @@ class CounterViewController: UIViewController {
                 // code
         }
 
-        // adding gradient
-        let topGradientLayer = Colors.createGradientLayer(topView.bounds ,color1: Colors.asphalt500, color2: Colors.green500)
-        let bottomGradientLayer = Colors.createGradientLayer(bottomView.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
-        topView.layer.insertSublayer(topGradientLayer, atIndex: 0)
-        bottomView.layer.insertSublayer(bottomGradientLayer, atIndex: 0)
+        // adding gradient        
+        let bgGradientLayer = Colors.createGradientLayer(counterView.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
+        counterView.layer.insertSublayer(bgGradientLayer, atIndex: 0)
 
         // animate all the buttons in view
         var count: NSTimeInterval = 0
