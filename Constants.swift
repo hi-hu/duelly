@@ -24,7 +24,7 @@ struct Colors {
     static let pink500     = UIColor(red: 0.984, green: 0.0, blue: 0.47, alpha: 1.0)
     static let yellow500   = UIColor(red: 246/255, green: 198/255, blue: 30/255, alpha: 1.0)
     static let yellow700   = UIColor(red: 255/255, green: 176/255, blue: 30/255, alpha: 1.0)
-    
+    static let grey500     = UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1.0)
     
     static func createGradientLayer(frame: CGRect, color1: UIColor, color2: UIColor) -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()

@@ -81,6 +81,7 @@ print(counterView.frame)
         // adding gradient        
 //        let bgGradientLayer = Colors.createGradientLayer(counterView.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
 //        counterView.layer.insertSublayer(bgGradientLayer, atIndex: 0)
+
         let shadowLayer = CAShapeLayer()
         shadowLayer.frame = counterView.frame
         shadowLayer.shadowPath = UIBezierPath(roundedRect: counterView.bounds, cornerRadius: cornerRadius).CGPath
@@ -169,14 +170,14 @@ print(counterView.frame)
 
         if(numberFromString < 7) {
             let animateColorStart = CABasicAnimation(keyPath: "strokeColor")
-            animateColorStart.fromValue = Colors.green200.CGColor
+            animateColorStart.fromValue = Colors.yellow700.CGColor
             animateColorStart.toValue = Colors.pink500.CGColor
             animateColorStart.duration = 1.5
             animateColorStart.beginTime = 0
             
             let animateColorEnd = CABasicAnimation(keyPath: "strokeColor")
             animateColorEnd.fromValue = Colors.pink500.CGColor
-            animateColorEnd.toValue = Colors.green200.CGColor
+            animateColorEnd.toValue = Colors.yellow700.CGColor
             animateColorEnd.duration = 1.5
             animateColorEnd.beginTime = 1.5
 
@@ -231,7 +232,7 @@ print(counterView.frame)
             // draw stroke within bounds
             rectShape.bounds = bounds
             rectShape.position = CGPoint(x: donutView.frame.width / 2, y: donutView.frame.height / 2)
-            rectShape.strokeColor = Colors.green200.CGColor
+            rectShape.strokeColor = Colors.yellow500.CGColor
             rectShape.lineWidth = 2
             rectShape.fillColor = nil
             
