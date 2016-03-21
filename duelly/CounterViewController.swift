@@ -44,7 +44,7 @@ class CounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print(counterView.frame)
         // prevent the app from going to sleep
         UIApplication.sharedApplication().idleTimerDisabled = true
         
@@ -78,11 +78,24 @@ class CounterViewController: UIViewController {
                 // code
         }
 
-        // adding gradient
-        let topGradientLayer = Colors.createGradientLayer(topView.bounds ,color1: Colors.asphalt500, color2: Colors.green500)
-        let bottomGradientLayer = Colors.createGradientLayer(bottomView.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
-        topView.layer.insertSublayer(topGradientLayer, atIndex: 0)
-        bottomView.layer.insertSublayer(bottomGradientLayer, atIndex: 0)
+        // adding gradient        
+//        let bgGradientLayer = Colors.createGradientLayer(counterView.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
+//        counterView.layer.insertSublayer(bgGradientLayer, atIndex: 0)
+
+        let shadowLayer = CAShapeLayer()
+        shadowLayer.frame = counterView.frame
+        shadowLayer.shadowPath = UIBezierPath(roundedRect: counterView.bounds, cornerRadius: cornerRadius).CGPath
+        shadowLayer.shadowColor = UIColor.blackColor().CGColor
+        shadowLayer.shadowOpacity = 0.4
+        shadowLayer.shadowOffset = CGSizeZero
+        shadowLayer.shadowRadius = 10
+        shadowLayer.shouldRasterize = true
+        view.layer.insertSublayer(shadowLayer, atIndex: 0)
+        
+        print(counterView.frame)
+        print(shadowLayer.frame)
+        print(tapView.frame)
+        print(view.frame)
 
         // animate all the buttons in view
         var count: NSTimeInterval = 0
@@ -157,14 +170,14 @@ class CounterViewController: UIViewController {
 
         if(numberFromString < 7) {
             let animateColorStart = CABasicAnimation(keyPath: "strokeColor")
-            animateColorStart.fromValue = Colors.green200.CGColor
+            animateColorStart.fromValue = Colors.yellow700.CGColor
             animateColorStart.toValue = Colors.pink500.CGColor
             animateColorStart.duration = 1.5
             animateColorStart.beginTime = 0
             
             let animateColorEnd = CABasicAnimation(keyPath: "strokeColor")
             animateColorEnd.fromValue = Colors.pink500.CGColor
-            animateColorEnd.toValue = Colors.green200.CGColor
+            animateColorEnd.toValue = Colors.yellow700.CGColor
             animateColorEnd.duration = 1.5
             animateColorEnd.beginTime = 1.5
 
@@ -219,7 +232,7 @@ class CounterViewController: UIViewController {
             // draw stroke within bounds
             rectShape.bounds = bounds
             rectShape.position = CGPoint(x: donutView.frame.width / 2, y: donutView.frame.height / 2)
-            rectShape.strokeColor = Colors.green200.CGColor
+            rectShape.strokeColor = Colors.yellow500.CGColor
             rectShape.lineWidth = 2
             rectShape.fillColor = nil
             

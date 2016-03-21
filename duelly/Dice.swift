@@ -26,8 +26,9 @@ class Dice {
         for var num = 0; num < 6; num++ {
             let dotView = UIView(frame: CGRectMake( CGFloat(dotCount_1[num][0]), CGFloat(dotCount_1[num][1]), 24, 24))
             dotView.alpha = CGFloat(dotCount_1[num][2])
-            dotView.backgroundColor = UIColor.whiteColor()
-            dotView.layer.cornerRadius = 12
+            dotView.backgroundColor = Colors.yellow700
+            let layer = dotView.layer
+            layer.cornerRadius = 12
             dotViewCollection.append(dotView)
         }
     }
@@ -72,12 +73,12 @@ class Dice {
                 dotView.alpha = 1
                 }, completion: { (Bool) -> Void in
             })
+
             delay(0.35, closure: { () -> () in
                 UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 3, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     dotView.frame.origin = dotPoint
                     dotView.alpha = dotAlpha
                     }, completion: { (Bool) -> Void in
-                        // done
                 })
             })
         }

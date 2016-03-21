@@ -12,18 +12,16 @@ class LoginViewController: UIViewController {
 
     @IBOutlet var loginView: UIView!
     @IBOutlet weak var loginTitle: UILabel!
-    @IBOutlet weak var fbButton: UIButton!
-    @IBOutlet weak var loginText: UILabel!
+    @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var loginIcon: UIImageView!
 
-    @IBOutlet weak var loginTextCenterYConstraint: NSLayoutConstraint!
     var loginTextCenterYConstraintConstantOrigin: CGFloat = 0
     
     @IBOutlet weak var loginTitleBottomConstraint: NSLayoutConstraint!
     var loginTitleBottomConstraintConstantOrigin: CGFloat = 16
 
-    @IBOutlet weak var fbButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var fbButtonTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var playButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var playButtonTrailingConstraint: NSLayoutConstraint!
     
     var loginTransition: LoginTransition!
     
@@ -31,26 +29,22 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // set background gradient
-        let backgroundGradientLayer = Colors.createGradientLayer(loginView.bounds, color1: Colors.asphalt500, color2: Colors.asphalt700)
+        let backgroundGradientLayer = Colors.createGradientLayer(loginView.bounds, color1: Colors.green500, color2: Colors.asphalt500)
         loginView.layer.insertSublayer(backgroundGradientLayer, atIndex: 0)
         
         
         loginTitle.attributedText = NSMutableAttributedString(string: "DUELLY", attributes: [NSKernAttributeName: letterSpacing] )
         
-        fbButton.layer.cornerRadius = cornerRadius
+        playButton.layer.cornerRadius = cornerRadius
 
         // set defaults for animation
-        loginTextCenterYConstraintConstantOrigin = loginTextCenterYConstraint.constant
-        loginTextCenterYConstraint.constant = 400
-        loginText.alpha = 0
-        
         loginTitleBottomConstraintConstantOrigin = loginTitleBottomConstraint.constant
         loginTitleBottomConstraint.constant = 200
         loginTitle.alpha = 0
         
-        fbButtonLeadingConstraint.constant = 200
-        fbButtonTrailingConstraint.constant = 200
-        fbButton.alpha = 0
+        playButtonLeadingConstraint.constant = 200
+        playButtonTrailingConstraint.constant = 200
+        playButton.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,17 +54,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 4, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-            // code
-            self.loginTextCenterYConstraint.constant = self.loginTextCenterYConstraintConstantOrigin
-            self.loginText.alpha = 1
             
+            // animate the views
             self.loginTitleBottomConstraint.constant = self.loginTitleBottomConstraintConstantOrigin
             self.loginTitle.alpha = 1
             
-            
-            self.fbButtonLeadingConstraint.constant = 20
-            self.fbButtonTrailingConstraint.constant = 20
-            self.fbButton.alpha = 1
+            self.playButtonLeadingConstraint.constant = 20
+            self.playButtonTrailingConstraint.constant = 20
+            self.playButton.alpha = 1
             
             self.view.layoutIfNeeded()
             }) { (Bool) -> Void in
@@ -83,12 +74,8 @@ class LoginViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
-        
         let destinationVC = segue.destinationViewController as! MainContainerViewController
-        
         loginTransition = LoginTransition()
-        
         destinationVC.transitioningDelegate = loginTransition
     }
 }

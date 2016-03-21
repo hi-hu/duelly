@@ -22,12 +22,15 @@ struct Colors {
     static let purple700   = UIColor(red: 0.098, green: 0.074, blue: 0.396, alpha: 1.0)
     static let pink200     = UIColor(red: 1, green: 0.278, blue: 0.627, alpha: 1.0)
     static let pink500     = UIColor(red: 0.984, green: 0.0, blue: 0.47, alpha: 1.0)
+    static let yellow500   = UIColor(red: 246/255, green: 198/255, blue: 30/255, alpha: 1.0)
+    static let yellow700   = UIColor(red: 255/255, green: 176/255, blue: 30/255, alpha: 1.0)
+    static let grey500     = UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1.0)
     
-    static func createGradientLayer(rect: CGRect, color1: UIColor, color2: UIColor) -> CAGradientLayer {
+    static func createGradientLayer(frame: CGRect, color1: UIColor, color2: UIColor) -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
         
-        // creating the gradient color and it's layer frame
-        gradientLayer.frame = rect
+        // creating the gradient color and its layer frame
+        gradientLayer.frame = frame
         gradientLayer.colors = [color1.CGColor, color2.CGColor]
 
         return gradientLayer
