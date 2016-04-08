@@ -23,7 +23,7 @@ class Dice {
     
     init() {
         // initalize and populate the view with 6 dots
-        for var num = 0; num < 6; num++ {
+        for num in 0 ..< 6 {
             let dotView = UIView(frame: CGRectMake( CGFloat(dotCount_1[num][0]), CGFloat(dotCount_1[num][1]), 24, 24))
             dotView.alpha = CGFloat(dotCount_1[num][2])
             dotView.backgroundColor = Colors.yellow700
@@ -61,7 +61,7 @@ class Dice {
     }
     
     func animateDots(dotArray: [[Int]]) {
-        for var row = 0; row < 6; row++ {
+        for row in 0 ..< 6 {
 
             // set the point and alph of the dot from the randomly generated side
             let dotPoint = CGPoint(x: CGFloat(dotArray[row][0]), y: CGFloat(dotArray[row][1]))
