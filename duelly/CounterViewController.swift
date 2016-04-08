@@ -44,7 +44,7 @@ class CounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-print(counterView.frame)
+
         // prevent the app from going to sleep
         UIApplication.sharedApplication().idleTimerDisabled = true
         
@@ -66,7 +66,7 @@ print(counterView.frame)
                 diceTop.addToView(donutView)
                 diceTop.hidden(true)
             }
-            counter++
+            counter += 1
         }
         
         // animate counterView then animate the rest
@@ -78,10 +78,6 @@ print(counterView.frame)
                 // code
         }
 
-        // adding gradient        
-//        let bgGradientLayer = Colors.createGradientLayer(counterView.bounds, color1: Colors.asphalt500, color2: Colors.purple700)
-//        counterView.layer.insertSublayer(bgGradientLayer, atIndex: 0)
-
         let shadowLayer = CAShapeLayer()
         shadowLayer.frame = counterView.frame
         shadowLayer.shadowPath = UIBezierPath(roundedRect: counterView.bounds, cornerRadius: cornerRadius).CGPath
@@ -91,26 +87,21 @@ print(counterView.frame)
         shadowLayer.shadowRadius = 10
         shadowLayer.shouldRasterize = true
         view.layer.insertSublayer(shadowLayer, atIndex: 0)
-        
-        print(counterView.frame)
-        print(shadowLayer.frame)
-        print(tapView.frame)
-        print(view.frame)
 
         // animate all the buttons in view
-        var count: NSTimeInterval = 0
-        for btn in counterStackButtonCollection {
-            btn.transform = CGAffineTransformMakeScale(0.3, 0.3)
-            UIView.animateWithDuration(1, delay: (count / 8), usingSpringWithDamping: 0.3, initialSpringVelocity: 0.3, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-                btn.transform = CGAffineTransformMakeScale(1, 1)
-                btn.alpha = 1
-                }, completion: { (Bool) -> Void in
-            })
-            count++
-        }
+//        var count: NSTimeInterval = 0
+//        for btn in counterStackButtonCollection {
+//            btn.transform = CGAffineTransformMakeScale(0.3, 0.3)
+//            UIView.animateWithDuration(1, delay: (count / 8), usingSpringWithDamping: 0.3, initialSpringVelocity: 0.3, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+//                btn.transform = CGAffineTransformMakeScale(1, 1)
+//                btn.alpha = 1
+//                }, completion: { (Bool) -> Void in
+//            })
+//            count += 1
+//        }
         
         // time event to draw the circles on load
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(CounterViewController.resetLabel), userInfo: nil, repeats: true)
 
         initLifeCounter()
     }
@@ -247,14 +238,15 @@ print(counterView.frame)
             // animation properties
             drawStroke(rectShape, startValue: 1, toValue: 0, duration: 2)
 
-            counter++
+            counter += 1
         }
     }
 
     func resetLabel() {
         if(count < 21) {
             topCounterLabel.text = String(count)
-            bottomCounterLabel.text = String(count++)
+            bottomCounterLabel.text = String(count)
+            count += 1
         } else {
             timer.invalidate()
             count = 0
@@ -291,7 +283,7 @@ print(counterView.frame)
         topShapeLayer.removeAnimationForKey("strokeStart")
         bottomShapeLayer.removeAnimationForKey("strokeStart")
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: Selector("resetLabel"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.09, target: self, selector: #selector(CounterViewController.resetLabel), userInfo: nil, repeats: true)
 
         topShapeLayer.removeAnimationForKey("warningAnimations")
         bottomShapeLayer.removeAnimationForKey("warningAnimations")

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="B4K-5T-rsA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="B4K-5T-rsA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -310,12 +310,12 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXJ-y9-bsM">
                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="52"/>
                                                 <subviews>
-                                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIP-o4-qzG">
-                                                        <rect key="frame" x="59" y="0.0" width="52" height="52"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIP-o4-qzG">
+                                                        <rect key="frame" x="71" y="12" width="28" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="52" id="qqD-oo-i49"/>
                                                         </constraints>
-                                                        <state key="normal" image="dice"/>
+                                                        <state key="normal" image="icon-dice"/>
                                                         <connections>
                                                             <action selector="rollDidPress:" destination="sQ8-YH-Des" eventType="touchUpInside" id="pH7-Rh-CiY"/>
                                                         </connections>
@@ -328,14 +328,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTL-vJ-QXI">
-                                                <rect key="frame" x="170" y="0.0" width="169" height="52"/>
+                                                <rect key="frame" x="170" y="0.0" width="170" height="52"/>
                                                 <subviews>
-                                                    <button opaque="NO" alpha="0.0" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1A-97-12I">
-                                                        <rect key="frame" x="59" y="0.0" width="52" height="52"/>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1A-97-12I">
+                                                        <rect key="frame" x="72" y="13" width="26" height="26"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="52" id="sCW-Df-sM3"/>
                                                         </constraints>
-                                                        <state key="normal" image="duel"/>
+                                                        <state key="normal" image="icon-reset">
+                                                            <color key="titleColor" red="0.1764705882" green="0.1843137255" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="resetDidPress:" destination="sQ8-YH-Des" eventType="touchUpInside" id="lNx-m9-3RK"/>
                                                         </connections>
@@ -348,6 +350,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="G0Q-Al-xGl"/>
                                         </constraints>
@@ -619,9 +622,9 @@
     </scenes>
     <resources>
         <image name="circles" width="400" height="386"/>
-        <image name="dice" width="28" height="28"/>
-        <image name="duel" width="26" height="26"/>
+        <image name="icon-dice" width="28" height="28"/>
         <image name="icon-minus" width="18" height="4"/>
         <image name="icon-plus" width="18" height="18"/>
+        <image name="icon-reset" width="26" height="26"/>
     </resources>
 </document>
