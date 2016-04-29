@@ -77,17 +77,7 @@ class CounterViewController: UIViewController {
             }) { (Bool) -> Void in
                 // code
         }
-
-        let shadowLayer = CAShapeLayer()
-        shadowLayer.frame = counterView.frame
-        shadowLayer.shadowPath = UIBezierPath(roundedRect: counterView.bounds, cornerRadius: cornerRadius).CGPath
-        shadowLayer.shadowColor = UIColor.blackColor().CGColor
-        shadowLayer.shadowOpacity = 0.4
-        shadowLayer.shadowOffset = CGSizeZero
-        shadowLayer.shadowRadius = 10
-        shadowLayer.shouldRasterize = true
-        view.layer.insertSublayer(shadowLayer, atIndex: 0)
-
+        
         // animate all the buttons in view
 //        var count: NSTimeInterval = 0
 //        for btn in counterStackButtonCollection {
@@ -110,9 +100,28 @@ class CounterViewController: UIViewController {
         // print("willAppear")
     }
     
+    override func viewDidAppear(animated: Bool) {
+        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.3, options: [], animations: { 
+            // code
+            let shadowLayer = CAShapeLayer()
+            shadowLayer.frame = self.counterView.frame
+            shadowLayer.shadowPath = UIBezierPath(roundedRect: self.counterView.bounds, cornerRadius: cornerRadius).CGPath
+            shadowLayer.shadowColor = UIColor.blackColor().CGColor
+            shadowLayer.shadowOpacity = 0.4
+            shadowLayer.shadowOffset = CGSizeZero
+            shadowLayer.shadowRadius = 10
+            shadowLayer.shouldRasterize = true
+            self.view.layer.insertSublayer(shadowLayer, atIndex: 0)
+            }) { (Bool) in
+                // code
+        }
+
+    }
+    
     override func viewDidLayoutSubviews() {
         // seemingly gets called any time there's a draw event
         // print("didLayoutSubviews")
+
     }
     
     override func didReceiveMemoryWarning() {

@@ -14,8 +14,7 @@ class LoginTransition: BaseTransition {
 
         let loginVC = fromViewController as! LoginViewController
         loginVC.playButton.hidden = true
-        loginVC.loginTitle.hidden = true
-        loginVC.loginIcon.hidden = true
+//        loginVC.loginTitle.hidden = true
         
         // create a shapeLayer from
         let shapeToAnimate = CAShapeLayer()
@@ -41,8 +40,14 @@ class LoginTransition: BaseTransition {
         animateShape.fillMode = kCAFillModeForwards
         shapeToAnimate.addAnimation(animateShape, forKey: "pathAniamte")
         
-        // bump the text away
+
+//        shapeToAnimate.shadowColor = UIColor.blackColor().CGColor
+//        shapeToAnimate.shadowOpacity = 0.4
+//        shapeToAnimate.shadowOffset = CGSizeZero
+//        shapeToAnimate.shadowRadius = 10
         
+        
+        // bump the text away
         toViewController.view.alpha = 0
         UIView.animateWithDuration(2, animations: {
             toViewController.view.alpha = 1
