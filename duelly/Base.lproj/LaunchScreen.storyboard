@@ -13,14 +13,53 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="cBM-MW-uKA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.065941289067268372" green="0.10644266754388809" blue="0.21120944619178772" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="9Cm-6W-Cyd"/>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="AG5-3K-auu"/>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="BFd-Dj-gmt"/>
+                            <constraint firstAttribute="bottom" secondItem="cBM-MW-uKA" secondAttribute="bottom" id="FAy-4w-B8B"/>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="HXa-Iz-bDk"/>
+                            <constraint firstAttribute="trailing" secondItem="cBM-MW-uKA" secondAttribute="trailing" id="MtL-gM-wF9"/>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="eQk-QZ-iqu"/>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="hl5-5R-brW"/>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="kLT-56-PZ9"/>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="lPw-Ep-Ofz"/>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="o1r-lw-NMh"/>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="rAY-O0-awM"/>
+                            <constraint firstItem="cBM-MW-uKA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sdO-l9-QbA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9Cm-6W-Cyd"/>
+                                <exclude reference="AG5-3K-auu"/>
+                                <exclude reference="BFd-Dj-gmt"/>
+                                <exclude reference="FAy-4w-B8B"/>
+                                <exclude reference="HXa-Iz-bDk"/>
+                                <exclude reference="MtL-gM-wF9"/>
+                                <exclude reference="eQk-QZ-iqu"/>
+                                <exclude reference="hl5-5R-brW"/>
+                                <exclude reference="kLT-56-PZ9"/>
+                                <exclude reference="o1r-lw-NMh"/>
+                                <exclude reference="rAY-O0-awM"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="374.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pattern" width="375" height="667"/>
+    </resources>
 </document>
