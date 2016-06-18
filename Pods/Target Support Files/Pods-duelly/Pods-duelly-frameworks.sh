@@ -85,7 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-duelly/Alamofire.framework"
+  install_framework "Pods-duelly/GTMOAuth2.framework"
+  install_framework "Pods-duelly/GTMSessionFetcher.framework"
+  install_framework "Pods-duelly/GoogleAPIClient.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-duelly/Alamofire.framework"
+  install_framework "Pods-duelly/GTMOAuth2.framework"
+  install_framework "Pods-duelly/GTMSessionFetcher.framework"
+  install_framework "Pods-duelly/GoogleAPIClient.framework"
 fi
