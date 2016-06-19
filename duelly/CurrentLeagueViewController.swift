@@ -9,16 +9,23 @@
 import UIKit
 
 class CurrentLeagueViewController: UIViewController {
+    var showedAuth = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !showedAuth {
+            showedAuth = true
+            let auth = APIClient.sharedInstance.createAuthController()
+            presentViewController(auth, animated: true , completion:nil)
+        }
+        
     }
     
 
