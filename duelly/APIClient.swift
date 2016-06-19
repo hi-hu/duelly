@@ -31,7 +31,13 @@ import GTMOAuth2
         }
     }
     
-    func createAuthController() -> GTMOAuth2ViewControllerTouch {
+    func createAuthController() -> GTMOAuth2ViewControllerTouch? {
+        if let auth = service.authorizer, can = auth.canAuthorize where can {
+            listMajors()
+            return nil
+        }
+        
+        
         let scopeString = scopes.joinWithSeparator(" ")
         return GTMOAuth2ViewControllerTouch(
             scope: scopeString,
@@ -53,6 +59,9 @@ import GTMOAuth2
     }
     
     service.authorizer = authResult
+    
+    GTMOAuth2ViewControllerTouch.saveParamsToKeychainForName(kClientID, authentication: authResult)
+    
     vc.dismissViewControllerAnimated(true, completion: nil)
     listMajors()
     }

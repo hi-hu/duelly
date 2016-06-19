@@ -22,8 +22,9 @@ class CurrentLeagueViewController: UIViewController {
         
         if !showedAuth {
             showedAuth = true
-            let auth = APIClient.sharedInstance.createAuthController()
-            presentViewController(auth, animated: true , completion:nil)
+            if let auth = APIClient.sharedInstance.createAuthController() {
+                presentViewController(auth, animated: true , completion:nil)
+            }
         }
         
     }
