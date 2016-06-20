@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>969166147434-6htpe46bi8h7rv6j40llb771e8mihj9n.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.969166147434-6htpe46bi8h7rv6j40llb771e8mihj9n</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA3CQa6HYjHEkc3iDXtZzBL-_SfM73w8oM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>969166147434</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mikeyhu.duelly</string>
+	<key>PROJECT_ID</key>
+	<string>duellybase</string>
+	<key>STORAGE_BUCKET</key>
+	<string>duellybase.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:969166147434:ios:0a2d578bf562031a</string>
+	<key>DATABASE_URL</key>
+	<string>https://duellybase.firebaseio.com</string>
+</dict>
+</plist>
