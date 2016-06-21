@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490E32D61D175AF2002A7BD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 490E32D51D175AF2002A7BD2 /* GoogleService-Info.plist */; };
 		49A9364E1D13C1740062F3F7 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A9364D1D13C1740062F3F7 /* APIClient.swift */; };
 		49A936501D13C2340062F3F7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A9364F1D13C2340062F3F7 /* DatabaseManager.swift */; };
 		7F4AAAB31D13C01B00C76041 /* CurrentLeagueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4AAAB21D13C01B00C76041 /* CurrentLeagueViewController.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		490E32D51D175AF2002A7BD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		49A9364D1D13C1740062F3F7 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		49A9364F1D13C2340062F3F7 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		7F4AAAB21D13C01B00C76041 /* CurrentLeagueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLeagueViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		490E32D21D175A00002A7BD2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				490E32D51D175AF2002A7BD2 /* GoogleService-Info.plist */,
+				B8EEC8201BB8589900FAB7E6 /* Assets.xcassets */,
+				B8EEC8221BB8589900FAB7E6 /* LaunchScreen.storyboard */,
+				B8EEC8251BB8589900FAB7E6 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		49A9364C1D13C15B0062F3F7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +188,7 @@
 		B8EEC8181BB8589900FAB7E6 /* duelly */ = {
 			isa = PBXGroup;
 			children = (
+				490E32D21D175A00002A7BD2 /* Resources */,
 				49A9364C1D13C15B0062F3F7 /* Controllers */,
 				B81D792D1BC8583100B4CBF6 /* Common.swift */,
 				B8EEC8191BB8589900FAB7E6 /* AppDelegate.swift */,
@@ -184,9 +198,6 @@
 				B8B7A2191BBA606900543E48 /* Custom Transitions */,
 				B8EEC81D1BB8589900FAB7E6 /* Main.storyboard */,
 				B8B7A20C1BBA5D6E00543E48 /* View Controllers */,
-				B8EEC8201BB8589900FAB7E6 /* Assets.xcassets */,
-				B8EEC8221BB8589900FAB7E6 /* LaunchScreen.storyboard */,
-				B8EEC8251BB8589900FAB7E6 /* Info.plist */,
 			);
 			path = duelly;
 			sourceTree = "<group>";
@@ -327,6 +338,7 @@
 			files = (
 				B8EEC8241BB8589900FAB7E6 /* LaunchScreen.storyboard in Resources */,
 				B8EEC8211BB8589900FAB7E6 /* Assets.xcassets in Resources */,
+				490E32D61D175AF2002A7BD2 /* GoogleService-Info.plist in Resources */,
 				B81D792C1BC640D100B4CBF6 /* Podfile in Resources */,
 				B8EEC81F1BB8589900FAB7E6 /* Main.storyboard in Resources */,
 			);
@@ -411,7 +423,6 @@
 				B8B7A2141BBA5F7000543E48 /* SettingsViewController.swift in Sources */,
 				B8B7A20E1BBA5F3D00543E48 /* CounterViewController.swift in Sources */,
 				49A9364E1D13C1740062F3F7 /* APIClient.swift in Sources */,
-				B8B7A2101BBA5F5300543E48 /* MatchesViewController.swift in Sources */,
 				B8B7A2171BBA606100543E48 /* BaseTransition.swift in Sources */,
 				B8B7A20B1BBA5D6500543E48 /* MainContainerViewController.swift in Sources */,
 				49A936501D13C2340062F3F7 /* DatabaseManager.swift in Sources */,
