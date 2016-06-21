@@ -16,20 +16,11 @@ class CurrentLeagueViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func testPress(sender: AnyObject) {
-        let league = League.testLeague()
-        
-        LeagueManager.sharedInstance.createLeague(league) { success in
-            
-            print("Created league with success: \(success)")
-        }
-        let player = Player(name: "Test Player")
-        
-        LeagueManager.sharedInstance.createPlayer(player) { success in
-            print("Created player with success: \(success)")
-        }
-        
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+    
 
     /*
     // MARK: - Navigation
