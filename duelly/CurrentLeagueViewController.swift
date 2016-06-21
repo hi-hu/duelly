@@ -22,8 +22,11 @@ class CurrentLeagueViewController: UIViewController {
         LeagueManager.sharedInstance.createLeague(league) { success in
             
             print("Created league with success: \(success)")
-            
-            
+        }
+        let player = Player(name: "Test Player")
+        
+        LeagueManager.sharedInstance.createPlayer(player) { success in
+            print("Created player with success: \(success)")
         }
         
     }

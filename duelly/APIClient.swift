@@ -24,7 +24,6 @@ class APIClient {
         return base.child("players")
     }
     
-    
     init() {
         FIRApp.configure()
         self.base = FIRDatabase.database().reference()
