@@ -12,19 +12,8 @@ class CurrentLeagueViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func testButtonPress(sender: AnyObject) {
-        LeagueManager.sharedInstance.getLeagues { leagues in
-            if let firstLeague = leagues.first {
-                let league = League(autoID: firstLeague.autoID, name: "Replacement name", description: firstLeague.description, password: firstLeague.password)
-                LeagueManager.sharedInstance.replaceLeague(league) { bool in
-                    print("Replaced league with success \(bool)")
-                }
-                
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
