@@ -13,6 +13,8 @@ import ObjectMapper
 class LeagueManager {
     static let sharedInstance = LeagueManager()
     
+    var user:FIRUser?
+    
     // MARK: Get array
     private func getArray<T:Mappable>(ref:FIRDatabaseReference, callback:[T] ->()) {
         ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -37,17 +39,17 @@ class LeagueManager {
     }
     
     func getLeagues(callback:[League] -> ()) {
-        return LeagueManager.sharedInstance.getArray(APIClient.sharedClient.leaguesRef, callback: callback)
+        LeagueManager.sharedInstance.getArray(APIClient.sharedClient.leaguesRef, callback: callback)
     }
     
     func getMatchesForLeague(league:League, callback:[Match] -> ()) {
         let matchesRef = APIClient.sharedClient.matchesRef.child(league.autoID)
-        return LeagueManager.sharedInstance.getArray(matchesRef, callback: callback)
+        LeagueManager.sharedInstance.getArray(matchesRef, callback: callback)
     }
     
     func getPlayersForLeague(league:League, callback:[Player] ->()) {
         let playersRef = APIClient.sharedClient.matchesRef.child(league.autoID)
-        return LeagueManager.sharedInstance.getArray(playersRef, callback: callback)
+        LeagueManager.sharedInstance.getArray(playersRef, callback: callback)
     }
     
     // MARK: Create

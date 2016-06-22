@@ -30,10 +30,11 @@ class APIClient {
     init() {
         FIRApp.configure()
         self.base = FIRDatabase.database().reference()
+        FIRAuth.auth()?.signInAnonymouslyWithCompletion() { (user, error) in
+            LeagueManager.sharedInstance.user = user
+            print("Logged in as user \(user?.uid)")
+            
+        }
     }
-    
-    func test() {
-        self.base.child("users").setValue(["username": "test username"])
-    }
-    
+    func setup() {}
 }
