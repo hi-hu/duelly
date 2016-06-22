@@ -23,6 +23,9 @@ class APIClient {
     var playersRef:FIRDatabaseReference {
         return base.child("players")
     }
+    var leaguePlayersRef:FIRDatabaseReference {
+        return base.child("leaguePlayers")
+    }
     
     init() {
         FIRApp.configure()
