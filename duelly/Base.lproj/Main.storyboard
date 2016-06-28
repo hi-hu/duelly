@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8oN-4R-6po">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sQ8-YH-Des">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -174,6 +174,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pattern" translatesAutoresizingMaskIntoConstraints="NO" id="feO-UT-hgp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="War-et-lzP" userLabel="CounterView">
                                 <rect key="frame" x="18" y="18" width="339" height="631"/>
                                 <subviews>
@@ -326,9 +329,9 @@
                                         <rect key="frame" x="0.0" y="290" width="339" height="52"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXJ-y9-bsM">
-                                                <rect key="frame" x="0.0" y="0.0" width="170" height="52"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="113" height="52"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIP-o4-qzG">
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIP-o4-qzG">
                                                         <rect key="frame" x="59" y="0.0" width="52" height="52"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="52" id="qqD-oo-i49"/>
@@ -345,10 +348,23 @@
                                                     <constraint firstItem="YIP-o4-qzG" firstAttribute="centerX" secondItem="UXJ-y9-bsM" secondAttribute="centerX" id="mzt-48-Ij8"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTL-vJ-QXI">
-                                                <rect key="frame" x="170" y="0.0" width="169" height="52"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZc-sY-K3e">
+                                                <rect key="frame" x="113" y="0.0" width="113" height="52"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1A-97-12I">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bao-m3-NmU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="105" height="52"/>
+                                                        <state key="normal" title="League"/>
+                                                        <connections>
+                                                            <segue destination="8oN-4R-6po" kind="show" id="bjB-eQ-swv"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTL-vJ-QXI">
+                                                <rect key="frame" x="226" y="0.0" width="113" height="52"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1A-97-12I">
                                                         <rect key="frame" x="59" y="0.0" width="52" height="52"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="52" id="sCW-Df-sM3"/>
@@ -398,11 +414,16 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" red="0.15605924779999999" green="0.74237169700000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="aAh-kj-3AZ" firstAttribute="top" secondItem="feO-UT-hgp" secondAttribute="bottom" id="5Vz-xO-PHD"/>
                             <constraint firstItem="aAh-kj-3AZ" firstAttribute="top" secondItem="War-et-lzP" secondAttribute="bottom" constant="18" id="Cf1-4F-hAU"/>
                             <constraint firstItem="War-et-lzP" firstAttribute="leading" secondItem="Amt-6x-w7S" secondAttribute="leading" constant="18" id="LSp-kk-7bT"/>
+                            <constraint firstItem="feO-UT-hgp" firstAttribute="top" secondItem="Amt-6x-w7S" secondAttribute="top" id="Nyz-CU-oeg"/>
                             <constraint firstAttribute="trailing" secondItem="War-et-lzP" secondAttribute="trailing" constant="18" id="VYk-Xa-hU2"/>
+                            <constraint firstItem="feO-UT-hgp" firstAttribute="leading" secondItem="Amt-6x-w7S" secondAttribute="leading" id="d6T-ky-r98"/>
+                            <constraint firstAttribute="trailing" secondItem="feO-UT-hgp" secondAttribute="trailing" id="qSR-ry-Teb"/>
                             <constraint firstItem="War-et-lzP" firstAttribute="top" secondItem="Amt-6x-w7S" secondAttribute="top" constant="18" id="uZ5-6I-iLg"/>
                         </constraints>
                     </view>
@@ -656,11 +677,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="League Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9px-n1-WAP">
-                                        <rect key="frame" x="105" y="21" width="165" height="21"/>
+                                        <rect key="frame" x="105" y="22" width="165" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGF-pv-Pxl">
+                                        <rect key="frame" x="8" y="12" width="66" height="39"/>
+                                        <state key="normal" title="Play"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C7-Ej-9Oq">
+                                        <rect key="frame" x="291" y="13" width="76" height="39"/>
+                                        <state key="normal" title="Add Player"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.77344036102294922" blue="0.77117949724197388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -694,7 +723,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfp-SS-WIl" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756.5" y="1881.5"/>
+            <point key="canvasLocation" x="1016.5" y="1881.5"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="QCV-nG-vVi">
@@ -731,7 +760,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULZ-RD-72E" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1227.5" y="1881.5"/>
+            <point key="canvasLocation" x="1415.5" y="2749.5"/>
         </scene>
         <!--SettingsViewController-->
         <scene sceneID="u6H-tw-Xif">

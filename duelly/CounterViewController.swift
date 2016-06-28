@@ -282,6 +282,11 @@ class CounterViewController: UIViewController {
         diceBottom.rollDie(bottomDie)
         diceTop.rollDie(topDie)
     }
+    @IBAction func leagueDidPress(sender: AnyObject) {
+        
+        
+        
+    }
 
     @IBAction func resetDidPress(sender: AnyObject) {
         counterIsOn = true
