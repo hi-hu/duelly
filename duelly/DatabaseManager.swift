@@ -15,6 +15,9 @@ class LeagueManager {
     
     var user:FIRUser?
     
+    var player:Player?
+    var league:League?
+    
     // MARK: Get array
     private func getArray<T:Mappable>(ref:FIRDatabaseReference, callback:[T] ->()) {
         ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
@@ -84,7 +87,7 @@ class LeagueManager {
         var dict = obj.toJSON()
         let id = child.description().componentsSeparatedByString("/").last!
         
-        dict["autoID"] = id
+        dict["autoID"] = id // TODO: This should be init-ed earlier. & other cases too.
         child.setValue(dict) { (error , ref) in
             if let error = error {
                 print("Got submit \(T.self) error: \(error.localizedDescription)")
@@ -161,6 +164,71 @@ struct League: Baseable {
         description <- map["description"]
         password <- map ["password"]
     }
+    
+}
+
+extension SequenceType where Generator.Element == Match {
+    
+    var players:[String] {
+        var players = [String]()
+        
+        for match in self {
+            if !players.contains(match.playerAName) {
+                players.append(match.playerAName)
+            } else if !players.contains(match.playerBName) {
+                players.append(match.playerBName)
+            }
+        }
+
+        return players
+    }
+    
+    func leagueRankByName(rubric:Rubric) -> [String] {
+        var rankTuple = [(String, Float)]()
+        
+        for player in players {
+            let matches = matchesForPlayerName(player)
+            let record = matches.recordForName(player)
+            let score = rubric.scoreForRecord(record)
+            rankTuple.append((player,score))
+        }
+        
+        let sortedTuple = rankTuple.sort { a,b -> Bool in
+            return a.1 > b.1
+        }
+        
+        return sortedTuple.map { $0.0 }
+    }
+    
+    func matchesForPlayerName(name:String) -> [Match] {
+        return filter{ $0.playerAName == name || $0.playerBName == name }
+    }
+    
+    func recordForName(name:String) -> MatchRecord {
+        var wins:Int = 0
+        var losses:Int = 0
+        var draws:Int = 0
+        var byes:Int = 0
+        
+        for match in self {
+            guard match.playerBName == name || match.playerBName == name else {
+                continue
+            }
+            
+            if (match.playerAName == name && match.result == .PlayerAWon) || (match.playerBName == name && match.result == .PlayerBWon) {
+                wins += 1
+            } else if match.result == .Draw {
+                draws += 1
+            } else if match.result == .PlayerABye {
+                byes += 1
+            } else {
+                losses += 1
+            }
+        }
+        
+        return MatchRecord(wins, losses, draws, byes)
+    }
+    
 }
 
 struct Rubric {
@@ -230,28 +298,11 @@ struct Player: Mappable {
     }
     
     func playerMatches(allMatches:[Match]) -> [Match] {
-        return allMatches.filter{ $0.playerAName == name || $0.playerBName == name }
+        return allMatches.matchesForPlayerName(name)
     }
     
     func recordForMatches(matches:[Match]) -> MatchRecord {
-        var wins:Int = 0
-        var losses:Int = 0
-        var draws:Int = 0
-        var byes:Int = 0
-        
-        for match in matches {
-            if (match.playerAName == name && match.result == .PlayerAWon) || (match.playerBName == name && match.result == .PlayerBWon) {
-                wins += 1
-            } else if match.result == .Draw {
-                draws += 1
-            } else if match.result == .PlayerABye {
-                byes += 1
-            } else {
-                losses += 1
-            }
-        }
-        
-        return MatchRecord(wins, losses, draws, byes)
+        return matches.recordForName(name)
     }
 }
 

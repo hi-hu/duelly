@@ -282,6 +282,7 @@ class CounterViewController: UIViewController {
         diceBottom.rollDie(bottomDie)
         diceTop.rollDie(topDie)
     }
+    
     @IBAction func leagueDidPress(sender: AnyObject) {
         
         

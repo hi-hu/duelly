@@ -685,10 +685,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RGF-pv-Pxl">
                                         <rect key="frame" x="8" y="12" width="66" height="39"/>
                                         <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="playDidPress:" destination="8oN-4R-6po" eventType="touchUpInside" id="GG7-17-cFC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C7-Ej-9Oq">
                                         <rect key="frame" x="291" y="13" width="76" height="39"/>
                                         <state key="normal" title="Add Player"/>
+                                        <connections>
+                                            <action selector="addPlayerDidPress:" destination="8oN-4R-6po" eventType="touchUpInside" id="vZv-Pj-k9g"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.77344036102294922" blue="0.77117949724197388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -717,8 +723,13 @@
                     <tabBarItem key="tabBarItem" title="Item" id="vj7-MW-KG1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="byesLabel" destination="B8I-UR-nnc" id="gca-Y1-d50"/>
+                        <outlet property="lossesLabel" destination="lKj-Bm-ALF" id="VNT-sa-iFa"/>
                         <outlet property="matchesTableView" destination="XeU-H7-bkR" id="wbd-tw-mLa"/>
+                        <outlet property="standingLabel" destination="TkS-nf-AUi" id="26f-Oz-BO3"/>
+                        <outlet property="tiesLabel" destination="qgA-yc-yVB" id="f11-9a-Sxp"/>
                         <outlet property="weekCollectionView" destination="MCG-iF-WiO" id="zLq-mv-5yh"/>
+                        <outlet property="winsLabel" destination="Q0u-B7-TJ5" id="r5N-7u-mR4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfp-SS-WIl" sceneMemberID="firstResponder"/>
