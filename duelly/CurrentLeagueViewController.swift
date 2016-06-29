@@ -9,6 +9,32 @@
 import UIKit
 
 class CurrentLeagueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+/*
+ Next Steps:
+ 
+ 1) Unwinding from CurrentLeagueVC
+ 2) Persistance of player and league
+    a) Once a player and league are set, saving them to disk
+    b) Look into NSUserDefaults.
+    c) Convert object to dictionary (via ObjectMapper), then save that to defaults as two seperate keys
+    d) Upon startup check if dictionary exists at key, try to serialize into the object via object mapper, and then set in LeagueManager.sharedInstance
+ 3) Matches
+    a) Think about how app should create matches
+    b) Use LeagueManager methods to create matches
+    c) Match making
+    d) Updating matches after completed games
+ 4) League weeks
+    a) Add week to matches struct and league struct
+    b) Delete old matches and leagues from firebase
+    c) Matchmaking
+    d) CollectionView population and selection
+ 5) Match Cells
+    a) Use matches for a given week to populate cells
+    b) Button to start entering results for a match on a cell
+    c) Popover View to specify what the result was
+    d) API Call to update match on server
+    e) Refresh table view
+ */
 
     @IBOutlet weak var matchesTableView: UITableView!
     @IBOutlet weak var weekCollectionView: UICollectionView!
