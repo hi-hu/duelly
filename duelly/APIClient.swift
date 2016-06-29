@@ -20,9 +20,6 @@ class APIClient {
     var matchesRef:FIRDatabaseReference {
         return base.child("matches")
     }
-    var playersRef:FIRDatabaseReference {
-        return base.child("players")
-    }
     var leaguePlayersRef:FIRDatabaseReference {
         return base.child("leaguePlayers")
     }

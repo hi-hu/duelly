@@ -19,7 +19,7 @@ class MainContainerViewController: UIViewController {
     var viewControllerArray = [UIViewController]()
     var counterVC: CounterViewController!
     var leagueVC: CurrentLeagueViewController!
-    var profileVC: ProfileViewController!
+//    var profileVC: ProfileViewController!
     var settingsVC: SettingsViewController!
 
     // index defaulted to home
@@ -36,11 +36,11 @@ class MainContainerViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         counterVC = storyboard.instantiateViewControllerWithIdentifier("counterSBID") as! CounterViewController
         leagueVC = storyboard.instantiateViewControllerWithIdentifier("currentLeagueSBID") as! CurrentLeagueViewController
-        profileVC = storyboard.instantiateViewControllerWithIdentifier("profileSBID") as! ProfileViewController
+//        profileVC = storyboard.instantiateViewControllerWithIdentifier("profileSBID") as! ProfileViewController
         settingsVC = storyboard.instantiateViewControllerWithIdentifier("settingsSBID") as! SettingsViewController
         
         // add the instantiated views into the array
-        viewControllerArray = [counterVC, leagueVC, profileVC, settingsVC]
+        viewControllerArray = [counterVC, leagueVC, settingsVC]
 
         // also display counter view
         displayContentViewController(mainContainerView, content: counterVC)
