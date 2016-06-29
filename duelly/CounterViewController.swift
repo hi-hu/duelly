@@ -284,9 +284,11 @@ class CounterViewController: UIViewController {
     }
     
     @IBAction func leagueDidPress(sender: AnyObject) {
-        
-        
-        
+        if LeagueManager.sharedInstance.league != nil && LeagueManager.sharedInstance.player != nil {
+            performSegueWithIdentifier("showLeagueView", sender: self)
+        } else {
+            performSegueWithIdentifier("showLeagueSelect", sender: self)
+        }
     }
 
     @IBAction func resetDidPress(sender: AnyObject) {

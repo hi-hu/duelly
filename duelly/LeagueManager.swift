@@ -16,6 +16,7 @@ class LeagueManager {
     var user:FIRUser?
     
     var player:Player?
+        
     var league:League?
     
     // MARK: Get array
@@ -34,7 +35,7 @@ class LeagueManager {
                 if let element = Mapper<T>().map(value) {
                     array.append(element)
                 } else {
-                    print("Couldn't deserialize \(T.self). \(value)")
+                    print("Couldn't serialize \(T.self). \(value)")
                 }
             }
             callback(array)
@@ -51,16 +52,14 @@ class LeagueManager {
     }
     
     func getPlayersForLeague(league:League, callback:[Player] ->()) {
-        let playersRef = APIClient.sharedClient.matchesRef.child(league.autoID)
+        let playersRef = APIClient.sharedClient.leaguePlayersRef.child(league.autoID)
         LeagueManager.sharedInstance.getArray(playersRef, callback: callback)
     }
     
     // MARK: Create
     private func createObject<T:Mappable>(object:T, ref:FIRDatabaseReference, callback:Bool ->()) {
         let child = ref.childByAutoId()
-        var dict = object.toJSON()
-        let id = child.description().componentsSeparatedByString("/").last!
-        dict["autoID"] = id
+        let dict = object.toJSON()
         
         child.setValue(dict) { (error , ref) in
             if let error = error {
@@ -72,10 +71,6 @@ class LeagueManager {
         }
     }
     
-    func createPlayer(player:Player, callback:Bool ->()) {
-        createObject(player, ref: APIClient.sharedClient.playersRef, callback: callback)
-    }
-    
     func createLeague(league:League, callback: Bool -> ()) {
         createObject(league, ref: APIClient.sharedClient.leaguesRef, callback: callback)
     }
@@ -84,10 +79,8 @@ class LeagueManager {
     
     private func addToLeague<T:Mappable>(leagueID:String, obj:T, ref:FIRDatabaseReference, callback:Bool ->()) {
         let child = ref.child(leagueID).childByAutoId()
-        var dict = obj.toJSON()
-        let id = child.description().componentsSeparatedByString("/").last!
+        let dict = obj.toJSON()
         
-        dict["autoID"] = id // TODO: This should be init-ed earlier. & other cases too.
         child.setValue(dict) { (error , ref) in
             if let error = error {
                 print("Got submit \(T.self) error: \(error.localizedDescription)")
@@ -141,11 +134,13 @@ struct League: Baseable {
     let rubric = Rubric(winPoints: 4, lossPoints: 2, drawPoints: 2, byePoints: 4)
     
     static func testLeague() -> League{
-        return League(autoID: "123456", name: "Test League", description: "A league to test with", password: "abc")
+        return League(name: "Test League", description: "A league to test with", password: "abc")
     }
     
-    init(autoID:String, name:String, description:String, password:String) {
-        self.autoID = autoID
+    init(name:String, description:String, password:String) {
+        let child = APIClient.sharedClient.leaguesRef.childByAutoId()
+        let id = child.description().componentsSeparatedByString("/").last!
+        self.autoID = id
         self.name = name
         self.description = description
         self.password = password
@@ -165,6 +160,91 @@ struct League: Baseable {
         password <- map ["password"]
     }
     
+}
+
+struct Player: Baseable {
+    var name:String
+    var autoID:String
+    var leagueID:String?
+    
+    init(name:String ) {
+        let child = APIClient.sharedClient.leaguePlayersRef.childByAutoId()
+        let id = child.description().componentsSeparatedByString("/").last!
+        self.autoID = id
+        self.name = name
+    }
+    
+    init?(_ map: Map) {
+        self.name = map["name"].value() ?? "Unnamed Player"
+        self.autoID = map["autoID"].value() ?? ""
+        self.leagueID = map["leagueID"].value()
+    }
+    
+    mutating func mapping(map: Map) {
+        name <- map["name"]
+        leagueID <- map["leagueID"]
+        autoID <- map["autoID"]
+    }
+}
+
+struct Rubric {
+    let winPoints:Float
+    let lossPoints:Float
+    let drawPoints:Float
+    let byePoints:Float
+    
+    func scoreForRecord(record:MatchRecord) -> Float {
+        let (wins, losses, draws, byes) = record
+        return (Float(wins) * winPoints) + (Float(losses) * lossPoints) + (Float(draws) * drawPoints) + (Float(byes) * byePoints)
+    }
+}
+
+typealias MatchRecord = (wins:Int, losses:Int, draws: Int, byes:Int)
+
+enum MatchResult:String {
+    case PlayerAWon = "Player A won"
+    case PlayerBWon = "Player B won"
+    case Draw = "Draw"
+    case Unplayed = "Unplayed"
+    case PlayerABye = "Player A bye"
+}
+
+protocol Baseable:Mappable {
+    var autoID:String { get set }
+}
+
+struct Match:Baseable {
+    var playerAName:String
+    var playerBName:String
+    var result:MatchResult
+    var leagueID:String
+    var autoID:String
+    
+    init(playerAName:String, playerBName:String, result:MatchResult, leagueID:String) {
+        let child = APIClient.sharedClient.matchesRef.childByAutoId()
+        let id = child.description().componentsSeparatedByString("/").last!
+        self.autoID = id
+        self.playerAName = playerAName
+        self.playerBName = playerBName
+        self.result = result
+        self.leagueID = leagueID
+    }
+    
+    init?(_ map: Map) {
+        self.playerAName = map["playerAName"].value() ?? ""
+        self.playerBName = map["playerBName"].value() ?? ""
+        self.result = map["result"].value() ?? .Unplayed
+        self.leagueID = map["leagueID"].value() ?? ""
+        self.autoID = map["autoID"].value() ?? ""
+    }
+    
+    mutating func mapping(map: Map) {
+        playerAName <- map["playerAName"]
+        playerBName <- map["playerBName"]
+        result <- (map["result"], EnumTransform<MatchResult>())
+        leagueID <- map["leagueID"]
+        autoID <- map["autoID"]
+    }
 }
 
 extension SequenceType where Generator.Element == Match {
@@ -194,14 +274,29 @@ extension SequenceType where Generator.Element == Match {
         }
         
         let sortedTuple = rankTuple.sort { a,b -> Bool in
-            return a.1 > b.1
+            return a.1 > b.1 // Higher score first. The '.1' is the score value.
         }
         
-        return sortedTuple.map { $0.0 }
+        let sortedNames = sortedTuple.map { tuple in
+            return tuple.0 // Get the name of the player for each tuple.
+        }
+        
+        return sortedNames
     }
     
     func matchesForPlayerName(name:String) -> [Match] {
-        return filter{ $0.playerAName == name || $0.playerBName == name }
+        
+        // Imperative
+//        var myMatches = [Match]()
+//        for match in self {
+//            if match.playerAName == name || match.playerBName == name {
+//                myMatches.append(match)
+//            }
+//        }
+//        return myMatches
+        
+        // Functional
+        return filter { $0.playerAName == name || $0.playerBName == name }
     }
     
     func recordForName(name:String) -> MatchRecord {
@@ -211,7 +306,7 @@ extension SequenceType where Generator.Element == Match {
         var byes:Int = 0
         
         for match in self {
-            guard match.playerBName == name || match.playerBName == name else {
+            guard match.playerAName == name || match.playerBName == name else {
                 continue
             }
             
@@ -229,93 +324,4 @@ extension SequenceType where Generator.Element == Match {
         return MatchRecord(wins, losses, draws, byes)
     }
     
-}
-
-struct Rubric {
-    let winPoints:Float
-    let lossPoints:Float
-    let drawPoints:Float
-    let byePoints:Float
-    
-    func scoreForRecord(record:MatchRecord) -> Float {
-        let (wins, losses, draws, byes) = record
-        return (Float(wins) * winPoints) + (Float(losses) * lossPoints) + (Float(draws) * drawPoints) + (Float(byes) * byePoints)
-    }
-}
-
-struct Match:Baseable {
-    var playerAName:String
-    var playerBName:String
-    var result:MatchResult
-    var leagueID:String
-    var autoID:String
-    
-    init(playerAName:String, playerBName:String, result:MatchResult, leagueID:String, autoID:String) {
-        self.playerAName = playerAName
-        self.playerBName = playerBName
-        self.result = result
-        self.leagueID = leagueID
-        self.autoID = autoID
-    }
-    
-    init?(_ map: Map) {
-        self.playerAName = map["playerAName"].value() ?? ""
-        self.playerBName = map["playerBName"].value() ?? ""
-        self.result = map["result"].value() ?? .Unplayed
-        self.leagueID = map["leagueID"].value() ?? ""
-        self.autoID = map["autoID"].value() ?? ""
-    }
-    
-    mutating func mapping(map: Map) {
-        playerAName <- map["playerAName"]
-        playerBName <- map["playerBName"]
-        result <- (map["result"], EnumTransform<MatchResult>())
-        leagueID <- map["leagueID"]
-        autoID <- map["autoID"]
-    }
-}
-
-struct Player: Mappable {
-    var name:String
-    var autoID:String
-    var leagueID:String?
-    
-    init(name:String, autoID:String) {
-        self.name = name
-        self.autoID = autoID
-    }
-    
-    init?(_ map: Map) {
-        self.name = map["name"].value() ?? "Unnamed Player"
-        self.autoID = map["autoID"].value() ?? ""
-        self.leagueID = map["leagueID"].value()
-    }
-    
-    mutating func mapping(map: Map) {
-        name <- map["name"]
-        leagueID <- map["leagueID"]
-        autoID <- map["autoID"]
-    }
-    
-    func playerMatches(allMatches:[Match]) -> [Match] {
-        return allMatches.matchesForPlayerName(name)
-    }
-    
-    func recordForMatches(matches:[Match]) -> MatchRecord {
-        return matches.recordForName(name)
-    }
-}
-
-typealias MatchRecord = (wins:Int, losses:Int, draws: Int, byes:Int)
-
-enum MatchResult:String {
-    case PlayerAWon = "Player A won"
-    case PlayerBWon = "Player B won"
-    case Draw = "Draw"
-    case Unplayed = "Unplayed"
-    case PlayerABye = "Player A bye"
-}
-
-protocol Baseable:Mappable {
-    var autoID:String { get set }
 }

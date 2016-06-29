@@ -30,13 +30,15 @@ class CurrentLeagueViewController: UIViewController, UITableViewDelegate, UITabl
         layout.minimumInteritemSpacing = 12
         weekCollectionView.collectionViewLayout = layout
         weekCollectionView.showsHorizontalScrollIndicator = false
+        
+        populateWithLeagueAndPlayer(LeagueManager.sharedInstance.league!, player: LeagueManager.sharedInstance.player!)
     }
     
     func populateWithLeagueAndPlayer(league:League, player:Player) {
         LeagueManager.sharedInstance.getMatchesForLeague(league) { matches in
             matches
-            let myMatches = player.playerMatches(matches)
-            let record = player.recordForMatches(myMatches)
+            let playerMatches = matches.matchesForPlayerName(player.name)
+            let record = playerMatches.recordForName(player.name)
             
             self.winsLabel.text = "\(record.wins)"
             self.lossesLabel.text = "\(record.losses)"
@@ -47,7 +49,7 @@ class CurrentLeagueViewController: UIViewController, UITableViewDelegate, UITabl
             let rankedNames = matches.leagueRankByName(league.rubric)
             
             if let index = rankedNames.indexOf(player.name) {
-                self.standingLabel.text = "\(index)\(index.ordinalSuffix()) / \(score)"
+                self.standingLabel.text = "\(index)\(index.ordinalSuffix()) / \(score) pts"
             } else {
                 self.standingLabel.text = "\(score)"
             }
@@ -75,16 +77,16 @@ class CurrentLeagueViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func playDidPress(sender: AnyObject) {
+        // TODO: Look into unwinding view controllers
         dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func addPlayerDidPress(sender: AnyObject) {
-
+        // Ignore depreciation or replace with UIAlertViewController
         let alert = UIAlertView(title: "Add Player", message: "What is the player's name?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Save")
         
         alert.alertViewStyle = .PlainTextInput
         alert.show()
-        
     }
     
     // MARK: UIAlertView
@@ -93,25 +95,13 @@ class CurrentLeagueViewController: UIViewController, UITableViewDelegate, UITabl
         guard let name = alertView.textFieldAtIndex(0)?.text
             where buttonIndex == 1 && name != "" else { return }
         
-        let player = Player(name:name, autoID: "")
-        let league = LeagueManager.sharedInstance.league ?? League.testLeague()
+        let player = Player(name:name)
+        let league = LeagueManager.sharedInstance.league!
         
         LeagueManager.sharedInstance.addPlayerToLeague(player, league: league) { _ in
             
-            
-            
+            // TODO: Reload with updated matches
             
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
