@@ -327,6 +327,9 @@ class CounterViewController: UIViewController {
         tapView.hidden = diceView
     }
     
+    // unwind segue
+    @IBAction func unwindToCounter(segue: UIStoryboardSegue) {}
+    
     /*
     // MARK: - Navigation
 

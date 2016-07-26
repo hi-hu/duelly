@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sQ8-YH-Des">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sQ8-YH-Des">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -732,11 +732,13 @@
                         <outlet property="tiesLabel" destination="qgA-yc-yVB" id="f11-9a-Sxp"/>
                         <outlet property="weekCollectionView" destination="MCG-iF-WiO" id="zLq-mv-5yh"/>
                         <outlet property="winsLabel" destination="Q0u-B7-TJ5" id="r5N-7u-mR4"/>
+                        <segue destination="lsb-hM-MHy" kind="unwind" identifier="unwindToCounter" unwindAction="unwindToCounter:" id="TaO-si-4hF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfp-SS-WIl" sceneMemberID="firstResponder"/>
+                <exit id="lsb-hM-MHy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1016.5" y="1881.5"/>
+            <point key="canvasLocation" x="1511.5" y="1881.5"/>
         </scene>
         <!--League Select View Controller-->
         <scene sceneID="brT-ne-RvU">
@@ -880,7 +882,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gB1-Y7-YJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.5" y="2671.5"/>
+            <point key="canvasLocation" x="1067.5" y="2671.5"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="QCV-nG-vVi">
@@ -917,7 +919,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULZ-RD-72E" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1415.5" y="2749.5"/>
+            <point key="canvasLocation" x="2045.5" y="2671.5"/>
         </scene>
         <!--SettingsViewController-->
         <scene sceneID="u6H-tw-Xif">

@@ -103,8 +103,7 @@ class CurrentLeagueViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func playDidPress(sender: AnyObject) {
-        // TODO: Look into unwinding view controllers
-        dismissViewControllerAnimated(true, completion: nil)
+        self.performSegueWithIdentifier("unwindToCounter", sender: self)
     }
 
     @IBAction func addPlayerDidPress(sender: AnyObject) {
