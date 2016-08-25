@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class LeagueSelectViewController: UIViewController, UITableViewDataSource, UIAlertViewDelegate, UITableViewDelegate {
 
@@ -78,8 +79,14 @@ class LeagueSelectViewController: UIViewController, UITableViewDataSource, UIAle
     
     func segueToLeague(league:League) {
         LeagueManager.sharedInstance.league = league
-        performSegueWithIdentifier("toSelectPlayer", sender: self)
+
+        // conver a league object into a JSON string then store in NSUserDefaults
+        if let leagueJSONString = Mapper().toJSONString(league, prettyPrint: true) {
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            userDefaults.setObject(leagueJSONString, forKey: "leagueJSON")
+        }
         
+        performSegueWithIdentifier("toSelectPlayer", sender: self)
     }
     
 }

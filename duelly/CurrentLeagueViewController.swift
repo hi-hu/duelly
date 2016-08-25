@@ -11,13 +11,18 @@ import UIKit
 class CurrentLeagueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UIAlertViewDelegate {
 /*
  Next Steps:
- 
- 1) Unwinding from CurrentLeagueVC
+ 1) DONE- Unwinding from CurrentLeagueVC
+     
  2) Persistance of player and league
     a) Once a player and league are set, saving them to disk
     b) Look into NSUserDefaults.
     c) Convert object to dictionary (via ObjectMapper), then save that to defaults as two seperate keys
     d) Upon startup check if dictionary exists at key, try to serialize into the object via object mapper, and then set in LeagueManager.sharedInstance
+     
+     - Turn player into JSON object
+     - save JSON object into NSUserDefaults as a key value
+     - later, if the player (or league) is set, take the key value from NSUserDefaults, and convert that back into a Player or League object via ObjectMapper.
+     
  3) Matches
     a) Think about how app should create matches
     b) Use LeagueManager methods to create matches
@@ -58,6 +63,11 @@ class CurrentLeagueViewController: UIViewController, UITableViewDelegate, UITabl
         weekCollectionView.showsHorizontalScrollIndicator = false
         
         populateWithLeagueAndPlayer(LeagueManager.sharedInstance.league!, player: LeagueManager.sharedInstance.player!)
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if let userID = userDefaults.stringForKey("playerJSON") {
+            print("player JSON is \(userID)")
+        }
     }
     
     func populateWithLeagueAndPlayer(league:League, player:Player) {
