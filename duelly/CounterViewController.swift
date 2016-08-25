@@ -9,6 +9,7 @@
 import UIKit
 import UIKit.UIGestureRecognizerSubclass
 import GameplayKit
+import ObjectMapper
 
 class CounterViewController: UIViewController {
     @IBOutlet weak var counterView: UIView!
@@ -284,6 +285,20 @@ class CounterViewController: UIViewController {
     }
     
     @IBAction func leagueDidPress(sender: AnyObject) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let playerJSON = userDefaults.stringForKey("playerJSON") {
+            if let player = Mapper<Player>().map(playerJSON) {
+                LeagueManager.sharedInstance.player = player
+            }
+        }
+        
+        if let leagueJSON = userDefaults.stringForKey("leagueJSON") {
+            if let league = Mapper<League>().map(leagueJSON) {
+                LeagueManager.sharedInstance.league = league
+            }
+        }
+        
         if LeagueManager.sharedInstance.league != nil && LeagueManager.sharedInstance.player != nil {
             performSegueWithIdentifier("showLeagueView", sender: self)
         } else {
