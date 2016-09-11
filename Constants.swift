@@ -37,6 +37,11 @@ struct Colors {
     }
 }
 
+struct LeagueJSON {
+    static let playerJSON = "playerJSON"
+    static let leagueJSON = "leagueJSON"
+}
+
 /*
 var mutableString = NSMutableAttributedString(string: event.title as String, attributes: [NSKernAttributeName: 4] )
 

@@ -11,34 +11,36 @@ import UIKit
 class CurrentLeagueViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UIAlertViewDelegate {
 /*
  Next Steps:
- 1) DONE- Unwinding from CurrentLeagueVC
+ 1) DONE - Unwinding from CurrentLeagueVC
      
- 2) Persistance of player and league
-    a) Once a player and league are set, saving them to disk
-    b) Look into NSUserDefaults.
-    c) Convert object to dictionary (via ObjectMapper), then save that to defaults as two seperate keys
-    d) Upon startup check if dictionary exists at key, try to serialize into the object via object mapper, and then set in LeagueManager.sharedInstance
-     
-     - Turn player into JSON object
-     - save JSON object into NSUserDefaults as a key value
-     - later, if the player (or league) is set, take the key value from NSUserDefaults, and convert that back into a Player or League object via ObjectMapper.
+ 2) DONE - Persistance of player and league
+     [x] Once a player and league are set, saving them to disk
+     [x] Look into NSUserDefaults.
+     [x] Convert object to dictionary (via ObjectMapper), then save that to defaults as two seperate keys
+     [x] Upon startup check if dictionary exists at key, try to serialize into the object via object mapper, and then set in LeagueManager.sharedInstance
+     [x] Turn player into JSON object
+     [x] save JSON object into NSUserDefaults as a key value
+     [x] later, if the player (or league) is set, take the key value from NSUserDefaults, and convert that back into a Player or League object via ObjectMapper.
+     [x] if let chain
+     [x] do it in the initialization
+     [x] put names and variables in a global constant to reference
      
  3) Matches
-    a) Think about how app should create matches
-    b) Use LeagueManager methods to create matches
-    c) Match making
-    d) Updating matches after completed games
+     [ ] Think about how app should create matches
+     [ ] Use LeagueManager methods to create matches
+     [ ] Match making
+     [ ] Updating matches after completed games
  4) League weeks
-    a) Add week to matches struct and league struct
-    b) Delete old matches and leagues from firebase
-    c) Matchmaking
-    d) CollectionView population and selection
+     [ ] Add week to matches struct and league struct
+     [ ] Delete old matches and leagues from firebase
+     [ ] Matchmaking
+     [ ] CollectionView population and selection
  5) Match Cells
-    a) Use matches for a given week to populate cells
-    b) Button to start entering results for a match on a cell
-    c) Popover View to specify what the result was
-    d) API Call to update match on server
-    e) Refresh table view
+     [ ] Use matches for a given week to populate cells
+     [ ] Button to start entering results for a match on a cell
+     [ ] Popover View to specify what the result was
+     [ ] API Call to update match on server
+     [ ] Refresh table view
  */
 
     @IBOutlet weak var matchesTableView: UITableView!

@@ -46,6 +46,17 @@ class CounterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let playerJSON = userDefaults.stringForKey(LeagueJSON.playerJSON), let player = Mapper<Player>().map(playerJSON) {
+            LeagueManager.sharedInstance.player = player
+        }
+        
+        
+        if let leagueJSON = userDefaults.stringForKey(LeagueJSON.leagueJSON), let league = Mapper<League>().map(leagueJSON) {
+            LeagueManager.sharedInstance.league = league
+        }
+        
         // prevent the app from going to sleep
         UIApplication.sharedApplication().idleTimerDisabled = true
         
@@ -285,20 +296,6 @@ class CounterViewController: UIViewController {
     }
     
     @IBAction func leagueDidPress(sender: AnyObject) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        
-        if let playerJSON = userDefaults.stringForKey("playerJSON") {
-            if let player = Mapper<Player>().map(playerJSON) {
-                LeagueManager.sharedInstance.player = player
-            }
-        }
-        
-        if let leagueJSON = userDefaults.stringForKey("leagueJSON") {
-            if let league = Mapper<League>().map(leagueJSON) {
-                LeagueManager.sharedInstance.league = league
-            }
-        }
-        
         if LeagueManager.sharedInstance.league != nil && LeagueManager.sharedInstance.player != nil {
             performSegueWithIdentifier("showLeagueView", sender: self)
         } else {
